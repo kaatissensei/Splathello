@@ -1,0 +1,61 @@
+[gd_scene load_steps=3 format=3 uid="uid://di36chad7pjkb"]
+
+[ext_resource type="Texture2D" uid="uid://hfcaeufrvdhb" path="res://images/backgrounds/Splatoon bg menu.png" id="1_wqkmt"]
+[ext_resource type="Theme" uid="uid://eg3500i0esep" path="res://SplatoonMenu.tres" id="2_72qp4"]
+
+[node name="SplathelloMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_wqkmt")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 100
+theme_override_constants/margin_top = 32
+theme_override_constants/margin_right = 100
+theme_override_constants/margin_bottom = 32
+
+[node name="TabContainer" type="TabContainer" parent="MarginContainer"]
+layout_mode = 2
+theme = ExtResource("2_72qp4")
+current_tab = 0
+
+[node name="TabBar" type="TabBar" parent="MarginContainer/TabContainer"]
+layout_mode = 2
+theme = ExtResource("2_72qp4")
+clip_tabs = false
+tab_count = 1
+metadata/_tab_index = 0
+
+[node name="TabBar2" type="TabBar" parent="MarginContainer/TabContainer"]
+visible = false
+layout_mode = 2
+theme = ExtResource("2_72qp4")
+clip_tabs = false
+tab_count = 1
+metadata/_tab_index = 1
+
+[node name="TabBar3" type="TabBar" parent="MarginContainer/TabContainer"]
+visible = false
+layout_mode = 2
+theme = ExtResource("2_72qp4")
+clip_tabs = false
+tab_count = 1
+metadata/_tab_index = 2

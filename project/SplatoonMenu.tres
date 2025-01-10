@@ -1,0 +1,39 @@
+[gd_resource type="Theme" load_steps=10 format=3 uid="uid://eg3500i0esep"]
+
+[ext_resource type="FontFile" uid="uid://c6q5fxilcyn00" path="res://Project Paintball Display.ttf" id="1_hv4t5"]
+[ext_resource type="Texture2D" uid="uid://egjvjiab7cde" path="res://images/ui/menuTabFocus.png" id="1_tjdme"]
+[ext_resource type="Texture2D" uid="uid://cbm4yphsd8xty" path="res://images/ui/menuTabNormal.png" id="2_eytux"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_b3sg5"]
+texture = ExtResource("1_tjdme")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_icdc5"]
+texture = ExtResource("1_tjdme")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_vpun0"]
+texture = ExtResource("2_eytux")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_jj57f"]
+content_margin_left = 0.0
+content_margin_top = 0.0
+content_margin_right = 0.0
+content_margin_bottom = 0.0
+texture = ExtResource("2_eytux")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_ly27k"]
+texture = ExtResource("1_tjdme")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_feq3a"]
+texture = ExtResource("2_eytux")
+
+[resource]
+default_font = ExtResource("1_hv4t5")
+default_font_size = 17
+TabBar/fonts/font = ExtResource("1_hv4t5")
+TabBar/styles/tab_focus = SubResource("StyleBoxTexture_b3sg5")
+TabBar/styles/tab_selected = SubResource("StyleBoxTexture_icdc5")
+TabBar/styles/tab_unselected = SubResource("StyleBoxTexture_vpun0")
+TabContainer/constants/side_margin = 2
+TabContainer/styles/tab_hovered = SubResource("StyleBoxTexture_jj57f")
+TabContainer/styles/tab_selected = SubResource("StyleBoxTexture_ly27k")
+TabContainer/styles/tab_unselected = SubResource("StyleBoxTexture_feq3a")

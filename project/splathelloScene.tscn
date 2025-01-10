@@ -1,0 +1,390 @@
+[gd_scene load_steps=18 format=3 uid="uid://c8wpff512nh5i"]
+
+[ext_resource type="Texture2D" uid="uid://dveij0bmdjp5o" path="res://images/backgrounds/Splatoon bg zigzag.jpg" id="1_63ae6"]
+[ext_resource type="Texture2D" uid="uid://bghor8b6ldpqp" path="res://images/inklings/squidBlue.png" id="2_nwact"]
+[ext_resource type="Texture2D" uid="uid://bevtf83wji3ob" path="res://images/inklings/inklingBlue.png" id="3_gdwge"]
+[ext_resource type="Texture2D" uid="uid://6oxhhtu0l31o" path="res://images/inklings/squidOrange.png" id="4_78kx5"]
+[ext_resource type="Texture2D" uid="uid://7e0oguio4188" path="res://images/inklings/inklingOrange.png" id="5_ufm6f"]
+[ext_resource type="Texture2D" uid="uid://c7x2mde8yljpn" path="res://images/inklings/squidGreen.png" id="6_h4qqj"]
+[ext_resource type="Texture2D" uid="uid://cuqbtgk1vabu7" path="res://images/inklings/inklingGreen.png" id="7_0hpdw"]
+[ext_resource type="Texture2D" uid="uid://biauq02jnrfif" path="res://images/inklings/squidPink.png" id="8_ei5cm"]
+[ext_resource type="Texture2D" uid="uid://bj2gha7hbei8n" path="res://images/inklings/inklingPink.png" id="9_t76u3"]
+[ext_resource type="Script" path="res://control.gd" id="10_bnllw"]
+[ext_resource type="Texture2D" uid="uid://0cfpq272wc3b" path="res://images/backgrounds/MantaMarinaBG.png" id="11_pt6an"]
+[ext_resource type="Script" path="res://grid.gd" id="12_llcda"]
+[ext_resource type="Texture2D" uid="uid://cvcjcu5qia13t" path="res://images/ui/borderBlack.png" id="13_vlhnt"]
+[ext_resource type="FontFile" uid="uid://c6q5fxilcyn00" path="res://Project Paintball Display.ttf" id="14_rkk5r"]
+
+[sub_resource type="ButtonGroup" id="ButtonGroup_0md54"]
+resource_name = "Inkling"
+allow_unpress = true
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_kmfsl"]
+bg_color = Color(0.6, 0.6, 0.607843, 0)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0, 0, 0, 1)
+corner_detail = 1
+anti_aliasing = false
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_dc3nj"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0, 0, 0, 1)
+corner_detail = 1
+
+[node name="SplathelloScene" type="Node2D"]
+
+[node name="Canvas" type="CanvasLayer" parent="."]
+
+[node name="TextureRect" type="TextureRect" parent="Canvas"]
+z_index = -1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_63ae6")
+expand_mode = 5
+
+[node name="inklingBlue" type="TextureButton" parent="Canvas"]
+offset_left = 20.0
+offset_top = 80.0
+offset_right = 1271.0
+offset_bottom = 1580.0
+scale = Vector2(0.17, 0.17)
+toggle_mode = true
+button_group = SubResource("ButtonGroup_0md54")
+texture_normal = ExtResource("2_nwact")
+texture_pressed = ExtResource("3_gdwge")
+
+[node name="inklingOrange" type="TextureButton" parent="Canvas"]
+offset_left = 920.0
+offset_top = 80.0
+offset_right = 2171.0
+offset_bottom = 1580.0
+scale = Vector2(0.17, 0.17)
+toggle_mode = true
+button_group = SubResource("ButtonGroup_0md54")
+texture_normal = ExtResource("4_78kx5")
+texture_pressed = ExtResource("5_ufm6f")
+
+[node name="inklingGreen" type="TextureButton" parent="Canvas"]
+offset_left = 20.0
+offset_top = 340.0
+offset_right = 1271.0
+offset_bottom = 1840.0
+scale = Vector2(0.17, 0.17)
+toggle_mode = true
+button_group = SubResource("ButtonGroup_0md54")
+texture_normal = ExtResource("6_h4qqj")
+texture_pressed = ExtResource("7_0hpdw")
+
+[node name="inklingPink" type="TextureButton" parent="Canvas"]
+offset_left = 920.0
+offset_top = 340.0
+offset_right = 2171.0
+offset_bottom = 1840.0
+scale = Vector2(0.17, 0.17)
+toggle_mode = true
+button_group = SubResource("ButtonGroup_0md54")
+texture_normal = ExtResource("8_ei5cm")
+texture_pressed = ExtResource("9_t76u3")
+
+[node name="Control" type="Control" parent="Canvas"]
+layout_mode = 3
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -335.5
+offset_top = -274.0
+offset_right = 334.5
+offset_bottom = 274.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("10_bnllw")
+
+[node name="StageBG" type="TextureRect" parent="Canvas/Control"]
+clip_contents = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("11_pt6an")
+expand_mode = 5
+stretch_mode = 3
+
+[node name="Grid" type="GridContainer" parent="Canvas/Control"]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = -1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_constants/h_separation = 0
+theme_override_constants/v_separation = 0
+columns = 8
+script = ExtResource("12_llcda")
+
+[node name="Square1" type="Button" parent="Canvas/Control/Grid"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_styles/normal = SubResource("StyleBoxFlat_kmfsl")
+
+[node name="Square2" type="Button" parent="Canvas/Control/Grid"]
+self_modulate = Color(1, 1, 1, 0.109804)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_styles/normal = SubResource("StyleBoxFlat_dc3nj")
+
+[node name="Square3" type="Button" parent="Canvas/Control/Grid"]
+self_modulate = Color(1, 1, 1, 0.109804)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Square4" type="Button" parent="Canvas/Control/Grid"]
+self_modulate = Color(1, 1, 1, 0.109804)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Square5" type="Button" parent="Canvas/Control/Grid"]
+self_modulate = Color(1, 1, 1, 0.109804)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Square6" type="Button" parent="Canvas/Control/Grid"]
+self_modulate = Color(1, 1, 1, 0.109804)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Square7" type="Button" parent="Canvas/Control/Grid"]
+self_modulate = Color(1, 1, 1, 0.109804)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Square8" type="Button" parent="Canvas/Control/Grid"]
+self_modulate = Color(1, 1, 1, 0.109804)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Square9" type="Button" parent="Canvas/Control/Grid"]
+self_modulate = Color(1, 1, 1, 0.109804)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Square10" type="Button" parent="Canvas/Control/Grid"]
+self_modulate = Color(1, 1, 1, 0.109804)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Square11" type="Button" parent="Canvas/Control/Grid"]
+self_modulate = Color(1, 1, 1, 0.109804)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Square12" type="Button" parent="Canvas/Control/Grid"]
+self_modulate = Color(1, 1, 1, 0.109804)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Square13" type="Button" parent="Canvas/Control/Grid"]
+self_modulate = Color(1, 1, 1, 0.109804)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Square14" type="Button" parent="Canvas/Control/Grid"]
+self_modulate = Color(1, 1, 1, 0.109804)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Square15" type="Button" parent="Canvas/Control/Grid"]
+self_modulate = Color(1, 1, 1, 0.109804)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Square16" type="Button" parent="Canvas/Control/Grid"]
+self_modulate = Color(1, 1, 1, 0.109804)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Square17" type="Button" parent="Canvas/Control/Grid"]
+self_modulate = Color(1, 1, 1, 0.109804)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Square18" type="Button" parent="Canvas/Control/Grid"]
+self_modulate = Color(1, 1, 1, 0.109804)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Square19" type="Button" parent="Canvas/Control/Grid"]
+self_modulate = Color(1, 1, 1, 0.109804)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Square20" type="Button" parent="Canvas/Control/Grid"]
+self_modulate = Color(1, 1, 1, 0.109804)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Square21" type="Button" parent="Canvas/Control/Grid"]
+self_modulate = Color(1, 1, 1, 0.109804)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Square22" type="Button" parent="Canvas/Control/Grid"]
+self_modulate = Color(1, 1, 1, 0.109804)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Square23" type="Button" parent="Canvas/Control/Grid"]
+self_modulate = Color(1, 1, 1, 0.109804)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Square24" type="Button" parent="Canvas/Control/Grid"]
+self_modulate = Color(1, 1, 1, 0.109804)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Square25" type="Button" parent="Canvas/Control/Grid"]
+self_modulate = Color(1, 1, 1, 0.109804)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Square26" type="Button" parent="Canvas/Control/Grid"]
+self_modulate = Color(1, 1, 1, 0.109804)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Square27" type="Button" parent="Canvas/Control/Grid"]
+self_modulate = Color(1, 1, 1, 0.109804)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Square28" type="Button" parent="Canvas/Control/Grid"]
+self_modulate = Color(1, 1, 1, 0.109804)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Square29" type="Button" parent="Canvas/Control/Grid"]
+self_modulate = Color(1, 1, 1, 0.109804)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Square30" type="Button" parent="Canvas/Control/Grid"]
+self_modulate = Color(1, 1, 1, 0.109804)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Square31" type="Button" parent="Canvas/Control/Grid"]
+self_modulate = Color(1, 1, 1, 0.109804)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Square32" type="Button" parent="Canvas/Control/Grid"]
+self_modulate = Color(1, 1, 1, 0.109804)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Square33" type="Button" parent="Canvas/Control/Grid"]
+self_modulate = Color(1, 1, 1, 0.109804)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Square34" type="Button" parent="Canvas/Control/Grid"]
+self_modulate = Color(1, 1, 1, 0.109804)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Square35" type="Button" parent="Canvas/Control/Grid"]
+self_modulate = Color(1, 1, 1, 0.109804)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Square36" type="Button" parent="Canvas/Control/Grid"]
+self_modulate = Color(1, 1, 1, 0.109804)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="NinePatchRect" type="NinePatchRect" parent="Canvas/Control"]
+texture_filter = 1
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("13_vlhnt")
+region_rect = Rect2(0, 0, 16, 16)
+patch_margin_left = 2
+patch_margin_top = 14
+patch_margin_right = 2
+patch_margin_bottom = 14
+
+[node name="MenuButton" type="MenuButton" parent="Canvas"]
+offset_left = 933.0
+offset_top = 2.0
+offset_right = 1130.0
+offset_bottom = 60.0
+theme_override_colors/font_hover_color = Color(0.909893, 0.914173, 0.90561, 1)
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 7
+theme_override_fonts/font = ExtResource("14_rkk5r")
+theme_override_font_sizes/font_size = 50
+text = "Options"
+
+[connection signal="pressed" from="Canvas/inklingBlue" to="Canvas/Control" method="set_currentColor" binds= ["blue"]]
+[connection signal="pressed" from="Canvas/inklingOrange" to="Canvas/Control" method="set_currentColor" binds= ["orange"]]
+[connection signal="pressed" from="Canvas/inklingGreen" to="Canvas/Control" method="set_currentColor" binds= ["green"]]
+[connection signal="pressed" from="Canvas/inklingPink" to="Canvas/Control" method="set_currentColor" binds= ["pink"]]
