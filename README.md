@@ -1,0 +1,2 @@
+# Splathello
+Splatoon-themed Othello
