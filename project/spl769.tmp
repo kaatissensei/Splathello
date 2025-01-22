@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=3 uid="uid://di36chad7pjkb"]
+[gd_scene load_steps=20 format=3 uid="uid://di36chad7pjkb"]
 
 [ext_resource type="Script" path="res://splathello_menu.gd" id="1_fexvu"]
 [ext_resource type="Texture2D" uid="uid://hfcaeufrvdhb" path="res://images/backgrounds/Splatoon bg menu.png" id="1_wqkmt"]
@@ -18,15 +18,10 @@
 [ext_resource type="Texture2D" uid="uid://bw1csk423nedl" path="res://images/ui/borderWhite.png" id="13_n3bq2"]
 [ext_resource type="Texture2D" uid="uid://y6gt5kkin4ou" path="res://images/backgrounds/stgMantaMarina.png" id="14_qfxhr"]
 [ext_resource type="Texture2D" uid="uid://d3fd07cip6ohj" path="res://images/backgrounds/stgUmamiRuins.png" id="15_7fm5v"]
-[ext_resource type="ButtonGroup" uid="uid://drx5a1qfumpnd" path="res://headerToggle.tres" id="19_q2m44"]
-[ext_resource type="ButtonGroup" uid="uid://cypgmwy8eoc82" path="res://startingPiecesToggle.tres" id="20_15qxq"]
-[ext_resource type="ButtonGroup" uid="uid://c4y4pga5ong5u" path="res://gridNumToggles.tres" id="20_nb1vy"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_vtofj"]
-font_size = 100
+font_size = 70
 font_color = Color(0, 0, 0, 1)
-
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_butjs"]
 
 [node name="SplathelloMenu" type="Control"]
 layout_mode = 3
@@ -51,10 +46,6 @@ layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = 100.0
-offset_top = 50.0
-offset_right = -100.0
-offset_bottom = -50.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_constants/margin_left = 250
@@ -64,13 +55,12 @@ theme_override_constants/margin_bottom = 50
 
 [node name="TabContainer" type="TabContainer" parent="MarginContainer"]
 layout_mode = 2
-size_flags_horizontal = 0
 theme = ExtResource("2_72qp4")
-current_tab = 2
+tab_alignment = 1
+current_tab = 0
 clip_tabs = false
 
 [node name="Players" type="TabBar" parent="MarginContainer/TabContainer"]
-visible = false
 layout_mode = 2
 size_flags_stretch_ratio = 0.0
 theme = ExtResource("2_72qp4")
@@ -81,36 +71,36 @@ metadata/_tab_index = 0
 [node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/TabContainer/Players"]
 z_index = 1
 layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = 30.0
-offset_right = -30.0
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -391.5
+offset_top = -213.5
+offset_right = 391.5
+offset_bottom = 213.5
 grow_horizontal = 2
 grow_vertical = 2
 alignment = 1
 
 [node name="VBox 2P" type="VBoxContainer" parent="MarginContainer/TabContainer/Players/HBoxContainer"]
 layout_mode = 2
-size_flags_horizontal = 3
+size_flags_horizontal = 2
+size_flags_vertical = 4
 theme_override_constants/separation = -10
 alignment = 1
 
 [node name="2Players" type="Label" parent="MarginContainer/TabContainer/Players/HBoxContainer/VBox 2P"]
 layout_mode = 2
-size_flags_vertical = 6
-theme_override_font_sizes/font_size = 100
 text = "2 Players"
 label_settings = SubResource("LabelSettings_vtofj")
 horizontal_alignment = 1
-vertical_alignment = 1
 
 [node name="Squid2P" type="TextureButton" parent="MarginContainer/TabContainer/Players/HBoxContainer/VBox 2P"]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(300, 300)
 layout_mode = 2
-size_flags_vertical = 3
-size_flags_stretch_ratio = 3.0
 mouse_default_cursor_shape = 2
 toggle_mode = true
 button_group = ExtResource("4_etr64")
@@ -120,46 +110,39 @@ stretch_mode = 6
 
 [node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/TabContainer/Players/HBoxContainer/VBox 2P"]
 layout_mode = 2
-size_flags_vertical = 3
+size_flags_vertical = 8
 alignment = 1
 
 [node name="2P_BO" type="TextureButton" parent="MarginContainer/TabContainer/Players/HBoxContainer/VBox 2P/HBoxContainer"]
-custom_minimum_size = Vector2(120, 160)
+custom_minimum_size = Vector2(80, 80)
 layout_mode = 2
-mouse_default_cursor_shape = 2
 texture_normal = ExtResource("4_3y0uo")
 ignore_texture_size = true
-stretch_mode = 5
+stretch_mode = 4
 
 [node name="2P_GP" type="TextureButton" parent="MarginContainer/TabContainer/Players/HBoxContainer/VBox 2P/HBoxContainer"]
-custom_minimum_size = Vector2(120, 160)
+custom_minimum_size = Vector2(80, 80)
 layout_mode = 2
-mouse_default_cursor_shape = 2
 texture_normal = ExtResource("5_tfxu2")
 ignore_texture_size = true
-stretch_mode = 5
+stretch_mode = 4
 
 [node name="2P_IY" type="TextureButton" parent="MarginContainer/TabContainer/Players/HBoxContainer/VBox 2P/HBoxContainer"]
-custom_minimum_size = Vector2(120, 160)
+custom_minimum_size = Vector2(80, 80)
 layout_mode = 2
-mouse_default_cursor_shape = 2
 texture_normal = ExtResource("6_qgbxj")
 ignore_texture_size = true
-stretch_mode = 5
-
-[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/TabContainer/Players/HBoxContainer"]
-custom_minimum_size = Vector2(30, 0)
-layout_mode = 2
+stretch_mode = 4
 
 [node name="VBox 4P" type="VBoxContainer" parent="MarginContainer/TabContainer/Players/HBoxContainer"]
 layout_mode = 2
-size_flags_horizontal = 3
+size_flags_horizontal = 10
+size_flags_vertical = 4
 theme_override_constants/separation = -10
 alignment = 1
 
 [node name="4Players" type="Label" parent="MarginContainer/TabContainer/Players/HBoxContainer/VBox 4P"]
 layout_mode = 2
-size_flags_vertical = 6
 text = "4 Players"
 label_settings = SubResource("LabelSettings_vtofj")
 horizontal_alignment = 1
@@ -168,8 +151,6 @@ horizontal_alignment = 1
 unique_name_in_owner = true
 custom_minimum_size = Vector2(300, 300)
 layout_mode = 2
-size_flags_vertical = 3
-size_flags_stretch_ratio = 3.0
 mouse_default_cursor_shape = 2
 toggle_mode = true
 button_group = ExtResource("4_etr64")
@@ -178,9 +159,8 @@ ignore_texture_size = true
 stretch_mode = 6
 
 [node name="TextureRect" type="TextureRect" parent="MarginContainer/TabContainer/Players/HBoxContainer/VBox 4P"]
-custom_minimum_size = Vector2(120, 120)
+custom_minimum_size = Vector2(80, 80)
 layout_mode = 2
-size_flags_vertical = 3
 
 [node name="Stages" type="TabBar" parent="MarginContainer/TabContainer"]
 unique_name_in_owner = true
@@ -197,20 +177,20 @@ anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 offset_left = 50.0
-offset_top = 75.0
-offset_right = -77.0
-offset_bottom = -75.0
+offset_top = 20.0
+offset_right = -51.0
+offset_bottom = -37.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_constants/h_separation = 10
-theme_override_constants/v_separation = 30
+theme_override_constants/v_separation = 2
 columns = 3
 
 [node name="stgArowanaMall" type="TextureButton" parent="MarginContainer/TabContainer/Stages/GridContainer"]
 custom_minimum_size = Vector2(250, 185)
 layout_mode = 2
-size_flags_horizontal = 3
-size_flags_vertical = 3
+size_flags_horizontal = 2
+size_flags_vertical = 6
 mouse_default_cursor_shape = 2
 theme = ExtResource("2_72qp4")
 toggle_mode = true
@@ -225,17 +205,16 @@ anchors_preset = 12
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_top = -91.0
-offset_bottom = -1.0
+offset_top = -43.0
+offset_bottom = -13.0
 grow_horizontal = 2
 grow_vertical = 0
 theme_override_colors/font_color = Color(0.976469, 0.976469, 0.976469, 1)
 theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
-theme_override_font_sizes/font_size = 40
+theme_override_font_sizes/font_size = 30
 text = "Arowana Mall"
 horizontal_alignment = 1
 vertical_alignment = 1
-autowrap_mode = 3
 script = ExtResource("12_wwh5x")
 
 [node name="Selected" type="NinePatchRect" parent="MarginContainer/TabContainer/Stages/GridContainer/stgArowanaMall" groups=["SelectedStages"]]
@@ -255,7 +234,8 @@ patch_margin_bottom = 2
 [node name="stgBrinewaterSprings" type="TextureButton" parent="MarginContainer/TabContainer/Stages/GridContainer"]
 custom_minimum_size = Vector2(250, 185)
 layout_mode = 2
-size_flags_horizontal = 3
+size_flags_horizontal = 2
+size_flags_vertical = 4
 mouse_default_cursor_shape = 2
 toggle_mode = true
 texture_normal = ExtResource("11_x312n")
@@ -268,18 +248,19 @@ anchors_preset = 12
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_top = -91.0
-offset_bottom = -1.0
+offset_left = -5.0
+offset_top = -43.0
+offset_right = 34.0
+offset_bottom = -13.0
 grow_horizontal = 2
 grow_vertical = 0
+scale = Vector2(0.9, 1)
 theme_override_colors/font_color = Color(0.976469, 0.976469, 0.976469, 1)
 theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
-theme_override_font_sizes/font_size = 40
-text = "Brinewater
-Springs"
+theme_override_font_sizes/font_size = 30
+text = "Brinewater Springs"
 horizontal_alignment = 1
 vertical_alignment = 1
-autowrap_mode = 3
 script = ExtResource("12_wwh5x")
 
 [node name="Selected" type="NinePatchRect" parent="MarginContainer/TabContainer/Stages/GridContainer/stgBrinewaterSprings" groups=["SelectedStages"]]
@@ -300,7 +281,8 @@ patch_margin_bottom = 2
 [node name="stgCampTriggerfish" type="TextureButton" parent="MarginContainer/TabContainer/Stages/GridContainer"]
 custom_minimum_size = Vector2(250, 185)
 layout_mode = 2
-size_flags_horizontal = 3
+size_flags_horizontal = 2
+size_flags_vertical = 4
 mouse_default_cursor_shape = 2
 toggle_mode = true
 texture_normal = ExtResource("12_13xgv")
@@ -313,19 +295,19 @@ anchors_preset = 12
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_top = -91.0
-offset_right = 4.0
-offset_bottom = -1.0
+offset_left = 0.3
+offset_top = -43.0
+offset_right = 10.3
+offset_bottom = -13.0
 grow_horizontal = 2
 grow_vertical = 0
+scale = Vector2(0.95, 1)
 theme_override_colors/font_color = Color(0.976469, 0.976469, 0.976469, 1)
 theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
-theme_override_font_sizes/font_size = 40
-text = "Camp 
-Triggerfish"
+theme_override_font_sizes/font_size = 30
+text = "Camp Triggerfish"
 horizontal_alignment = 1
 vertical_alignment = 1
-autowrap_mode = 3
 script = ExtResource("12_wwh5x")
 
 [node name="Selected" type="NinePatchRect" parent="MarginContainer/TabContainer/Stages/GridContainer/stgCampTriggerfish" groups=["SelectedStages"]]
@@ -346,8 +328,8 @@ patch_margin_bottom = 2
 [node name="stgMahiMahiResort" type="TextureButton" parent="MarginContainer/TabContainer/Stages/GridContainer"]
 custom_minimum_size = Vector2(250, 185)
 layout_mode = 2
-size_flags_horizontal = 3
-size_flags_vertical = 3
+size_flags_horizontal = 2
+size_flags_vertical = 4
 mouse_default_cursor_shape = 2
 toggle_mode = true
 texture_normal = ExtResource("13_kk6so")
@@ -360,17 +342,19 @@ anchors_preset = 12
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_top = -91.0
-offset_bottom = -1.0
+offset_left = -2.0
+offset_top = -43.0
+offset_right = 16.0
+offset_bottom = -13.0
 grow_horizontal = 2
 grow_vertical = 0
+scale = Vector2(0.95, 1)
 theme_override_colors/font_color = Color(0.976469, 0.976469, 0.976469, 1)
 theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
-theme_override_font_sizes/font_size = 40
+theme_override_font_sizes/font_size = 30
 text = "Mahi-Mahi Resort"
 horizontal_alignment = 1
 vertical_alignment = 1
-autowrap_mode = 3
 script = ExtResource("12_wwh5x")
 
 [node name="Selected" type="NinePatchRect" parent="MarginContainer/TabContainer/Stages/GridContainer/stgMahiMahiResort" groups=["SelectedStages"]]
@@ -391,8 +375,8 @@ patch_margin_bottom = 2
 [node name="stgMantaMarina" type="TextureButton" parent="MarginContainer/TabContainer/Stages/GridContainer"]
 custom_minimum_size = Vector2(250, 185)
 layout_mode = 2
-size_flags_horizontal = 3
-size_flags_vertical = 3
+size_flags_horizontal = 2
+size_flags_vertical = 4
 mouse_default_cursor_shape = 2
 toggle_mode = true
 texture_normal = ExtResource("14_qfxhr")
@@ -405,17 +389,16 @@ anchors_preset = 12
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_top = -91.0
-offset_bottom = -1.0
+offset_top = -43.0
+offset_bottom = -13.0
 grow_horizontal = 2
 grow_vertical = 0
 theme_override_colors/font_color = Color(0.976469, 0.976469, 0.976469, 1)
 theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
-theme_override_font_sizes/font_size = 40
+theme_override_font_sizes/font_size = 30
 text = "Manta Marina"
 horizontal_alignment = 1
 vertical_alignment = 1
-autowrap_mode = 3
 script = ExtResource("12_wwh5x")
 
 [node name="Selected" type="NinePatchRect" parent="MarginContainer/TabContainer/Stages/GridContainer/stgMantaMarina" groups=["SelectedStages"]]
@@ -436,8 +419,8 @@ patch_margin_bottom = 2
 [node name="stgUmamiRuins" type="TextureButton" parent="MarginContainer/TabContainer/Stages/GridContainer"]
 custom_minimum_size = Vector2(250, 185)
 layout_mode = 2
-size_flags_horizontal = 3
-size_flags_vertical = 3
+size_flags_horizontal = 2
+size_flags_vertical = 4
 mouse_default_cursor_shape = 2
 toggle_mode = true
 texture_normal = ExtResource("15_7fm5v")
@@ -450,17 +433,16 @@ anchors_preset = 12
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_top = -91.0
-offset_bottom = -1.0
+offset_top = -43.0
+offset_bottom = -13.0
 grow_horizontal = 2
 grow_vertical = 0
 theme_override_colors/font_color = Color(0.976469, 0.976469, 0.976469, 1)
 theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
-theme_override_font_sizes/font_size = 40
+theme_override_font_sizes/font_size = 30
 text = "Um'ami Ruins"
 horizontal_alignment = 1
 vertical_alignment = 1
-autowrap_mode = 3
 script = ExtResource("12_wwh5x")
 
 [node name="Selected" type="NinePatchRect" parent="MarginContainer/TabContainer/Stages/GridContainer/stgUmamiRuins" groups=["SelectedStages"]]
@@ -479,154 +461,12 @@ patch_margin_right = 2
 patch_margin_bottom = 2
 
 [node name="Options" type="TabBar" parent="MarginContainer/TabContainer"]
+visible = false
 layout_mode = 2
 theme = ExtResource("2_72qp4")
 clip_tabs = false
 tab_count = 1
 metadata/_tab_index = 2
-
-[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/TabContainer/Options"]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_constants/margin_left = 50
-theme_override_constants/margin_top = 100
-theme_override_constants/margin_right = 50
-theme_override_constants/margin_bottom = 50
-
-[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/TabContainer/Options/MarginContainer"]
-layout_mode = 2
-theme_override_constants/separation = 50
-
-[node name="HeadersToggle" type="HBoxContainer" parent="MarginContainer/TabContainer/Options/MarginContainer/VBoxContainer"]
-custom_minimum_size = Vector2(0, 100)
-layout_mode = 2
-theme_override_constants/separation = 20
-
-[node name="Label" type="Label" parent="MarginContainer/TabContainer/Options/MarginContainer/VBoxContainer/HeadersToggle"]
-custom_minimum_size = Vector2(0, 160)
-layout_mode = 2
-size_flags_horizontal = 3
-size_flags_stretch_ratio = 3.0
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_font_sizes/font_size = 100
-text = "Labels:"
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="HeadersOn" type="Button" parent="MarginContainer/TabContainer/Options/MarginContainer/VBoxContainer/HeadersToggle"]
-unique_name_in_owner = true
-layout_mode = 2
-size_flags_horizontal = 3
-size_flags_stretch_ratio = 2.0
-mouse_default_cursor_shape = 2
-theme = ExtResource("2_72qp4")
-toggle_mode = true
-button_pressed = true
-button_group = ExtResource("19_q2m44")
-text = "Headers"
-
-[node name="GridNumsOn" type="Button" parent="MarginContainer/TabContainer/Options/MarginContainer/VBoxContainer/HeadersToggle"]
-unique_name_in_owner = true
-layout_mode = 2
-size_flags_horizontal = 3
-size_flags_stretch_ratio = 2.0
-mouse_default_cursor_shape = 2
-theme = ExtResource("2_72qp4")
-theme_override_colors/icon_focus_color = Color(0, 0.921569, 0.176471, 1)
-theme_override_colors/icon_pressed_color = Color(0, 0.921569, 0.176471, 1)
-toggle_mode = true
-button_group = ExtResource("19_q2m44")
-text = "Grid Numbers"
-autowrap_mode = 2
-
-[node name="StartingPiecesToggle" type="HBoxContainer" parent="MarginContainer/TabContainer/Options/MarginContainer/VBoxContainer"]
-custom_minimum_size = Vector2(0, 100)
-layout_mode = 2
-theme_override_constants/separation = 20
-
-[node name="Label" type="Label" parent="MarginContainer/TabContainer/Options/MarginContainer/VBoxContainer/StartingPiecesToggle"]
-custom_minimum_size = Vector2(100, 100)
-layout_mode = 2
-size_flags_horizontal = 3
-size_flags_stretch_ratio = 3.0
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_font_sizes/font_size = 80
-text = "Starting Pieces:"
-horizontal_alignment = 1
-vertical_alignment = 1
-autowrap_mode = 3
-
-[node name="SPOn" type="Button" parent="MarginContainer/TabContainer/Options/MarginContainer/VBoxContainer/StartingPiecesToggle"]
-unique_name_in_owner = true
-layout_mode = 2
-size_flags_horizontal = 3
-size_flags_stretch_ratio = 2.0
-mouse_default_cursor_shape = 2
-theme = ExtResource("2_72qp4")
-toggle_mode = true
-button_pressed = true
-button_group = ExtResource("20_15qxq")
-text = "On"
-
-[node name="SPOff" type="Button" parent="MarginContainer/TabContainer/Options/MarginContainer/VBoxContainer/StartingPiecesToggle"]
-unique_name_in_owner = true
-layout_mode = 2
-size_flags_horizontal = 3
-size_flags_stretch_ratio = 2.0
-mouse_default_cursor_shape = 2
-theme = ExtResource("2_72qp4")
-theme_override_colors/icon_focus_color = Color(0, 0.921569, 0.176471, 1)
-theme_override_colors/icon_pressed_color = Color(0, 0.921569, 0.176471, 1)
-toggle_mode = true
-button_group = ExtResource("20_15qxq")
-text = "Off"
-autowrap_mode = 2
-
-[node name="GridNumsToggle" type="HBoxContainer" parent="MarginContainer/TabContainer/Options/MarginContainer/VBoxContainer"]
-visible = false
-layout_mode = 2
-size_flags_vertical = 4
-theme_override_constants/separation = 20
-
-[node name="Label" type="Label" parent="MarginContainer/TabContainer/Options/MarginContainer/VBoxContainer/GridNumsToggle"]
-visible = false
-layout_mode = 2
-size_flags_horizontal = 3
-size_flags_stretch_ratio = 2.0
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_font_sizes/font_size = 100
-text = "Numbers:"
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="GridNumsOn" type="Button" parent="MarginContainer/TabContainer/Options/MarginContainer/VBoxContainer/GridNumsToggle"]
-visible = false
-layout_mode = 2
-size_flags_horizontal = 3
-mouse_default_cursor_shape = 2
-theme = ExtResource("2_72qp4")
-theme_override_colors/icon_focus_color = Color(0, 0.921569, 0.176471, 1)
-theme_override_colors/icon_pressed_color = Color(0, 0.921569, 0.176471, 1)
-toggle_mode = true
-button_pressed = true
-button_group = ExtResource("20_nb1vy")
-text = "On"
-
-[node name="GridNumsOff" type="Button" parent="MarginContainer/TabContainer/Options/MarginContainer/VBoxContainer/GridNumsToggle"]
-visible = false
-layout_mode = 2
-size_flags_horizontal = 3
-mouse_default_cursor_shape = 2
-theme = ExtResource("2_72qp4")
-theme_override_colors/icon_focus_color = Color(0, 0.921569, 0.176471, 1)
-theme_override_colors/icon_pressed_color = Color(0, 0.921569, 0.176471, 1)
-toggle_mode = true
-button_group = ExtResource("20_nb1vy")
-text = "Off"
 
 [node name="Return" type="Button" parent="."]
 layout_mode = 1
@@ -635,8 +475,9 @@ anchor_left = 1.0
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = -350.0
-offset_top = -120.0
+offset_left = -184.0
+offset_top = -51.0
+offset_bottom = 7.0
 grow_horizontal = 0
 grow_vertical = 0
 mouse_default_cursor_shape = 2
@@ -647,71 +488,9 @@ theme_override_colors/icon_pressed_color = Color(0, 0, 0, 0.32549)
 theme_override_colors/icon_hover_color = Color(0, 0, 0, 0)
 theme_override_colors/icon_hover_pressed_color = Color(0, 0, 0, 0)
 theme_override_colors/icon_disabled_color = Color(0, 0, 0, 0)
-theme_override_font_sizes/font_size = 90
-theme_override_styles/focus = SubResource("StyleBoxEmpty_butjs")
-theme_override_styles/disabled_mirrored = SubResource("StyleBoxEmpty_butjs")
-theme_override_styles/disabled = SubResource("StyleBoxEmpty_butjs")
-theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxEmpty_butjs")
-theme_override_styles/hover_pressed = SubResource("StyleBoxEmpty_butjs")
-theme_override_styles/hover_mirrored = SubResource("StyleBoxEmpty_butjs")
-theme_override_styles/pressed = SubResource("StyleBoxEmpty_butjs")
+theme_override_font_sizes/font_size = 50
+text = "Return"
 flat = true
-
-[node name="Label" type="Label" parent="Return"]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_colors/font_shadow_color = Color(0, 0, 0, 0.588235)
-theme_override_constants/shadow_offset_x = 3
-theme_override_constants/shadow_offset_y = 3
-theme_override_font_sizes/font_size = 90
-text = "Start"
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="Cancel" type="Button" parent="."]
-layout_mode = 1
-anchors_preset = 2
-anchor_top = 1.0
-anchor_bottom = 1.0
-offset_top = -120.0
-offset_right = 350.0
-grow_vertical = 0
-mouse_default_cursor_shape = 2
-theme = ExtResource("2_72qp4")
-theme_override_colors/icon_normal_color = Color(0, 0, 0, 0)
-theme_override_colors/icon_focus_color = Color(0, 0, 0, 0)
-theme_override_colors/icon_pressed_color = Color(0, 0, 0, 0.32549)
-theme_override_colors/icon_hover_color = Color(0, 0, 0, 0)
-theme_override_colors/icon_hover_pressed_color = Color(0, 0, 0, 0)
-theme_override_colors/icon_disabled_color = Color(0, 0, 0, 0)
-theme_override_font_sizes/font_size = 90
-theme_override_styles/focus = SubResource("StyleBoxEmpty_butjs")
-theme_override_styles/disabled_mirrored = SubResource("StyleBoxEmpty_butjs")
-theme_override_styles/disabled = SubResource("StyleBoxEmpty_butjs")
-theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxEmpty_butjs")
-theme_override_styles/hover_pressed = SubResource("StyleBoxEmpty_butjs")
-theme_override_styles/hover_mirrored = SubResource("StyleBoxEmpty_butjs")
-theme_override_styles/pressed = SubResource("StyleBoxEmpty_butjs")
-flat = true
-
-[node name="Label" type="Label" parent="Cancel"]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_colors/font_shadow_color = Color(0, 0, 0, 0.588235)
-theme_override_constants/shadow_offset_x = 3
-theme_override_constants/shadow_offset_y = 3
-theme_override_font_sizes/font_size = 90
-text = "Cancel"
-horizontal_alignment = 1
-vertical_alignment = 1
 
 [connection signal="pressed" from="MarginContainer/TabContainer/Players/HBoxContainer/VBox 2P/Squid2P" to="." method="set_num_players" binds= [2]]
 [connection signal="pressed" from="MarginContainer/TabContainer/Players/HBoxContainer/VBox 2P/HBoxContainer/2P_BO" to="." method="change_player_color" binds= ["blueOrange"]]
@@ -738,9 +517,4 @@ vertical_alignment = 1
 [connection signal="mouse_entered" from="MarginContainer/TabContainer/Stages/GridContainer/stgUmamiRuins" to="MarginContainer/TabContainer/Stages/GridContainer/stgUmamiRuins/Label" method="_on_label_mouse_entered"]
 [connection signal="mouse_exited" from="MarginContainer/TabContainer/Stages/GridContainer/stgUmamiRuins" to="MarginContainer/TabContainer/Stages/GridContainer/stgUmamiRuins/Label" method="_on_label_mouse_exited"]
 [connection signal="pressed" from="MarginContainer/TabContainer/Stages/GridContainer/stgUmamiRuins" to="MarginContainer/TabContainer/Stages/GridContainer/stgUmamiRuins/Label" method="_select_stage"]
-[connection signal="pressed" from="MarginContainer/TabContainer/Options/MarginContainer/VBoxContainer/HeadersToggle/HeadersOn" to="." method="_set_visible_labels" binds= ["Headers"]]
-[connection signal="pressed" from="MarginContainer/TabContainer/Options/MarginContainer/VBoxContainer/HeadersToggle/GridNumsOn" to="." method="_set_visible_labels" binds= ["Grid Numbers"]]
-[connection signal="pressed" from="MarginContainer/TabContainer/Options/MarginContainer/VBoxContainer/StartingPiecesToggle/SPOn" to="." method="_toggle_startingPieces" binds= [true]]
-[connection signal="pressed" from="MarginContainer/TabContainer/Options/MarginContainer/VBoxContainer/StartingPiecesToggle/SPOff" to="." method="_toggle_startingPieces" binds= [false]]
-[connection signal="pressed" from="Return" to="." method="_close_menu" binds= [true]]
-[connection signal="pressed" from="Cancel" to="." method="_close_menu" binds= [false]]
+[connection signal="pressed" from="Return" to="." method="_close_menu"]

@@ -1,4 +1,4 @@
-[gd_scene load_steps=27 format=3 uid="uid://c8wpff512nh5i"]
+[gd_scene load_steps=24 format=3 uid="uid://c8wpff512nh5i"]
 
 [ext_resource type="Texture2D" uid="uid://dveij0bmdjp5o" path="res://images/backgrounds/Splatoon bg zigzag.jpg" id="1_63ae6"]
 [ext_resource type="Texture2D" uid="uid://bghor8b6ldpqp" path="res://images/inklings/squidBlue.png" id="2_nwact"]
@@ -19,9 +19,6 @@
 [ext_resource type="Script" path="res://grid.gd" id="12_llcda"]
 [ext_resource type="Texture2D" uid="uid://cvcjcu5qia13t" path="res://images/ui/borderBlack.png" id="13_vlhnt"]
 [ext_resource type="Theme" uid="uid://eg3500i0esep" path="res://SplatoonMenu.tres" id="14_sallf"]
-[ext_resource type="Texture2D" uid="uid://dun7rpihw7pjm" path="res://images/ui/S3_Lil_Judd.png" id="20_dxnlj"]
-[ext_resource type="Theme" uid="uid://n6w28sgf8enr" path="res://SplatoonScene.tres" id="20_mkp0c"]
-[ext_resource type="Texture2D" uid="uid://ddm7fpijylehe" path="res://images/ui/S3_Judd.png" id="21_obsyh"]
 
 [sub_resource type="ButtonGroup" id="ButtonGroup_0md54"]
 resource_name = "Inkling"
@@ -93,9 +90,9 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = -182.0
-offset_top = -480.0
+offset_top = -440.0
 offset_right = 168.0
-offset_bottom = -60.0
+offset_bottom = -20.0
 grow_horizontal = 2
 grow_vertical = 2
 mouse_default_cursor_shape = 2
@@ -139,9 +136,9 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = -175.0
-offset_top = -20.0
+offset_top = 10.0
 offset_right = 175.0
-offset_bottom = 400.0
+offset_bottom = 430.0
 grow_horizontal = 2
 grow_vertical = 2
 mouse_default_cursor_shape = 2
@@ -672,9 +669,9 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = -171.5
-offset_top = -480.0
+offset_top = -440.0
 offset_right = 178.5
-offset_bottom = -60.0
+offset_bottom = -20.0
 grow_horizontal = 2
 grow_vertical = 2
 mouse_default_cursor_shape = 2
@@ -716,9 +713,9 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = -175.0
-offset_top = -20.0
+offset_top = 10.0
 offset_right = 175.0
-offset_bottom = 400.0
+offset_bottom = 430.0
 grow_horizontal = 2
 grow_vertical = 2
 mouse_default_cursor_shape = 2
@@ -738,7 +735,7 @@ offset_left = -197.0
 offset_bottom = 58.0
 grow_horizontal = 0
 mouse_default_cursor_shape = 2
-theme = ExtResource("20_mkp0c")
+theme = ExtResource("14_sallf")
 theme_override_colors/font_color = Color(0, 0, 0, 0)
 theme_override_font_sizes/font_size = 75
 theme_override_styles/focus = SubResource("StyleBoxEmpty_ucbu0")
@@ -771,137 +768,12 @@ text = "Options"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Undo" type="Button" parent="Canvas"]
-custom_minimum_size = Vector2(100, 50)
-anchors_preset = 2
-anchor_top = 1.0
-anchor_bottom = 1.0
-offset_top = -160.0
-offset_right = 288.0
-grow_vertical = 0
-mouse_default_cursor_shape = 2
-theme = ExtResource("20_mkp0c")
-theme_override_colors/font_color = Color(0, 0, 0, 0)
-theme_override_font_sizes/font_size = 75
-theme_override_styles/focus = SubResource("StyleBoxEmpty_ucbu0")
-theme_override_styles/disabled = SubResource("StyleBoxEmpty_ucbu0")
-theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxEmpty_ucbu0")
-theme_override_styles/hover_pressed = SubResource("StyleBoxEmpty_ucbu0")
-theme_override_styles/pressed = SubResource("StyleBoxEmpty_ucbu0")
-flat = true
-
-[node name="TextureRect" type="TextureRect" parent="Canvas/Undo"]
-layout_mode = 1
-anchors_preset = 2
-anchor_top = 1.0
-anchor_bottom = 1.0
-offset_top = -170.0
-offset_right = 240.0
-grow_vertical = 0
-texture = ExtResource("20_dxnlj")
-expand_mode = 1
-stretch_mode = 5
-
-[node name="Label" type="Label" parent="Canvas/Undo"]
-layout_mode = 1
-anchors_preset = 2
-anchor_top = 1.0
-anchor_bottom = 1.0
-offset_top = -75.0
-offset_right = 284.0
-grow_vertical = 0
-mouse_default_cursor_shape = 2
-theme_override_colors/font_shadow_color = Color(0, 0, 0, 0.419608)
-theme_override_constants/shadow_offset_x = 2
-theme_override_constants/shadow_offset_y = 3
-theme_override_font_sizes/font_size = 75
-text = "Undo"
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="Reset" type="Button" parent="Canvas"]
-custom_minimum_size = Vector2(100, 50)
-anchors_preset = 3
-anchor_left = 1.0
-anchor_top = 1.0
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = -284.0
-offset_top = -160.0
-grow_horizontal = 0
-grow_vertical = 0
-mouse_default_cursor_shape = 2
-theme = ExtResource("20_mkp0c")
-theme_override_colors/font_color = Color(0, 0, 0, 0)
-theme_override_font_sizes/font_size = 75
-theme_override_styles/focus = SubResource("StyleBoxEmpty_ucbu0")
-theme_override_styles/disabled = SubResource("StyleBoxEmpty_ucbu0")
-theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxEmpty_ucbu0")
-theme_override_styles/hover_pressed = SubResource("StyleBoxEmpty_ucbu0")
-theme_override_styles/pressed = SubResource("StyleBoxEmpty_ucbu0")
-flat = true
-
-[node name="TextureRect" type="TextureRect" parent="Canvas/Reset"]
-layout_mode = 1
-anchors_preset = 3
-anchor_left = 1.0
-anchor_top = 1.0
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = -300.0
-offset_top = -170.0
-grow_horizontal = 0
-grow_vertical = 0
-texture = ExtResource("21_obsyh")
-expand_mode = 1
-stretch_mode = 5
-
-[node name="Label" type="Label" parent="Canvas/Reset"]
-layout_mode = 1
-anchors_preset = 3
-anchor_left = 1.0
-anchor_top = 1.0
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = -284.0
-offset_top = -75.0
-grow_horizontal = 0
-grow_vertical = 0
-mouse_default_cursor_shape = 2
-theme_override_colors/font_shadow_color = Color(0, 0, 0, 0.419608)
-theme_override_constants/shadow_offset_x = 2
-theme_override_constants/shadow_offset_y = 3
-theme_override_font_sizes/font_size = 75
-text = "Reset"
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="PanelContainer" type="PanelContainer" parent="Canvas"]
-visible = false
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -416.0
-offset_top = -180.0
-offset_right = 416.0
-offset_bottom = 156.0
-grow_horizontal = 2
-grow_vertical = 2
-
-[node name="ConfirmationDialog" type="ConfirmationDialog" parent="Canvas/PanelContainer"]
-title = "Board Reset"
-initial_position = 1
-size = Vector2i(812, 300)
-unresizable = true
-popup_window = true
-min_size = Vector2i(500, 300)
-theme = ExtResource("14_sallf")
-dialog_text = "The board will reset. 
-Do you want to continue?"
-dialog_hide_on_ok = false
-dialog_autowrap = true
+[node name="Button" type="Button" parent="Canvas"]
+custom_minimum_size = Vector2(100, 100)
+offset_left = 240.0
+offset_top = 32.0
+offset_right = 340.0
+offset_bottom = 132.0
 
 [connection signal="pressed" from="Canvas/MarginContainer/HBoxContainer/InklingControlLeft/inklingBlue" to="Canvas/MarginContainer/HBoxContainer/InklingControlLeft" method="set_currentColor" binds= ["blue"]]
 [connection signal="pressed" from="Canvas/MarginContainer/HBoxContainer/InklingControlLeft/octolingIndigo" to="Canvas/MarginContainer/HBoxContainer/InklingControlLeft" method="set_currentColor" binds= ["indigo"]]
@@ -910,6 +782,4 @@ dialog_autowrap = true
 [connection signal="pressed" from="Canvas/MarginContainer/HBoxContainer/InklingControlRight/octolingYellow" to="Canvas/MarginContainer/HBoxContainer/InklingControlRight" method="set_currentColor" binds= ["yellow"]]
 [connection signal="pressed" from="Canvas/MarginContainer/HBoxContainer/InklingControlRight/inklingPink" to="Canvas/MarginContainer/HBoxContainer/InklingControlRight" method="set_currentColor" binds= ["pink"]]
 [connection signal="pressed" from="Canvas/Options" to="Canvas/MarginContainer/HBoxContainer/SplathelloControl" method="_open_menu"]
-[connection signal="pressed" from="Canvas/Undo" to="Canvas/MarginContainer/HBoxContainer/SplathelloControl/Grid" method="_undo"]
-[connection signal="pressed" from="Canvas/Reset" to="Canvas/MarginContainer/HBoxContainer/SplathelloControl/Grid" method="_reset_grid"]
-[connection signal="confirmed" from="Canvas/PanelContainer/ConfirmationDialog" to="Canvas/MarginContainer/HBoxContainer/SplathelloControl" method="_open_menu"]
+[connection signal="pressed" from="Canvas/Button" to="Canvas/MarginContainer/HBoxContainer/SplathelloControl" method="_toggle_headers"]

@@ -11,4 +11,5 @@ func _on_btn_quit_pressed() -> void:
 
 
 func _on_btn_play_pressed() -> void:
+	Splathello.triggerReset = true
 	get_tree().change_scene_to_file("res://splathelloScene.tscn")
