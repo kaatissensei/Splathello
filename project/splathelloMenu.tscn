@@ -8,7 +8,7 @@
 [ext_resource type="ButtonGroup" uid="uid://c7bes8kx5etjs" path="res://MenuNumPlayers.tres" id="4_etr64"]
 [ext_resource type="Texture2D" uid="uid://d2wb6rj38s0nf" path="res://images/ui/splat greenPink.png" id="5_tfxu2"]
 [ext_resource type="Texture2D" uid="uid://cvudqt7qk7vqg" path="res://images/ui/splat indigoYellow.png" id="6_qgbxj"]
-[ext_resource type="Texture2D" uid="uid://b5yiu38flxmec" path="res://images/ui/squid 4p.png" id="7_udjwx"]
+[ext_resource type="Texture2D" uid="uid://b5yiu38flxmec" path="res://images/ui/squid_4p.png" id="7_udjwx"]
 [ext_resource type="ButtonGroup" uid="uid://beo510stxl250" path="res://stageBtns.tres" id="10_gsmt8"]
 [ext_resource type="Texture2D" uid="uid://bqv2eay2aqcvy" path="res://images/backgrounds/stgArowanaMall.png" id="10_xcdux"]
 [ext_resource type="Texture2D" uid="uid://d2qwkjcc8mvmh" path="res://images/backgrounds/stgBrinewaterSprings.png" id="11_x312n"]

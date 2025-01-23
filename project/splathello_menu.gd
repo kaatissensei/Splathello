@@ -38,10 +38,10 @@ func _update_menu_squid_texture(textureName):
 	if Splathello.numPlayers == 2:
 		textureName = textureName + "_selected"
 
-		var texture4P = load("res://images/ui/squid 4p.png")
+		var texture4P = load("res://images/ui/squid_4p.png")
 		%Squid4P.texture_normal = texture4P
 	else:
-		var texture4P = load("res://images/ui/squid 4p_selected.png")
+		var texture4P = load("res://images/ui/squid_4p_selected.png")
 		%Squid4P.texture_normal = texture4P
 	
 	var texture2P = load('res://images/ui/%s.png' % [textureName])
