@@ -17,11 +17,11 @@
 [ext_resource type="Script" path="res://control.gd" id="10_bnllw"]
 [ext_resource type="Texture2D" uid="uid://s8b0o7811apu" path="res://images/backgrounds/stgMahiMahiResort.png" id="11_yw6t0"]
 [ext_resource type="Script" path="res://grid.gd" id="12_llcda"]
-[ext_resource type="Texture2D" uid="uid://cvcjcu5qia13t" path="res://images/ui/borderBlack.png" id="13_vlhnt"]
+[ext_resource type="Texture2D" uid="uid://b23ipg2fbon03" path="res://images/ui/borderBlack.png" id="13_vlhnt"]
 [ext_resource type="Theme" uid="uid://eg3500i0esep" path="res://SplatoonMenu.tres" id="14_sallf"]
 [ext_resource type="Texture2D" uid="uid://dun7rpihw7pjm" path="res://images/ui/S3_Lil_Judd.png" id="20_dxnlj"]
 [ext_resource type="Theme" uid="uid://n6w28sgf8enr" path="res://SplatoonScene.tres" id="20_mkp0c"]
-[ext_resource type="Texture2D" uid="uid://ddm7fpijylehe" path="res://images/ui/S3_Judd.png" id="21_obsyh"]
+[ext_resource type="Texture2D" uid="uid://djmgh75e60fre" path="res://images/ui/S3_Judd.png" id="21_obsyh"]
 
 [sub_resource type="ButtonGroup" id="ButtonGroup_0md54"]
 resource_name = "Inkling"
