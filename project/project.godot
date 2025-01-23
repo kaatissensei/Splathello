@@ -26,6 +26,10 @@ window/size/viewport_height=1080
 window/size/mode=2
 window/stretch/mode="canvas_items"
 
+[editor]
+
+export/convert_text_resources_to_binary=false
+
 [rendering]
 
 renderer/rendering_method="gl_compatibility"
