@@ -911,5 +911,5 @@ dialog_autowrap = true
 [connection signal="pressed" from="Canvas/MarginContainer/HBoxContainer/InklingControlRight/inklingPink" to="Canvas/MarginContainer/HBoxContainer/InklingControlRight" method="set_currentColor" binds= ["pink"]]
 [connection signal="pressed" from="Canvas/Options" to="Canvas/MarginContainer/HBoxContainer/SplathelloControl" method="_open_menu"]
 [connection signal="pressed" from="Canvas/Undo" to="Canvas/MarginContainer/HBoxContainer/SplathelloControl/Grid" method="_undo"]
-[connection signal="pressed" from="Canvas/Reset" to="Canvas/MarginContainer/HBoxContainer/SplathelloControl/Grid" method="_reset_grid"]
+[connection signal="pressed" from="Canvas/Reset" to="Canvas/MarginContainer/HBoxContainer/SplathelloControl/Grid" method="_reset"]
 [connection signal="confirmed" from="Canvas/PanelContainer/ConfirmationDialog" to="Canvas/MarginContainer/HBoxContainer/SplathelloControl" method="_open_menu"]

@@ -75,6 +75,10 @@ func _reset_grid() -> void:
 		_fill_starting_squares()
 		Splathello.changedSquares = []
 	Splathello.triggerReset = false
+
+func _reset():
+	Splathello.triggerReset = true
+	_reset_grid()
 	
 func _fill_starting_squares():
 	var numPlayers = Splathello.numPlayers
