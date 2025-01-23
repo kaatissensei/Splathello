@@ -66,11 +66,10 @@ theme_override_constants/margin_bottom = 50
 layout_mode = 2
 size_flags_horizontal = 0
 theme = ExtResource("2_72qp4")
-current_tab = 2
+current_tab = 0
 clip_tabs = false
 
 [node name="Players" type="TabBar" parent="MarginContainer/TabContainer"]
-visible = false
 layout_mode = 2
 size_flags_stretch_ratio = 0.0
 theme = ExtResource("2_72qp4")
@@ -479,6 +478,7 @@ patch_margin_right = 2
 patch_margin_bottom = 2
 
 [node name="Options" type="TabBar" parent="MarginContainer/TabContainer"]
+visible = false
 layout_mode = 2
 theme = ExtResource("2_72qp4")
 clip_tabs = false
