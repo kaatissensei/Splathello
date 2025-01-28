@@ -1,0 +1,153 @@
+[gd_scene load_steps=10 format=3 uid="uid://clcphvmknthxc"]
+
+[ext_resource type="Script" path="res://results.gd" id="1_7pu51"]
+[ext_resource type="Texture2D" uid="uid://bpkbtg3u27ew3" path="res://images/backgrounds/Splatoon bg gray w splats.jpg" id="2_bja2n"]
+[ext_resource type="Texture2D" uid="uid://bevtf83wji3ob" path="res://images/inklings/inklingBlue.png" id="3_dngeg"]
+[ext_resource type="Texture2D" uid="uid://7e0oguio4188" path="res://images/inklings/inklingOrange.png" id="4_7uvmg"]
+[ext_resource type="Texture2D" uid="uid://cuqbtgk1vabu7" path="res://images/inklings/inklingGreen.png" id="5_aa71g"]
+[ext_resource type="Texture2D" uid="uid://bj2gha7hbei8n" path="res://images/inklings/inklingPink.png" id="6_ydopw"]
+[ext_resource type="Theme" uid="uid://eg3500i0esep" path="res://SplatoonMenu.tres" id="7_h4u5m"]
+[ext_resource type="Texture2D" uid="uid://djmgh75e60fre" path="res://images/ui/S3_Judd.png" id="8_6k4vx"]
+
+[sub_resource type="Theme" id="Theme_rchad"]
+
+[node name="Results" type="Node2D"]
+script = ExtResource("1_7pu51")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer"]
+self_modulate = Color(1, 1, 1, 0.364706)
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme = SubResource("Theme_rchad")
+texture = ExtResource("2_bja2n")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer"]
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -359.0
+grow_horizontal = 2
+grow_vertical = 0
+size_flags_horizontal = 3
+theme_override_constants/separation = 150
+alignment = 1
+
+[node name="Inkling" type="TextureButton" parent="CanvasLayer/HBoxContainer"]
+custom_minimum_size = Vector2(300, 300)
+layout_mode = 2
+texture_normal = ExtResource("3_dngeg")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="Inkling2" type="TextureButton" parent="CanvasLayer/HBoxContainer"]
+custom_minimum_size = Vector2(300, 300)
+layout_mode = 2
+texture_normal = ExtResource("4_7uvmg")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="Inkling3" type="TextureButton" parent="CanvasLayer/HBoxContainer"]
+custom_minimum_size = Vector2(300, 300)
+layout_mode = 2
+texture_normal = ExtResource("5_aa71g")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="Inkling4" type="TextureButton" parent="CanvasLayer/HBoxContainer"]
+custom_minimum_size = Vector2(300, 300)
+layout_mode = 2
+texture_normal = ExtResource("6_ydopw")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="CanvasLayer"]
+anchors_preset = 14
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = 100.0
+offset_top = -150.0
+offset_right = -80.0
+offset_bottom = 150.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 100
+alignment = 1
+
+[node name="NinePatchRect" type="NinePatchRect" parent="CanvasLayer/HBoxContainer2"]
+visible = false
+layout_mode = 2
+
+[node name="P1_score" type="Label" parent="CanvasLayer/HBoxContainer2"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+theme = ExtResource("7_h4u5m")
+theme_override_colors/font_outline_color = Color(0, 0, 1, 1)
+theme_override_constants/outline_size = 70
+theme_override_font_sizes/font_size = 300
+text = "35"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="P2_score" type="Label" parent="CanvasLayer/HBoxContainer2"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+theme = ExtResource("7_h4u5m")
+theme_override_colors/font_outline_color = Color(0.996078, 0.45098, 0.0784314, 1)
+theme_override_constants/outline_size = 70
+theme_override_font_sizes/font_size = 300
+text = "35"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="P3_score" type="Label" parent="CanvasLayer/HBoxContainer2"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+theme = ExtResource("7_h4u5m")
+theme_override_colors/font_outline_color = Color(0.258824, 0.886275, 0.243137, 1)
+theme_override_constants/outline_size = 70
+theme_override_font_sizes/font_size = 300
+text = "35"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="P4_score" type="Label" parent="CanvasLayer/HBoxContainer2"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+theme = ExtResource("7_h4u5m")
+theme_override_colors/font_outline_color = Color(0.972549, 0.356863, 0.752941, 1)
+theme_override_constants/outline_size = 70
+theme_override_font_sizes/font_size = 300
+text = "35"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="TextureRect2" type="TextureRect" parent="CanvasLayer"]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -287.0
+offset_right = 287.0
+offset_bottom = 359.0
+grow_horizontal = 2
+texture = ExtResource("8_6k4vx")
+expand_mode = 1
+
+[connection signal="pressed" from="CanvasLayer/HBoxContainer/Inkling" to="." method="_displayScore" binds= [1]]
+[connection signal="pressed" from="CanvasLayer/HBoxContainer/Inkling2" to="." method="_displayScore" binds= [2]]
+[connection signal="pressed" from="CanvasLayer/HBoxContainer/Inkling3" to="." method="_displayScore" binds= [3]]
+[connection signal="pressed" from="CanvasLayer/HBoxContainer/Inkling4" to="." method="_displayScore" binds= [4]]

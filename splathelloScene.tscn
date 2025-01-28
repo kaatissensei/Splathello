@@ -1,0 +1,951 @@
+[gd_scene load_steps=27 format=3 uid="uid://c8wpff512nh5i"]
+
+[ext_resource type="Texture2D" uid="uid://dveij0bmdjp5o" path="res://images/backgrounds/Splatoon bg zigzag.jpg" id="1_63ae6"]
+[ext_resource type="Texture2D" uid="uid://bghor8b6ldpqp" path="res://images/inklings/squidBlue.png" id="2_nwact"]
+[ext_resource type="Texture2D" uid="uid://bevtf83wji3ob" path="res://images/inklings/inklingBlue.png" id="3_gdwge"]
+[ext_resource type="Texture2D" uid="uid://6oxhhtu0l31o" path="res://images/inklings/squidOrange.png" id="4_78kx5"]
+[ext_resource type="Script" path="res://inkling.gd" id="4_gvmwm"]
+[ext_resource type="Texture2D" uid="uid://7e0oguio4188" path="res://images/inklings/inklingOrange.png" id="5_ufm6f"]
+[ext_resource type="Texture2D" uid="uid://mp4wrsbmxct4" path="res://images/inklings/octopusIndigo.png" id="6_27ja7"]
+[ext_resource type="Texture2D" uid="uid://c7x2mde8yljpn" path="res://images/inklings/squidGreen.png" id="6_h4qqj"]
+[ext_resource type="Texture2D" uid="uid://cuqbtgk1vabu7" path="res://images/inklings/inklingGreen.png" id="7_0hpdw"]
+[ext_resource type="Texture2D" uid="uid://jp0l5y3hktrv" path="res://images/inklings/octolingIndigo.png" id="7_84845"]
+[ext_resource type="Texture2D" uid="uid://biauq02jnrfif" path="res://images/inklings/squidPink.png" id="8_ei5cm"]
+[ext_resource type="Texture2D" uid="uid://bc23kqvu40yo6" path="res://images/inklings/octopusYellow.png" id="8_hnu4r"]
+[ext_resource type="Texture2D" uid="uid://bj2gha7hbei8n" path="res://images/inklings/inklingPink.png" id="9_t76u3"]
+[ext_resource type="Texture2D" uid="uid://c50monnoellba" path="res://images/inklings/octolingYellow.png" id="9_t152r"]
+[ext_resource type="Script" path="res://control.gd" id="10_bnllw"]
+[ext_resource type="Texture2D" uid="uid://s8b0o7811apu" path="res://images/backgrounds/stgMahiMahiResort.png" id="11_yw6t0"]
+[ext_resource type="Script" path="res://grid.gd" id="12_llcda"]
+[ext_resource type="Texture2D" uid="uid://b23ipg2fbon03" path="res://images/ui/borderBlack.png" id="13_vlhnt"]
+[ext_resource type="Theme" uid="uid://eg3500i0esep" path="res://SplatoonMenu.tres" id="14_sallf"]
+[ext_resource type="Texture2D" uid="uid://dun7rpihw7pjm" path="res://images/ui/S3_Lil_Judd.png" id="20_dxnlj"]
+[ext_resource type="Theme" uid="uid://n6w28sgf8enr" path="res://SplatoonScene.tres" id="20_mkp0c"]
+[ext_resource type="Texture2D" uid="uid://djmgh75e60fre" path="res://images/ui/S3_Judd.png" id="21_obsyh"]
+
+[sub_resource type="ButtonGroup" id="ButtonGroup_0md54"]
+resource_name = "Inkling"
+allow_unpress = true
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_kmfsl"]
+bg_color = Color(0.6, 0.6, 0.607843, 0)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0, 0, 0, 1)
+corner_detail = 1
+anti_aliasing = false
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_dc3nj"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0, 0, 0, 1)
+corner_detail = 1
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ucbu0"]
+
+[node name="SplathelloScene" type="Node2D"]
+position = Vector2(0, -4)
+
+[node name="Canvas" type="CanvasLayer" parent="."]
+follow_viewport_scale = 1.77
+
+[node name="TextureRect" type="TextureRect" parent="Canvas"]
+z_index = -1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+mouse_filter = 2
+texture = ExtResource("1_63ae6")
+expand_mode = 5
+
+[node name="MarginContainer" type="MarginContainer" parent="Canvas"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Canvas/MarginContainer"]
+layout_mode = 2
+alignment = 1
+
+[node name="InklingControlLeft" type="Control" parent="Canvas/MarginContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+script = ExtResource("4_gvmwm")
+
+[node name="inklingBlue" type="TextureButton" parent="Canvas/MarginContainer/HBoxContainer/InklingControlLeft" groups=["Inklings"]]
+unique_name_in_owner = true
+z_index = 1
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -182.0
+offset_top = -480.0
+offset_right = 168.0
+offset_bottom = -60.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_default_cursor_shape = 2
+toggle_mode = true
+button_group = SubResource("ButtonGroup_0md54")
+texture_normal = ExtResource("2_nwact")
+texture_pressed = ExtResource("3_gdwge")
+ignore_texture_size = true
+stretch_mode = 5
+flip_h = true
+
+[node name="octolingIndigo" type="TextureButton" parent="Canvas/MarginContainer/HBoxContainer/InklingControlLeft" groups=["Inklings"]]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -175.0
+offset_top = -210.0
+offset_right = 175.0
+offset_bottom = 210.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_default_cursor_shape = 2
+toggle_mode = true
+button_group = SubResource("ButtonGroup_0md54")
+texture_normal = ExtResource("6_27ja7")
+texture_pressed = ExtResource("7_84845")
+ignore_texture_size = true
+stretch_mode = 5
+flip_h = true
+
+[node name="inklingGreen" type="TextureButton" parent="Canvas/MarginContainer/HBoxContainer/InklingControlLeft" groups=["Inklings"]]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -175.0
+offset_top = -20.0
+offset_right = 175.0
+offset_bottom = 400.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_default_cursor_shape = 2
+toggle_mode = true
+button_group = SubResource("ButtonGroup_0md54")
+texture_normal = ExtResource("6_h4qqj")
+texture_pressed = ExtResource("7_0hpdw")
+ignore_texture_size = true
+stretch_mode = 5
+flip_h = true
+
+[node name="HeaderSpacer" type="VBoxContainer" parent="Canvas/MarginContainer/HBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="SplathelloControl" type="Control" parent="Canvas/MarginContainer/HBoxContainer"]
+custom_minimum_size = Vector2(1000, 900)
+layout_mode = 2
+size_flags_horizontal = 6
+size_flags_vertical = 6
+size_flags_stretch_ratio = 1.04
+mouse_filter = 2
+script = ExtResource("10_bnllw")
+
+[node name="ColHeaders" type="HBoxContainer" parent="Canvas/MarginContainer/HBoxContainer/SplathelloControl"]
+unique_name_in_owner = true
+visible = false
+layout_mode = 2
+offset_top = -90.0
+offset_right = 1000.0
+offset_bottom = 10.0
+grow_horizontal = 2
+pivot_offset = Vector2(0, 100)
+size_flags_vertical = 4
+
+[node name="A" type="Label" parent="Canvas/MarginContainer/HBoxContainer/SplathelloControl/ColHeaders" groups=["Headers"]]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 2
+size_flags_horizontal = 3
+theme = ExtResource("14_sallf")
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 0.458824)
+theme_override_constants/shadow_offset_x = 5
+theme_override_constants/shadow_offset_y = 3
+theme_override_font_sizes/font_size = 90
+text = "A"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="B" type="Label" parent="Canvas/MarginContainer/HBoxContainer/SplathelloControl/ColHeaders" groups=["Headers"]]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 2
+size_flags_horizontal = 3
+theme = ExtResource("14_sallf")
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 0.458824)
+theme_override_constants/shadow_offset_x = 5
+theme_override_constants/shadow_offset_y = 3
+theme_override_font_sizes/font_size = 90
+text = "B"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="C" type="Label" parent="Canvas/MarginContainer/HBoxContainer/SplathelloControl/ColHeaders" groups=["Headers"]]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 2
+size_flags_horizontal = 3
+theme = ExtResource("14_sallf")
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 0.458824)
+theme_override_constants/shadow_offset_x = 5
+theme_override_constants/shadow_offset_y = 3
+theme_override_font_sizes/font_size = 90
+text = "C"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="D" type="Label" parent="Canvas/MarginContainer/HBoxContainer/SplathelloControl/ColHeaders" groups=["Headers"]]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 2
+size_flags_horizontal = 3
+theme = ExtResource("14_sallf")
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 0.458824)
+theme_override_constants/shadow_offset_x = 5
+theme_override_constants/shadow_offset_y = 3
+theme_override_font_sizes/font_size = 90
+text = "D"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="E" type="Label" parent="Canvas/MarginContainer/HBoxContainer/SplathelloControl/ColHeaders" groups=["Headers"]]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 2
+size_flags_horizontal = 3
+theme = ExtResource("14_sallf")
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 0.458824)
+theme_override_constants/shadow_offset_x = 5
+theme_override_constants/shadow_offset_y = 3
+theme_override_font_sizes/font_size = 90
+text = "E"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="F" type="Label" parent="Canvas/MarginContainer/HBoxContainer/SplathelloControl/ColHeaders" groups=["Headers"]]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 2
+size_flags_horizontal = 3
+theme = ExtResource("14_sallf")
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 0.458824)
+theme_override_constants/shadow_offset_x = 5
+theme_override_constants/shadow_offset_y = 3
+theme_override_font_sizes/font_size = 90
+text = "F"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="G" type="Label" parent="Canvas/MarginContainer/HBoxContainer/SplathelloControl/ColHeaders" groups=["Headers"]]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 2
+size_flags_horizontal = 3
+theme = ExtResource("14_sallf")
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 0.458824)
+theme_override_constants/shadow_offset_x = 5
+theme_override_constants/shadow_offset_y = 3
+theme_override_font_sizes/font_size = 90
+text = "G"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="H" type="Label" parent="Canvas/MarginContainer/HBoxContainer/SplathelloControl/ColHeaders" groups=["Headers"]]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 2
+size_flags_horizontal = 3
+theme = ExtResource("14_sallf")
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 0.458824)
+theme_override_constants/shadow_offset_x = 5
+theme_override_constants/shadow_offset_y = 3
+theme_override_font_sizes/font_size = 90
+text = "H"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="RowHeaders" type="VBoxContainer" parent="Canvas/MarginContainer/HBoxContainer/SplathelloControl"]
+unique_name_in_owner = true
+visible = false
+layout_mode = 1
+anchors_preset = 9
+anchor_bottom = 1.0
+offset_left = -90.0
+offset_right = 10.0
+grow_vertical = 2
+
+[node name="1" type="Label" parent="Canvas/MarginContainer/HBoxContainer/SplathelloControl/RowHeaders" groups=["Headers"]]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 2
+size_flags_vertical = 3
+theme = ExtResource("14_sallf")
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 0.458824)
+theme_override_constants/shadow_offset_x = 5
+theme_override_constants/shadow_offset_y = 3
+theme_override_font_sizes/font_size = 90
+text = "1"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="2" type="Label" parent="Canvas/MarginContainer/HBoxContainer/SplathelloControl/RowHeaders" groups=["Headers"]]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 2
+size_flags_vertical = 3
+theme = ExtResource("14_sallf")
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 0.458824)
+theme_override_constants/shadow_offset_x = 5
+theme_override_constants/shadow_offset_y = 3
+theme_override_font_sizes/font_size = 90
+text = "2"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="3" type="Label" parent="Canvas/MarginContainer/HBoxContainer/SplathelloControl/RowHeaders" groups=["Headers"]]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 2
+size_flags_vertical = 3
+theme = ExtResource("14_sallf")
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 0.458824)
+theme_override_constants/shadow_offset_x = 5
+theme_override_constants/shadow_offset_y = 3
+theme_override_font_sizes/font_size = 90
+text = "3"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="4" type="Label" parent="Canvas/MarginContainer/HBoxContainer/SplathelloControl/RowHeaders" groups=["Headers"]]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 2
+size_flags_vertical = 3
+theme = ExtResource("14_sallf")
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 0.458824)
+theme_override_constants/shadow_offset_x = 5
+theme_override_constants/shadow_offset_y = 3
+theme_override_font_sizes/font_size = 90
+text = "4"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="5" type="Label" parent="Canvas/MarginContainer/HBoxContainer/SplathelloControl/RowHeaders" groups=["Headers"]]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 2
+size_flags_vertical = 3
+theme = ExtResource("14_sallf")
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 0.458824)
+theme_override_constants/shadow_offset_x = 5
+theme_override_constants/shadow_offset_y = 3
+theme_override_font_sizes/font_size = 90
+text = "5"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="6" type="Label" parent="Canvas/MarginContainer/HBoxContainer/SplathelloControl/RowHeaders" groups=["Headers"]]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 2
+size_flags_vertical = 3
+theme = ExtResource("14_sallf")
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 0.458824)
+theme_override_constants/shadow_offset_x = 5
+theme_override_constants/shadow_offset_y = 3
+theme_override_font_sizes/font_size = 90
+text = "6"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="7" type="Label" parent="Canvas/MarginContainer/HBoxContainer/SplathelloControl/RowHeaders" groups=["Headers"]]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 2
+size_flags_vertical = 3
+theme = ExtResource("14_sallf")
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 0.458824)
+theme_override_constants/shadow_offset_x = 5
+theme_override_constants/shadow_offset_y = 3
+theme_override_font_sizes/font_size = 90
+text = "7"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="8" type="Label" parent="Canvas/MarginContainer/HBoxContainer/SplathelloControl/RowHeaders" groups=["Headers"]]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 2
+size_flags_vertical = 3
+theme = ExtResource("14_sallf")
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 0.458824)
+theme_override_constants/shadow_offset_x = 5
+theme_override_constants/shadow_offset_y = 3
+theme_override_font_sizes/font_size = 90
+text = "8"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="StageBG" type="TextureRect" parent="Canvas/MarginContainer/HBoxContainer/SplathelloControl"]
+unique_name_in_owner = true
+clip_contents = true
+custom_minimum_size = Vector2(500, 500)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("11_yw6t0")
+expand_mode = 1
+stretch_mode = 6
+
+[node name="Grid" type="GridContainer" parent="Canvas/MarginContainer/HBoxContainer/SplathelloControl"]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_constants/h_separation = 0
+theme_override_constants/v_separation = 0
+columns = 8
+script = ExtResource("12_llcda")
+
+[node name="Square1" type="Button" parent="Canvas/MarginContainer/HBoxContainer/SplathelloControl/Grid"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_styles/normal = SubResource("StyleBoxFlat_kmfsl")
+
+[node name="Square2" type="Button" parent="Canvas/MarginContainer/HBoxContainer/SplathelloControl/Grid"]
+self_modulate = Color(1, 1, 1, 0.109804)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_styles/normal = SubResource("StyleBoxFlat_dc3nj")
+
+[node name="Square3" type="Button" parent="Canvas/MarginContainer/HBoxContainer/SplathelloControl/Grid"]
+self_modulate = Color(1, 1, 1, 0.109804)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Square4" type="Button" parent="Canvas/MarginContainer/HBoxContainer/SplathelloControl/Grid"]
+self_modulate = Color(1, 1, 1, 0.109804)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Square5" type="Button" parent="Canvas/MarginContainer/HBoxContainer/SplathelloControl/Grid"]
+self_modulate = Color(1, 1, 1, 0.109804)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Square6" type="Button" parent="Canvas/MarginContainer/HBoxContainer/SplathelloControl/Grid"]
+self_modulate = Color(1, 1, 1, 0.109804)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Square7" type="Button" parent="Canvas/MarginContainer/HBoxContainer/SplathelloControl/Grid"]
+self_modulate = Color(1, 1, 1, 0.109804)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Square8" type="Button" parent="Canvas/MarginContainer/HBoxContainer/SplathelloControl/Grid"]
+self_modulate = Color(1, 1, 1, 0.109804)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Square9" type="Button" parent="Canvas/MarginContainer/HBoxContainer/SplathelloControl/Grid"]
+self_modulate = Color(1, 1, 1, 0.109804)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Square10" type="Button" parent="Canvas/MarginContainer/HBoxContainer/SplathelloControl/Grid"]
+self_modulate = Color(1, 1, 1, 0.109804)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Square11" type="Button" parent="Canvas/MarginContainer/HBoxContainer/SplathelloControl/Grid"]
+self_modulate = Color(1, 1, 1, 0.109804)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Square12" type="Button" parent="Canvas/MarginContainer/HBoxContainer/SplathelloControl/Grid"]
+self_modulate = Color(1, 1, 1, 0.109804)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Square13" type="Button" parent="Canvas/MarginContainer/HBoxContainer/SplathelloControl/Grid"]
+self_modulate = Color(1, 1, 1, 0.109804)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Square14" type="Button" parent="Canvas/MarginContainer/HBoxContainer/SplathelloControl/Grid"]
+self_modulate = Color(1, 1, 1, 0.109804)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Square15" type="Button" parent="Canvas/MarginContainer/HBoxContainer/SplathelloControl/Grid"]
+self_modulate = Color(1, 1, 1, 0.109804)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Square16" type="Button" parent="Canvas/MarginContainer/HBoxContainer/SplathelloControl/Grid"]
+self_modulate = Color(1, 1, 1, 0.109804)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Square17" type="Button" parent="Canvas/MarginContainer/HBoxContainer/SplathelloControl/Grid"]
+self_modulate = Color(1, 1, 1, 0.109804)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Square18" type="Button" parent="Canvas/MarginContainer/HBoxContainer/SplathelloControl/Grid"]
+self_modulate = Color(1, 1, 1, 0.109804)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Square19" type="Button" parent="Canvas/MarginContainer/HBoxContainer/SplathelloControl/Grid"]
+self_modulate = Color(1, 1, 1, 0.109804)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Square20" type="Button" parent="Canvas/MarginContainer/HBoxContainer/SplathelloControl/Grid"]
+self_modulate = Color(1, 1, 1, 0.109804)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Square21" type="Button" parent="Canvas/MarginContainer/HBoxContainer/SplathelloControl/Grid"]
+self_modulate = Color(1, 1, 1, 0.109804)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Square22" type="Button" parent="Canvas/MarginContainer/HBoxContainer/SplathelloControl/Grid"]
+self_modulate = Color(1, 1, 1, 0.109804)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Square23" type="Button" parent="Canvas/MarginContainer/HBoxContainer/SplathelloControl/Grid"]
+self_modulate = Color(1, 1, 1, 0.109804)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Square24" type="Button" parent="Canvas/MarginContainer/HBoxContainer/SplathelloControl/Grid"]
+self_modulate = Color(1, 1, 1, 0.109804)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Square25" type="Button" parent="Canvas/MarginContainer/HBoxContainer/SplathelloControl/Grid"]
+self_modulate = Color(1, 1, 1, 0.109804)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Square26" type="Button" parent="Canvas/MarginContainer/HBoxContainer/SplathelloControl/Grid"]
+self_modulate = Color(1, 1, 1, 0.109804)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Square27" type="Button" parent="Canvas/MarginContainer/HBoxContainer/SplathelloControl/Grid"]
+self_modulate = Color(1, 1, 1, 0.109804)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Square28" type="Button" parent="Canvas/MarginContainer/HBoxContainer/SplathelloControl/Grid"]
+self_modulate = Color(1, 1, 1, 0.109804)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Square29" type="Button" parent="Canvas/MarginContainer/HBoxContainer/SplathelloControl/Grid"]
+self_modulate = Color(1, 1, 1, 0.109804)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Square30" type="Button" parent="Canvas/MarginContainer/HBoxContainer/SplathelloControl/Grid"]
+self_modulate = Color(1, 1, 1, 0.109804)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Square31" type="Button" parent="Canvas/MarginContainer/HBoxContainer/SplathelloControl/Grid"]
+self_modulate = Color(1, 1, 1, 0.109804)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Square32" type="Button" parent="Canvas/MarginContainer/HBoxContainer/SplathelloControl/Grid"]
+self_modulate = Color(1, 1, 1, 0.109804)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Square33" type="Button" parent="Canvas/MarginContainer/HBoxContainer/SplathelloControl/Grid"]
+self_modulate = Color(1, 1, 1, 0.109804)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Square34" type="Button" parent="Canvas/MarginContainer/HBoxContainer/SplathelloControl/Grid"]
+self_modulate = Color(1, 1, 1, 0.109804)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Square35" type="Button" parent="Canvas/MarginContainer/HBoxContainer/SplathelloControl/Grid"]
+self_modulate = Color(1, 1, 1, 0.109804)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Square36" type="Button" parent="Canvas/MarginContainer/HBoxContainer/SplathelloControl/Grid"]
+self_modulate = Color(1, 1, 1, 0.109804)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="NinePatchRect" type="NinePatchRect" parent="Canvas/MarginContainer/HBoxContainer/SplathelloControl"]
+texture_filter = 1
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("13_vlhnt")
+region_rect = Rect2(0, 0, 16, 16)
+patch_margin_left = 2
+patch_margin_top = 14
+patch_margin_right = 2
+patch_margin_bottom = 14
+
+[node name="InklingControlRight" type="Control" parent="Canvas/MarginContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.9
+script = ExtResource("4_gvmwm")
+
+[node name="inklingOrange" type="TextureButton" parent="Canvas/MarginContainer/HBoxContainer/InklingControlRight" groups=["Inklings"]]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -171.5
+offset_top = -480.0
+offset_right = 178.5
+offset_bottom = -60.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_default_cursor_shape = 2
+toggle_mode = true
+button_group = SubResource("ButtonGroup_0md54")
+texture_normal = ExtResource("4_78kx5")
+texture_pressed = ExtResource("5_ufm6f")
+ignore_texture_size = true
+stretch_mode = 5
+
+[node name="octolingYellow" type="TextureButton" parent="Canvas/MarginContainer/HBoxContainer/InklingControlRight" groups=["Inklings"]]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -175.5
+offset_top = -210.0
+offset_right = 174.5
+offset_bottom = 210.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_default_cursor_shape = 2
+toggle_mode = true
+button_group = SubResource("ButtonGroup_0md54")
+texture_normal = ExtResource("8_hnu4r")
+texture_pressed = ExtResource("9_t152r")
+ignore_texture_size = true
+stretch_mode = 5
+
+[node name="inklingPink" type="TextureButton" parent="Canvas/MarginContainer/HBoxContainer/InklingControlRight" groups=["Inklings"]]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -175.0
+offset_top = -20.0
+offset_right = 175.0
+offset_bottom = 400.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_default_cursor_shape = 2
+toggle_mode = true
+button_group = SubResource("ButtonGroup_0md54")
+texture_normal = ExtResource("8_ei5cm")
+texture_pressed = ExtResource("9_t76u3")
+ignore_texture_size = true
+stretch_mode = 5
+
+[node name="Options" type="Button" parent="Canvas"]
+custom_minimum_size = Vector2(100, 50)
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -197.0
+offset_bottom = 58.0
+grow_horizontal = 0
+mouse_default_cursor_shape = 2
+theme = ExtResource("20_mkp0c")
+theme_override_colors/font_color = Color(0, 0, 0, 0)
+theme_override_font_sizes/font_size = 75
+theme_override_styles/focus = SubResource("StyleBoxEmpty_ucbu0")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_ucbu0")
+theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxEmpty_ucbu0")
+theme_override_styles/hover_pressed = SubResource("StyleBoxEmpty_ucbu0")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_ucbu0")
+text = "Options"
+flat = true
+
+[node name="Label" type="Label" parent="Canvas/Options"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -146.0
+offset_top = -41.5
+offset_right = 138.0
+offset_bottom = 33.5
+grow_horizontal = 2
+grow_vertical = 2
+mouse_default_cursor_shape = 2
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 0.419608)
+theme_override_constants/shadow_offset_x = 2
+theme_override_constants/shadow_offset_y = 3
+theme_override_font_sizes/font_size = 75
+text = "Options"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Undo" type="Button" parent="Canvas"]
+custom_minimum_size = Vector2(100, 50)
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -160.0
+offset_right = 288.0
+grow_vertical = 0
+mouse_default_cursor_shape = 2
+theme = ExtResource("20_mkp0c")
+theme_override_colors/font_color = Color(0, 0, 0, 0)
+theme_override_font_sizes/font_size = 75
+theme_override_styles/focus = SubResource("StyleBoxEmpty_ucbu0")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_ucbu0")
+theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxEmpty_ucbu0")
+theme_override_styles/hover_pressed = SubResource("StyleBoxEmpty_ucbu0")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_ucbu0")
+flat = true
+
+[node name="TextureRect" type="TextureRect" parent="Canvas/Undo"]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -170.0
+offset_right = 240.0
+grow_vertical = 0
+texture = ExtResource("20_dxnlj")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="Label" type="Label" parent="Canvas/Undo"]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -75.0
+offset_right = 284.0
+grow_vertical = 0
+mouse_default_cursor_shape = 2
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 0.419608)
+theme_override_constants/shadow_offset_x = 2
+theme_override_constants/shadow_offset_y = 3
+theme_override_font_sizes/font_size = 75
+text = "Undo"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Reset" type="Button" parent="Canvas"]
+custom_minimum_size = Vector2(100, 50)
+offset_right = 262.0
+offset_bottom = 74.0
+mouse_default_cursor_shape = 2
+theme = ExtResource("20_mkp0c")
+theme_override_colors/font_color = Color(0, 0, 0, 0)
+theme_override_font_sizes/font_size = 75
+theme_override_styles/focus = SubResource("StyleBoxEmpty_ucbu0")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_ucbu0")
+theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxEmpty_ucbu0")
+theme_override_styles/hover_pressed = SubResource("StyleBoxEmpty_ucbu0")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_ucbu0")
+flat = true
+
+[node name="Label" type="Label" parent="Canvas/Reset"]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -284.0
+offset_top = -75.0
+grow_horizontal = 0
+grow_vertical = 0
+mouse_default_cursor_shape = 2
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 0.419608)
+theme_override_constants/shadow_offset_x = 2
+theme_override_constants/shadow_offset_y = 3
+theme_override_font_sizes/font_size = 75
+text = "Reset"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Finish" type="Button" parent="Canvas"]
+custom_minimum_size = Vector2(100, 50)
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -284.0
+offset_top = -160.0
+grow_horizontal = 0
+grow_vertical = 0
+mouse_default_cursor_shape = 2
+theme = ExtResource("20_mkp0c")
+theme_override_colors/font_color = Color(0, 0, 0, 0)
+theme_override_font_sizes/font_size = 75
+theme_override_styles/focus = SubResource("StyleBoxEmpty_ucbu0")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_ucbu0")
+theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxEmpty_ucbu0")
+theme_override_styles/hover_pressed = SubResource("StyleBoxEmpty_ucbu0")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_ucbu0")
+flat = true
+
+[node name="TextureRect" type="TextureRect" parent="Canvas/Finish"]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -300.0
+offset_top = -170.0
+grow_horizontal = 0
+grow_vertical = 0
+texture = ExtResource("21_obsyh")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="Label" type="Label" parent="Canvas/Finish"]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -284.0
+offset_top = -75.0
+grow_horizontal = 0
+grow_vertical = 0
+mouse_default_cursor_shape = 2
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 0.419608)
+theme_override_constants/shadow_offset_x = 2
+theme_override_constants/shadow_offset_y = 3
+theme_override_font_sizes/font_size = 75
+text = "Finish"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="PanelContainer" type="PanelContainer" parent="Canvas"]
+visible = false
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -416.0
+offset_top = -180.0
+offset_right = 416.0
+offset_bottom = 156.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ConfirmationDialog" type="ConfirmationDialog" parent="Canvas/PanelContainer"]
+title = "Board Reset"
+initial_position = 1
+size = Vector2i(812, 300)
+unresizable = true
+popup_window = true
+min_size = Vector2i(500, 300)
+theme = ExtResource("14_sallf")
+dialog_text = "The board will reset. 
+Do you want to continue?"
+dialog_hide_on_ok = false
+dialog_autowrap = true
+
+[connection signal="pressed" from="Canvas/MarginContainer/HBoxContainer/InklingControlLeft/inklingBlue" to="Canvas/MarginContainer/HBoxContainer/InklingControlLeft" method="set_currentColor" binds= ["blue"]]
+[connection signal="pressed" from="Canvas/MarginContainer/HBoxContainer/InklingControlLeft/octolingIndigo" to="Canvas/MarginContainer/HBoxContainer/InklingControlLeft" method="set_currentColor" binds= ["indigo"]]
+[connection signal="pressed" from="Canvas/MarginContainer/HBoxContainer/InklingControlLeft/inklingGreen" to="Canvas/MarginContainer/HBoxContainer/InklingControlLeft" method="set_currentColor" binds= ["green"]]
+[connection signal="pressed" from="Canvas/MarginContainer/HBoxContainer/InklingControlRight/inklingOrange" to="Canvas/MarginContainer/HBoxContainer/InklingControlRight" method="set_currentColor" binds= ["orange"]]
+[connection signal="pressed" from="Canvas/MarginContainer/HBoxContainer/InklingControlRight/octolingYellow" to="Canvas/MarginContainer/HBoxContainer/InklingControlRight" method="set_currentColor" binds= ["yellow"]]
+[connection signal="pressed" from="Canvas/MarginContainer/HBoxContainer/InklingControlRight/inklingPink" to="Canvas/MarginContainer/HBoxContainer/InklingControlRight" method="set_currentColor" binds= ["pink"]]
+[connection signal="pressed" from="Canvas/Options" to="Canvas/MarginContainer/HBoxContainer/SplathelloControl" method="_open_menu"]
+[connection signal="pressed" from="Canvas/Undo" to="Canvas/MarginContainer/HBoxContainer/SplathelloControl/Grid" method="_undo"]
+[connection signal="pressed" from="Canvas/Reset" to="Canvas/MarginContainer/HBoxContainer/SplathelloControl/Grid" method="_reset"]
+[connection signal="pressed" from="Canvas/Finish" to="Canvas/MarginContainer/HBoxContainer/SplathelloControl" method="_open_results"]
+[connection signal="confirmed" from="Canvas/PanelContainer/ConfirmationDialog" to="Canvas/MarginContainer/HBoxContainer/SplathelloControl" method="_open_menu"]

@@ -1,0 +1,87 @@
+[gd_scene load_steps=9 format=3 uid="uid://doheypyu2xpb8"]
+
+[ext_resource type="Script" path="res://main.gd" id="1_kamqe"]
+[ext_resource type="Texture2D" uid="uid://bpkbtg3u27ew3" path="res://images/backgrounds/Splatoon bg gray w splats.jpg" id="2_eolkh"]
+[ext_resource type="FontFile" uid="uid://c6q5fxilcyn00" path="res://Project Paintball Display.ttf" id="3_bqql8"]
+[ext_resource type="Theme" uid="uid://eg3500i0esep" path="res://SplatoonMenu.tres" id="4_675sg"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_tcjlk"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_d1gbf"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_y8yfi"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ktpv0"]
+
+[node name="Main" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_kamqe")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_eolkh")
+expand_mode = 2
+
+[node name="btnSplathello" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = 14
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_top = -126.0
+offset_bottom = 96.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_default_cursor_shape = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 15
+theme_override_fonts/font = ExtResource("3_bqql8")
+theme_override_font_sizes/font_size = 200
+theme_override_styles/focus = SubResource("StyleBoxEmpty_tcjlk")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_d1gbf")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_y8yfi")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_ktpv0")
+
+[node name="Label" type="RichTextLabel" parent="btnSplathello"]
+custom_minimum_size = Vector2(300, 250)
+layout_mode = 1
+anchors_preset = 14
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+theme = ExtResource("4_675sg")
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_colors/font_shadow_color = Color(0, 1, 0, 1)
+theme_override_constants/outline_size = 50
+theme_override_constants/shadow_offset_y = 3
+theme_override_constants/shadow_offset_x = 3
+theme_override_constants/shadow_outline_size = 65
+theme_override_font_sizes/normal_font_size = 250
+bbcode_enabled = true
+text = "[center]Splathello[/center]"
+
+[node name="btnQuit" type="Button" parent="."]
+visible = false
+layout_mode = 0
+offset_left = 848.0
+offset_top = 725.0
+offset_right = 1043.0
+offset_bottom = 829.0
+text = "Quit"
+
+[connection signal="pressed" from="btnSplathello" to="." method="_on_btn_play_pressed"]
+[connection signal="pressed" from="btnQuit" to="." method="_on_btn_quit_pressed"]
