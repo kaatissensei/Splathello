@@ -821,6 +821,41 @@ vertical_alignment = 1
 
 [node name="Reset" type="Button" parent="Canvas"]
 custom_minimum_size = Vector2(100, 50)
+offset_right = 262.0
+offset_bottom = 74.0
+mouse_default_cursor_shape = 2
+theme = ExtResource("20_mkp0c")
+theme_override_colors/font_color = Color(0, 0, 0, 0)
+theme_override_font_sizes/font_size = 75
+theme_override_styles/focus = SubResource("StyleBoxEmpty_ucbu0")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_ucbu0")
+theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxEmpty_ucbu0")
+theme_override_styles/hover_pressed = SubResource("StyleBoxEmpty_ucbu0")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_ucbu0")
+flat = true
+
+[node name="Label" type="Label" parent="Canvas/Reset"]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -284.0
+offset_top = -75.0
+grow_horizontal = 0
+grow_vertical = 0
+mouse_default_cursor_shape = 2
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 0.419608)
+theme_override_constants/shadow_offset_x = 2
+theme_override_constants/shadow_offset_y = 3
+theme_override_font_sizes/font_size = 75
+text = "Reset"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Finish" type="Button" parent="Canvas"]
+custom_minimum_size = Vector2(100, 50)
 anchors_preset = 3
 anchor_left = 1.0
 anchor_top = 1.0
@@ -841,7 +876,7 @@ theme_override_styles/hover_pressed = SubResource("StyleBoxEmpty_ucbu0")
 theme_override_styles/pressed = SubResource("StyleBoxEmpty_ucbu0")
 flat = true
 
-[node name="TextureRect" type="TextureRect" parent="Canvas/Reset"]
+[node name="TextureRect" type="TextureRect" parent="Canvas/Finish"]
 layout_mode = 1
 anchors_preset = 3
 anchor_left = 1.0
@@ -856,7 +891,7 @@ texture = ExtResource("21_obsyh")
 expand_mode = 1
 stretch_mode = 5
 
-[node name="Label" type="Label" parent="Canvas/Reset"]
+[node name="Label" type="Label" parent="Canvas/Finish"]
 layout_mode = 1
 anchors_preset = 3
 anchor_left = 1.0
@@ -872,7 +907,7 @@ theme_override_colors/font_shadow_color = Color(0, 0, 0, 0.419608)
 theme_override_constants/shadow_offset_x = 2
 theme_override_constants/shadow_offset_y = 3
 theme_override_font_sizes/font_size = 75
-text = "Reset"
+text = "Finish"
 horizontal_alignment = 1
 vertical_alignment = 1
 
@@ -912,4 +947,5 @@ dialog_autowrap = true
 [connection signal="pressed" from="Canvas/Options" to="Canvas/MarginContainer/HBoxContainer/SplathelloControl" method="_open_menu"]
 [connection signal="pressed" from="Canvas/Undo" to="Canvas/MarginContainer/HBoxContainer/SplathelloControl/Grid" method="_undo"]
 [connection signal="pressed" from="Canvas/Reset" to="Canvas/MarginContainer/HBoxContainer/SplathelloControl/Grid" method="_reset"]
+[connection signal="pressed" from="Canvas/Finish" to="Canvas/MarginContainer/HBoxContainer/SplathelloControl" method="_open_results"]
 [connection signal="confirmed" from="Canvas/PanelContainer/ConfirmationDialog" to="Canvas/MarginContainer/HBoxContainer/SplathelloControl" method="_open_menu"]
