@@ -16,6 +16,7 @@ var coloredSquareCount #How many squares are left
 var gridSize #Number of rows/columns
 var newGame #bool to trigger board reset
 var startingPieces #bool for inital placement of tiles (Othello)
+var scores = [4] #4 players' scores
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:

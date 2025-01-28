@@ -161,7 +161,10 @@ func _capture_square(r, c, color = "blue", undo = false) -> void: #used to color
 		btn.add_theme_stylebox_override("hover_pressed", resetStyle)
 		_show_grid_text(btn)
 	else:
-		style.bg_color = Splathello.get_rgb(color)
+		var inkRGB = Splathello.get_rgb(color)
+		style.border_color = Color8(inkRGB.r8 - 15, inkRGB.g8 - 15, inkRGB.b8 - 15)
+		style.set_border_width_all(1)
+		style.bg_color = inkRGB# - Color8(15,15,15)
 		btn.add_theme_stylebox_override("normal", style)
 		btn.add_theme_stylebox_override("hover", style)
 		btn.add_theme_stylebox_override("pressed", style)

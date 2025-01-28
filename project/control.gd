@@ -9,6 +9,9 @@ func _ready() -> void:
 func _open_menu() -> void:
 	get_tree().change_scene_to_file("res://splathelloMenu.tscn")
 
+func _open_results():
+	get_tree().change_scene_to_file("res://Results.tscn")
+	
 func _set_stage_texture():
 	var stageName = Splathello.currentStage
 	var stageTexture = load('res://images/backgrounds/%s.png' % [stageName])
