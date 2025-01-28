@@ -17,6 +17,7 @@ script = ExtResource("1_7pu51")
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
 [node name="TextureRect" type="TextureRect" parent="CanvasLayer"]
+visible = false
 self_modulate = Color(1, 1, 1, 0.364706)
 anchors_preset = 15
 anchor_right = 1.0
@@ -29,6 +30,14 @@ theme = SubResource("Theme_rchad")
 texture = ExtResource("2_bja2n")
 expand_mode = 1
 stretch_mode = 5
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.517647)
 
 [node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer"]
 anchors_preset = 12
@@ -140,9 +149,10 @@ vertical_alignment = 1
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
-offset_left = -287.0
-offset_right = 287.0
-offset_bottom = 359.0
+offset_left = -284.0
+offset_top = 13.0
+offset_right = 290.0
+offset_bottom = 372.0
 grow_horizontal = 2
 texture = ExtResource("8_6k4vx")
 expand_mode = 1
