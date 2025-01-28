@@ -45,4 +45,3 @@ func _displayScore(pNum):
 			%P4_score.text = str(p4Score)
 		_:
 			pass
-
