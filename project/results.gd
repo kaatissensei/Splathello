@@ -1,20 +1,13 @@
 extends Node2D
 
-var p1Score
-var p2Score
-var p3Score
-var p4Score
+var scores = [6] #B O G P I Y
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	%P1_score.text = "?"
-	%P2_score.text = "?"
-	%P3_score.text = "?"
-	%P4_score.text = "?"
-	p1Score = 0
-	p2Score = 0
-	p3Score = 0
-	p4Score = 0
+	for score in get_tree().get_nodes_in_group("scoreText"):
+		score.text = "?"
+	scores = [0,0,0,0,0,0]
+	set_inkling_visibility()
 	tally_scores()
 	
 func tally_scores():
@@ -22,30 +15,86 @@ func tally_scores():
 		for r in c:
 			match r:		#TEMP This will work differently for 2P
 				"blue":
-					p1Score += 1
+					scores[0] += 1
 				"orange":
-					p2Score += 1
+					scores[1] += 1
 				"green":
-					p3Score += 1
+					scores[2] += 1
 				"pink":
-					p4Score += 1
+					scores[3] += 1
+				"indigo":
+					scores[4] += 1
+				"yellow":
+					scores[5] += 1
 				_:
 					pass
 		
 
-func _displayScore(pNum):
-	match pNum:
-		1:
-			%P1_score.text = str(p1Score)
-		2:
-			%P2_score.text = str(p2Score)
-		3:
-			%P3_score.text = str(p3Score)
-		4:
-			%P4_score.text = str(p4Score)
+func _displayScore(pColor):
+	match pColor:
+		"Blue":
+			%Blue_score.text = str(scores[0])
+		"Orange":
+			%Orange_score.text = str(scores[1])
+		"Green":
+			%Green_score.text = str(scores[2])
+		"Pink":
+			%Pink_score.text = str(scores[3])
+		"Indigo":
+			%Indigo_score.text = str(scores[4])
+		"Yellow":
+			%Yellow_score.text = str(scores[5])
 		_:
 			pass
 
+func set_inkling_visibility():
+	#Set all visible
+	for inkling in get_tree().get_nodes_in_group("scoreInkling"):
+		inkling.visible = false
+	for text in get_tree().get_nodes_in_group("scoreText"):
+		text.visible = false
+		
+	if Splathello.numPlayers == 4: #There are so many better ways to do this, but oh well
+		update_visible("blue", true)
+		update_visible("orange", true)
+		update_visible("green", true)
+		update_visible("pink", true)
+		
+	else: #if 2
+		print(Splathello.playerColors)
+		match Splathello.playerColors:
+			1:
+				update_visible("green")
+				update_visible("pink")
+			2:
+				update_visible("indigo")
+				update_visible("yellow")
+			_:
+				update_visible("blue")
+				update_visible("orange")
+
+func update_visible(color, tf = true):
+	match color:
+		"blue":
+			%InklingBlue.visible = tf
+			%BlueScore.visible = tf
+		"orange":
+			%InklingOrange.visible = tf
+			%OrangeScore.visible = tf
+		"green":
+			%InklingGreen.visible = tf
+			%GreenScore.visible = tf
+		"pink":
+			%InklingPink.visible = tf
+			%PinkScore.visible = tf
+		"indigo":
+			%OctolingIndigo.visible = tf
+			%IndigoScore.visible = tf
+		"yellow":
+			%OctolingYellow.visible = tf
+			%YellowScore.visible = tf
+			
+	
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _delete_self():
 	queue_free()

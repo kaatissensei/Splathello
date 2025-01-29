@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://clcphvmknthxc"]
+[gd_scene load_steps=14 format=3 uid="uid://clcphvmknthxc"]
 
 [ext_resource type="Script" path="res://results.gd" id="1_7pu51"]
 [ext_resource type="Texture2D" uid="uid://bpkbtg3u27ew3" path="res://images/backgrounds/Splatoon bg gray w splats.jpg" id="2_bja2n"]
@@ -7,7 +7,9 @@
 [ext_resource type="Texture2D" uid="uid://cuqbtgk1vabu7" path="res://images/inklings/inklingGreen.png" id="5_aa71g"]
 [ext_resource type="Texture2D" uid="uid://bj2gha7hbei8n" path="res://images/inklings/inklingPink.png" id="6_ydopw"]
 [ext_resource type="Theme" uid="uid://eg3500i0esep" path="res://SplatoonMenu.tres" id="7_h4u5m"]
+[ext_resource type="Texture2D" uid="uid://jp0l5y3hktrv" path="res://images/inklings/octolingIndigo.png" id="7_j1xqw"]
 [ext_resource type="Texture2D" uid="uid://djmgh75e60fre" path="res://images/ui/S3_Judd.png" id="8_6k4vx"]
+[ext_resource type="Texture2D" uid="uid://c50monnoellba" path="res://images/inklings/octolingYellow.png" id="8_svtt1"]
 [ext_resource type="Theme" uid="uid://n6w28sgf8enr" path="res://SplatoonScene.tres" id="9_fnheh"]
 
 [sub_resource type="Theme" id="Theme_rchad"]
@@ -50,35 +52,62 @@ anchor_bottom = 1.0
 offset_top = -359.0
 grow_horizontal = 2
 grow_vertical = 0
-size_flags_horizontal = 3
 theme_override_constants/separation = 150
 alignment = 1
 
-[node name="Inkling" type="TextureButton" parent="CanvasLayer/HBoxContainer"]
+[node name="InklingBlue" type="TextureButton" parent="CanvasLayer/HBoxContainer" groups=["scoreInkling"]]
+unique_name_in_owner = true
 custom_minimum_size = Vector2(300, 300)
 layout_mode = 2
+size_flags_horizontal = 6
 texture_normal = ExtResource("3_dngeg")
 ignore_texture_size = true
 stretch_mode = 0
 
-[node name="Inkling2" type="TextureButton" parent="CanvasLayer/HBoxContainer"]
+[node name="InklingOrange" type="TextureButton" parent="CanvasLayer/HBoxContainer" groups=["scoreInkling"]]
+unique_name_in_owner = true
 custom_minimum_size = Vector2(300, 300)
 layout_mode = 2
+size_flags_horizontal = 6
 texture_normal = ExtResource("4_7uvmg")
 ignore_texture_size = true
 stretch_mode = 0
 
-[node name="Inkling3" type="TextureButton" parent="CanvasLayer/HBoxContainer"]
+[node name="InklingGreen" type="TextureButton" parent="CanvasLayer/HBoxContainer" groups=["scoreInkling"]]
+unique_name_in_owner = true
 custom_minimum_size = Vector2(300, 300)
 layout_mode = 2
+size_flags_horizontal = 6
 texture_normal = ExtResource("5_aa71g")
 ignore_texture_size = true
 stretch_mode = 0
 
-[node name="Inkling4" type="TextureButton" parent="CanvasLayer/HBoxContainer"]
+[node name="InklingPink" type="TextureButton" parent="CanvasLayer/HBoxContainer" groups=["scoreInkling"]]
+unique_name_in_owner = true
 custom_minimum_size = Vector2(300, 300)
 layout_mode = 2
+size_flags_horizontal = 6
 texture_normal = ExtResource("6_ydopw")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="OctolingIndigo" type="TextureButton" parent="CanvasLayer/HBoxContainer" groups=["scoreInkling"]]
+unique_name_in_owner = true
+visible = false
+custom_minimum_size = Vector2(300, 300)
+layout_mode = 2
+size_flags_horizontal = 6
+texture_normal = ExtResource("7_j1xqw")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="OctolingYellow" type="TextureButton" parent="CanvasLayer/HBoxContainer" groups=["scoreInkling"]]
+unique_name_in_owner = true
+visible = false
+custom_minimum_size = Vector2(300, 300)
+layout_mode = 2
+size_flags_horizontal = 6
+texture_normal = ExtResource("8_svtt1")
 ignore_texture_size = true
 stretch_mode = 0
 
@@ -100,7 +129,7 @@ alignment = 1
 visible = false
 layout_mode = 2
 
-[node name="P1_score" type="Label" parent="CanvasLayer/HBoxContainer2"]
+[node name="BlueScore" type="Label" parent="CanvasLayer/HBoxContainer2" groups=["scoreText"]]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3
@@ -112,7 +141,7 @@ text = "35"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="P2_score" type="Label" parent="CanvasLayer/HBoxContainer2"]
+[node name="OrangeScore" type="Label" parent="CanvasLayer/HBoxContainer2" groups=["scoreText"]]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3
@@ -124,7 +153,7 @@ text = "35"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="P3_score" type="Label" parent="CanvasLayer/HBoxContainer2"]
+[node name="GreenScore" type="Label" parent="CanvasLayer/HBoxContainer2" groups=["scoreText"]]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3
@@ -136,12 +165,38 @@ text = "35"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="P4_score" type="Label" parent="CanvasLayer/HBoxContainer2"]
+[node name="PinkScore" type="Label" parent="CanvasLayer/HBoxContainer2" groups=["scoreText"]]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3
 theme = ExtResource("7_h4u5m")
 theme_override_colors/font_outline_color = Color(0.972549, 0.356863, 0.752941, 1)
+theme_override_constants/outline_size = 70
+theme_override_font_sizes/font_size = 300
+text = "35"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="IndigoScore" type="Label" parent="CanvasLayer/HBoxContainer2" groups=["scoreText"]]
+unique_name_in_owner = true
+visible = false
+layout_mode = 2
+size_flags_horizontal = 3
+theme = ExtResource("7_h4u5m")
+theme_override_colors/font_outline_color = Color(0.294118, 0.243137, 0.74902, 1)
+theme_override_constants/outline_size = 70
+theme_override_font_sizes/font_size = 300
+text = "35"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="YellowScore" type="Label" parent="CanvasLayer/HBoxContainer2" groups=["scoreText"]]
+unique_name_in_owner = true
+visible = false
+layout_mode = 2
+size_flags_horizontal = 3
+theme = ExtResource("7_h4u5m")
+theme_override_colors/font_outline_color = Color(0.94902, 0.858824, 0.207843, 1)
 theme_override_constants/outline_size = 70
 theme_override_font_sizes/font_size = 300
 text = "35"
@@ -195,8 +250,10 @@ text = "Return"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[connection signal="pressed" from="CanvasLayer/HBoxContainer/Inkling" to="." method="_displayScore" binds= [1]]
-[connection signal="pressed" from="CanvasLayer/HBoxContainer/Inkling2" to="." method="_displayScore" binds= [2]]
-[connection signal="pressed" from="CanvasLayer/HBoxContainer/Inkling3" to="." method="_displayScore" binds= [3]]
-[connection signal="pressed" from="CanvasLayer/HBoxContainer/Inkling4" to="." method="_displayScore" binds= [4]]
+[connection signal="pressed" from="CanvasLayer/HBoxContainer/InklingBlue" to="." method="_displayScore" binds= ["blue"]]
+[connection signal="pressed" from="CanvasLayer/HBoxContainer/InklingOrange" to="." method="_displayScore" binds= ["orange"]]
+[connection signal="pressed" from="CanvasLayer/HBoxContainer/InklingGreen" to="." method="_displayScore" binds= ["green"]]
+[connection signal="pressed" from="CanvasLayer/HBoxContainer/InklingPink" to="." method="_displayScore" binds= ["pink"]]
+[connection signal="pressed" from="CanvasLayer/HBoxContainer/OctolingIndigo" to="." method="_displayScore" binds= ["indigo"]]
+[connection signal="pressed" from="CanvasLayer/HBoxContainer/OctolingYellow" to="." method="_displayScore" binds= ["yellow"]]
 [connection signal="pressed" from="CanvasLayer/Reset" to="." method="_delete_self"]
