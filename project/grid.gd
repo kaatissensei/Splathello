@@ -79,6 +79,8 @@ func _reset_grid() -> void:
 func _reset():
 	Splathello.triggerReset = true
 	_reset_grid()
+	if %ResetConfirmation.visible:
+		%ResetConfirmation.visible = false
 	
 func _fill_starting_squares():
 	var numPlayers = Splathello.numPlayers

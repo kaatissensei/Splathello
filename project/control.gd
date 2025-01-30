@@ -32,3 +32,8 @@ func _show_hide_headers() -> void:
 	%ColHeaders.visible = tf
 	%RowHeaders.visible = tf
 	
+func _reset_confirmation():
+	%ResetConfirmation.visible = true;
+	
+func _reset_confirmation_click(yesNo):
+	%ResetConfirmation.visible = false

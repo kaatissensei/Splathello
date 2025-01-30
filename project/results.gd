@@ -33,17 +33,17 @@ func tally_scores():
 func _displayScore(pColor):
 	match pColor:
 		"blue":
-			%Blue_score.text = str(scores[0])
+			%BlueScore.text = str(scores[0])
 		"orange":
-			%Orange_score.text = str(scores[1])
+			%OrangeScore.text = str(scores[1])
 		"green":
-			%Green_score.text = str(scores[2])
+			%GreenScore.text = str(scores[2])
 		"pink":
-			%Pink_score.text = str(scores[3])
+			%PinkScore.text = str(scores[3])
 		"indigo":
-			%Indigo_score.text = str(scores[4])
+			%IndigoScore.text = str(scores[4])
 		"yellow":
-			%Yellow_score.text = str(scores[5])
+			%YellowScore.text = str(scores[5])
 		_:
 			pass
 

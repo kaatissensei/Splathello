@@ -1,4 +1,4 @@
-[gd_scene load_steps=27 format=3 uid="uid://c8wpff512nh5i"]
+[gd_scene load_steps=40 format=3 uid="uid://c8wpff512nh5i"]
 
 [ext_resource type="Texture2D" uid="uid://dveij0bmdjp5o" path="res://images/backgrounds/Splatoon bg zigzag.jpg" id="1_63ae6"]
 [ext_resource type="Texture2D" uid="uid://bghor8b6ldpqp" path="res://images/inklings/squidBlue.png" id="2_nwact"]
@@ -12,6 +12,7 @@
 [ext_resource type="Texture2D" uid="uid://jp0l5y3hktrv" path="res://images/inklings/octolingIndigo.png" id="7_84845"]
 [ext_resource type="Texture2D" uid="uid://biauq02jnrfif" path="res://images/inklings/squidPink.png" id="8_ei5cm"]
 [ext_resource type="Texture2D" uid="uid://bc23kqvu40yo6" path="res://images/inklings/octopusYellow.png" id="8_hnu4r"]
+[ext_resource type="Texture2D" uid="uid://08h4cphiya7u" path="res://images/inklings/tokens/Blue2.png" id="9_3h0xd"]
 [ext_resource type="Texture2D" uid="uid://bj2gha7hbei8n" path="res://images/inklings/inklingPink.png" id="9_t76u3"]
 [ext_resource type="Texture2D" uid="uid://c50monnoellba" path="res://images/inklings/octolingYellow.png" id="9_t152r"]
 [ext_resource type="Script" path="res://control.gd" id="10_bnllw"]
@@ -22,10 +23,23 @@
 [ext_resource type="Texture2D" uid="uid://dun7rpihw7pjm" path="res://images/ui/S3_Lil_Judd.png" id="20_dxnlj"]
 [ext_resource type="Theme" uid="uid://n6w28sgf8enr" path="res://SplatoonScene.tres" id="20_mkp0c"]
 [ext_resource type="Texture2D" uid="uid://djmgh75e60fre" path="res://images/ui/S3_Judd.png" id="21_obsyh"]
+[ext_resource type="Texture2D" uid="uid://tgt2i8htul8f" path="res://images/inklings/tokens/Blue1.png" id="24_21jbe"]
+[ext_resource type="Script" path="res://token_bar.gd" id="24_iyc4u"]
+[ext_resource type="Texture2D" uid="uid://be6j1muuya3tw" path="res://images/inklings/tokens/Orange1.png" id="25_basbn"]
+[ext_resource type="Texture2D" uid="uid://ev1fikuqi0ts" path="res://images/inklings/tokens/Orange2.png" id="26_8xlg8"]
+[ext_resource type="Texture2D" uid="uid://b8gm1njob8ln8" path="res://images/inklings/tokens/Green1.png" id="27_isros"]
+[ext_resource type="Texture2D" uid="uid://cadnrfe6u6j63" path="res://images/inklings/tokens/Green2.png" id="28_ej5g3"]
+[ext_resource type="Texture2D" uid="uid://cr5sukgbbm86c" path="res://images/inklings/tokens/Pink1.png" id="29_5dsma"]
+[ext_resource type="Texture2D" uid="uid://cxs530wxync0j" path="res://images/inklings/tokens/Pink2.png" id="30_1ch63"]
+[ext_resource type="Texture2D" uid="uid://cancfomklirnf" path="res://images/ui/tokenStack.png" id="32_052y0"]
+[ext_resource type="Texture2D" uid="uid://57ch8vonovlj" path="res://images/ui/menu bg lgray.png" id="32_m2mbu"]
 
 [sub_resource type="ButtonGroup" id="ButtonGroup_0md54"]
 resource_name = "Inkling"
 allow_unpress = true
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_j1g4v"]
+size = Vector2(126, 130)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_kmfsl"]
 bg_color = Color(0.6, 0.6, 0.607843, 0)
@@ -47,6 +61,10 @@ border_color = Color(0, 0, 0, 1)
 corner_detail = 1
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ucbu0"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_xjhr4"]
+texture = ExtResource("32_m2mbu")
+modulate_color = Color(0.8, 0.776471, 0.8, 1)
 
 [node name="SplathelloScene" type="Node2D"]
 position = Vector2(0.345, -4)
@@ -93,9 +111,9 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = -182.0
-offset_top = -480.0
+offset_top = -440.0
 offset_right = 168.0
-offset_bottom = -60.0
+offset_bottom = -20.0
 grow_horizontal = 2
 grow_vertical = 2
 mouse_default_cursor_shape = 2
@@ -157,7 +175,28 @@ flip_h = true
 unique_name_in_owner = true
 layout_mode = 2
 
-[node name="SplathelloControl" type="Control" parent="Canvas/MarginContainer/HBoxContainer"]
+[node name="vBox Grid" type="VBoxContainer" parent="Canvas/MarginContainer/HBoxContainer"]
+layout_mode = 2
+
+[node name="InitiativeBar" type="HBoxContainer" parent="Canvas/MarginContainer/HBoxContainer/vBox Grid"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="CharacterBody2D" type="CharacterBody2D" parent="Canvas/MarginContainer/HBoxContainer/vBox Grid/InitiativeBar"]
+visible = false
+input_pickable = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Canvas/MarginContainer/HBoxContainer/vBox Grid/InitiativeBar/CharacterBody2D"]
+position = Vector2(65, 65)
+shape = SubResource("RectangleShape2D_j1g4v")
+
+[node name="Sprite2D" type="Sprite2D" parent="Canvas/MarginContainer/HBoxContainer/vBox Grid/InitiativeBar/CharacterBody2D"]
+position = Vector2(64, 62)
+scale = Vector2(0.256, 0.258)
+texture = ExtResource("9_3h0xd")
+
+[node name="SplathelloControl" type="Control" parent="Canvas/MarginContainer/HBoxContainer/vBox Grid"]
 custom_minimum_size = Vector2(1000, 900)
 layout_mode = 2
 size_flags_horizontal = 6
@@ -166,7 +205,7 @@ size_flags_stretch_ratio = 1.04
 mouse_filter = 2
 script = ExtResource("10_bnllw")
 
-[node name="ColHeaders" type="HBoxContainer" parent="Canvas/MarginContainer/HBoxContainer/SplathelloControl"]
+[node name="ColHeaders" type="HBoxContainer" parent="Canvas/MarginContainer/HBoxContainer/vBox Grid/SplathelloControl"]
 unique_name_in_owner = true
 visible = false
 layout_mode = 2
@@ -177,7 +216,7 @@ grow_horizontal = 2
 pivot_offset = Vector2(0, 100)
 size_flags_vertical = 4
 
-[node name="A" type="Label" parent="Canvas/MarginContainer/HBoxContainer/SplathelloControl/ColHeaders" groups=["Headers"]]
+[node name="A" type="Label" parent="Canvas/MarginContainer/HBoxContainer/vBox Grid/SplathelloControl/ColHeaders" groups=["Headers"]]
 custom_minimum_size = Vector2(100, 100)
 layout_mode = 2
 size_flags_horizontal = 3
@@ -190,7 +229,7 @@ text = "A"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="B" type="Label" parent="Canvas/MarginContainer/HBoxContainer/SplathelloControl/ColHeaders" groups=["Headers"]]
+[node name="B" type="Label" parent="Canvas/MarginContainer/HBoxContainer/vBox Grid/SplathelloControl/ColHeaders" groups=["Headers"]]
 custom_minimum_size = Vector2(100, 100)
 layout_mode = 2
 size_flags_horizontal = 3
@@ -203,7 +242,7 @@ text = "B"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="C" type="Label" parent="Canvas/MarginContainer/HBoxContainer/SplathelloControl/ColHeaders" groups=["Headers"]]
+[node name="C" type="Label" parent="Canvas/MarginContainer/HBoxContainer/vBox Grid/SplathelloControl/ColHeaders" groups=["Headers"]]
 custom_minimum_size = Vector2(100, 100)
 layout_mode = 2
 size_flags_horizontal = 3
@@ -216,7 +255,7 @@ text = "C"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="D" type="Label" parent="Canvas/MarginContainer/HBoxContainer/SplathelloControl/ColHeaders" groups=["Headers"]]
+[node name="D" type="Label" parent="Canvas/MarginContainer/HBoxContainer/vBox Grid/SplathelloControl/ColHeaders" groups=["Headers"]]
 custom_minimum_size = Vector2(100, 100)
 layout_mode = 2
 size_flags_horizontal = 3
@@ -229,7 +268,7 @@ text = "D"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="E" type="Label" parent="Canvas/MarginContainer/HBoxContainer/SplathelloControl/ColHeaders" groups=["Headers"]]
+[node name="E" type="Label" parent="Canvas/MarginContainer/HBoxContainer/vBox Grid/SplathelloControl/ColHeaders" groups=["Headers"]]
 custom_minimum_size = Vector2(100, 100)
 layout_mode = 2
 size_flags_horizontal = 3
@@ -242,7 +281,7 @@ text = "E"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="F" type="Label" parent="Canvas/MarginContainer/HBoxContainer/SplathelloControl/ColHeaders" groups=["Headers"]]
+[node name="F" type="Label" parent="Canvas/MarginContainer/HBoxContainer/vBox Grid/SplathelloControl/ColHeaders" groups=["Headers"]]
 custom_minimum_size = Vector2(100, 100)
 layout_mode = 2
 size_flags_horizontal = 3
@@ -255,7 +294,7 @@ text = "F"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="G" type="Label" parent="Canvas/MarginContainer/HBoxContainer/SplathelloControl/ColHeaders" groups=["Headers"]]
+[node name="G" type="Label" parent="Canvas/MarginContainer/HBoxContainer/vBox Grid/SplathelloControl/ColHeaders" groups=["Headers"]]
 custom_minimum_size = Vector2(100, 100)
 layout_mode = 2
 size_flags_horizontal = 3
@@ -268,7 +307,7 @@ text = "G"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="H" type="Label" parent="Canvas/MarginContainer/HBoxContainer/SplathelloControl/ColHeaders" groups=["Headers"]]
+[node name="H" type="Label" parent="Canvas/MarginContainer/HBoxContainer/vBox Grid/SplathelloControl/ColHeaders" groups=["Headers"]]
 custom_minimum_size = Vector2(100, 100)
 layout_mode = 2
 size_flags_horizontal = 3
@@ -281,7 +320,7 @@ text = "H"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="RowHeaders" type="VBoxContainer" parent="Canvas/MarginContainer/HBoxContainer/SplathelloControl"]
+[node name="RowHeaders" type="VBoxContainer" parent="Canvas/MarginContainer/HBoxContainer/vBox Grid/SplathelloControl"]
 unique_name_in_owner = true
 visible = false
 layout_mode = 1
@@ -291,7 +330,7 @@ offset_left = -90.0
 offset_right = 10.0
 grow_vertical = 2
 
-[node name="1" type="Label" parent="Canvas/MarginContainer/HBoxContainer/SplathelloControl/RowHeaders" groups=["Headers"]]
+[node name="1" type="Label" parent="Canvas/MarginContainer/HBoxContainer/vBox Grid/SplathelloControl/RowHeaders" groups=["Headers"]]
 custom_minimum_size = Vector2(100, 100)
 layout_mode = 2
 size_flags_vertical = 3
@@ -304,7 +343,7 @@ text = "1"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="2" type="Label" parent="Canvas/MarginContainer/HBoxContainer/SplathelloControl/RowHeaders" groups=["Headers"]]
+[node name="2" type="Label" parent="Canvas/MarginContainer/HBoxContainer/vBox Grid/SplathelloControl/RowHeaders" groups=["Headers"]]
 custom_minimum_size = Vector2(100, 100)
 layout_mode = 2
 size_flags_vertical = 3
@@ -317,7 +356,7 @@ text = "2"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="3" type="Label" parent="Canvas/MarginContainer/HBoxContainer/SplathelloControl/RowHeaders" groups=["Headers"]]
+[node name="3" type="Label" parent="Canvas/MarginContainer/HBoxContainer/vBox Grid/SplathelloControl/RowHeaders" groups=["Headers"]]
 custom_minimum_size = Vector2(100, 100)
 layout_mode = 2
 size_flags_vertical = 3
@@ -330,7 +369,7 @@ text = "3"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="4" type="Label" parent="Canvas/MarginContainer/HBoxContainer/SplathelloControl/RowHeaders" groups=["Headers"]]
+[node name="4" type="Label" parent="Canvas/MarginContainer/HBoxContainer/vBox Grid/SplathelloControl/RowHeaders" groups=["Headers"]]
 custom_minimum_size = Vector2(100, 100)
 layout_mode = 2
 size_flags_vertical = 3
@@ -343,7 +382,7 @@ text = "4"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="5" type="Label" parent="Canvas/MarginContainer/HBoxContainer/SplathelloControl/RowHeaders" groups=["Headers"]]
+[node name="5" type="Label" parent="Canvas/MarginContainer/HBoxContainer/vBox Grid/SplathelloControl/RowHeaders" groups=["Headers"]]
 custom_minimum_size = Vector2(100, 100)
 layout_mode = 2
 size_flags_vertical = 3
@@ -356,7 +395,7 @@ text = "5"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="6" type="Label" parent="Canvas/MarginContainer/HBoxContainer/SplathelloControl/RowHeaders" groups=["Headers"]]
+[node name="6" type="Label" parent="Canvas/MarginContainer/HBoxContainer/vBox Grid/SplathelloControl/RowHeaders" groups=["Headers"]]
 custom_minimum_size = Vector2(100, 100)
 layout_mode = 2
 size_flags_vertical = 3
@@ -369,7 +408,7 @@ text = "6"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="7" type="Label" parent="Canvas/MarginContainer/HBoxContainer/SplathelloControl/RowHeaders" groups=["Headers"]]
+[node name="7" type="Label" parent="Canvas/MarginContainer/HBoxContainer/vBox Grid/SplathelloControl/RowHeaders" groups=["Headers"]]
 custom_minimum_size = Vector2(100, 100)
 layout_mode = 2
 size_flags_vertical = 3
@@ -382,7 +421,7 @@ text = "7"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="8" type="Label" parent="Canvas/MarginContainer/HBoxContainer/SplathelloControl/RowHeaders" groups=["Headers"]]
+[node name="8" type="Label" parent="Canvas/MarginContainer/HBoxContainer/vBox Grid/SplathelloControl/RowHeaders" groups=["Headers"]]
 custom_minimum_size = Vector2(100, 100)
 layout_mode = 2
 size_flags_vertical = 3
@@ -395,7 +434,7 @@ text = "8"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="StageBG" type="TextureRect" parent="Canvas/MarginContainer/HBoxContainer/SplathelloControl"]
+[node name="StageBG" type="TextureRect" parent="Canvas/MarginContainer/HBoxContainer/vBox Grid/SplathelloControl"]
 unique_name_in_owner = true
 clip_contents = true
 custom_minimum_size = Vector2(500, 500)
@@ -409,7 +448,7 @@ texture = ExtResource("11_yw6t0")
 expand_mode = 1
 stretch_mode = 6
 
-[node name="Grid" type="GridContainer" parent="Canvas/MarginContainer/HBoxContainer/SplathelloControl"]
+[node name="Grid" type="GridContainer" parent="Canvas/MarginContainer/HBoxContainer/vBox Grid/SplathelloControl/StageBG"]
 unique_name_in_owner = true
 layout_mode = 1
 anchors_preset = 15
@@ -424,238 +463,237 @@ theme_override_constants/v_separation = 0
 columns = 8
 script = ExtResource("12_llcda")
 
-[node name="Square1" type="Button" parent="Canvas/MarginContainer/HBoxContainer/SplathelloControl/Grid"]
+[node name="Square1" type="Button" parent="Canvas/MarginContainer/HBoxContainer/vBox Grid/SplathelloControl/StageBG/Grid"]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_styles/normal = SubResource("StyleBoxFlat_kmfsl")
 
-[node name="Square2" type="Button" parent="Canvas/MarginContainer/HBoxContainer/SplathelloControl/Grid"]
+[node name="Square2" type="Button" parent="Canvas/MarginContainer/HBoxContainer/vBox Grid/SplathelloControl/StageBG/Grid"]
 self_modulate = Color(1, 1, 1, 0.109804)
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 theme_override_styles/normal = SubResource("StyleBoxFlat_dc3nj")
 
-[node name="Square3" type="Button" parent="Canvas/MarginContainer/HBoxContainer/SplathelloControl/Grid"]
+[node name="Square3" type="Button" parent="Canvas/MarginContainer/HBoxContainer/vBox Grid/SplathelloControl/StageBG/Grid"]
 self_modulate = Color(1, 1, 1, 0.109804)
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
-[node name="Square4" type="Button" parent="Canvas/MarginContainer/HBoxContainer/SplathelloControl/Grid"]
+[node name="Square4" type="Button" parent="Canvas/MarginContainer/HBoxContainer/vBox Grid/SplathelloControl/StageBG/Grid"]
 self_modulate = Color(1, 1, 1, 0.109804)
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
-[node name="Square5" type="Button" parent="Canvas/MarginContainer/HBoxContainer/SplathelloControl/Grid"]
+[node name="Square5" type="Button" parent="Canvas/MarginContainer/HBoxContainer/vBox Grid/SplathelloControl/StageBG/Grid"]
 self_modulate = Color(1, 1, 1, 0.109804)
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
-[node name="Square6" type="Button" parent="Canvas/MarginContainer/HBoxContainer/SplathelloControl/Grid"]
+[node name="Square6" type="Button" parent="Canvas/MarginContainer/HBoxContainer/vBox Grid/SplathelloControl/StageBG/Grid"]
 self_modulate = Color(1, 1, 1, 0.109804)
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
-[node name="Square7" type="Button" parent="Canvas/MarginContainer/HBoxContainer/SplathelloControl/Grid"]
+[node name="Square7" type="Button" parent="Canvas/MarginContainer/HBoxContainer/vBox Grid/SplathelloControl/StageBG/Grid"]
 self_modulate = Color(1, 1, 1, 0.109804)
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
-[node name="Square8" type="Button" parent="Canvas/MarginContainer/HBoxContainer/SplathelloControl/Grid"]
+[node name="Square8" type="Button" parent="Canvas/MarginContainer/HBoxContainer/vBox Grid/SplathelloControl/StageBG/Grid"]
 self_modulate = Color(1, 1, 1, 0.109804)
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
-[node name="Square9" type="Button" parent="Canvas/MarginContainer/HBoxContainer/SplathelloControl/Grid"]
+[node name="Square9" type="Button" parent="Canvas/MarginContainer/HBoxContainer/vBox Grid/SplathelloControl/StageBG/Grid"]
 self_modulate = Color(1, 1, 1, 0.109804)
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
-[node name="Square10" type="Button" parent="Canvas/MarginContainer/HBoxContainer/SplathelloControl/Grid"]
+[node name="Square10" type="Button" parent="Canvas/MarginContainer/HBoxContainer/vBox Grid/SplathelloControl/StageBG/Grid"]
 self_modulate = Color(1, 1, 1, 0.109804)
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
-[node name="Square11" type="Button" parent="Canvas/MarginContainer/HBoxContainer/SplathelloControl/Grid"]
+[node name="Square11" type="Button" parent="Canvas/MarginContainer/HBoxContainer/vBox Grid/SplathelloControl/StageBG/Grid"]
 self_modulate = Color(1, 1, 1, 0.109804)
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
-[node name="Square12" type="Button" parent="Canvas/MarginContainer/HBoxContainer/SplathelloControl/Grid"]
+[node name="Square12" type="Button" parent="Canvas/MarginContainer/HBoxContainer/vBox Grid/SplathelloControl/StageBG/Grid"]
 self_modulate = Color(1, 1, 1, 0.109804)
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
-[node name="Square13" type="Button" parent="Canvas/MarginContainer/HBoxContainer/SplathelloControl/Grid"]
+[node name="Square13" type="Button" parent="Canvas/MarginContainer/HBoxContainer/vBox Grid/SplathelloControl/StageBG/Grid"]
 self_modulate = Color(1, 1, 1, 0.109804)
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
-[node name="Square14" type="Button" parent="Canvas/MarginContainer/HBoxContainer/SplathelloControl/Grid"]
+[node name="Square14" type="Button" parent="Canvas/MarginContainer/HBoxContainer/vBox Grid/SplathelloControl/StageBG/Grid"]
 self_modulate = Color(1, 1, 1, 0.109804)
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
-[node name="Square15" type="Button" parent="Canvas/MarginContainer/HBoxContainer/SplathelloControl/Grid"]
+[node name="Square15" type="Button" parent="Canvas/MarginContainer/HBoxContainer/vBox Grid/SplathelloControl/StageBG/Grid"]
 self_modulate = Color(1, 1, 1, 0.109804)
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
-[node name="Square16" type="Button" parent="Canvas/MarginContainer/HBoxContainer/SplathelloControl/Grid"]
+[node name="Square16" type="Button" parent="Canvas/MarginContainer/HBoxContainer/vBox Grid/SplathelloControl/StageBG/Grid"]
 self_modulate = Color(1, 1, 1, 0.109804)
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
-[node name="Square17" type="Button" parent="Canvas/MarginContainer/HBoxContainer/SplathelloControl/Grid"]
+[node name="Square17" type="Button" parent="Canvas/MarginContainer/HBoxContainer/vBox Grid/SplathelloControl/StageBG/Grid"]
 self_modulate = Color(1, 1, 1, 0.109804)
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
-[node name="Square18" type="Button" parent="Canvas/MarginContainer/HBoxContainer/SplathelloControl/Grid"]
+[node name="Square18" type="Button" parent="Canvas/MarginContainer/HBoxContainer/vBox Grid/SplathelloControl/StageBG/Grid"]
 self_modulate = Color(1, 1, 1, 0.109804)
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
-[node name="Square19" type="Button" parent="Canvas/MarginContainer/HBoxContainer/SplathelloControl/Grid"]
+[node name="Square19" type="Button" parent="Canvas/MarginContainer/HBoxContainer/vBox Grid/SplathelloControl/StageBG/Grid"]
 self_modulate = Color(1, 1, 1, 0.109804)
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
-[node name="Square20" type="Button" parent="Canvas/MarginContainer/HBoxContainer/SplathelloControl/Grid"]
+[node name="Square20" type="Button" parent="Canvas/MarginContainer/HBoxContainer/vBox Grid/SplathelloControl/StageBG/Grid"]
 self_modulate = Color(1, 1, 1, 0.109804)
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
-[node name="Square21" type="Button" parent="Canvas/MarginContainer/HBoxContainer/SplathelloControl/Grid"]
+[node name="Square21" type="Button" parent="Canvas/MarginContainer/HBoxContainer/vBox Grid/SplathelloControl/StageBG/Grid"]
 self_modulate = Color(1, 1, 1, 0.109804)
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
-[node name="Square22" type="Button" parent="Canvas/MarginContainer/HBoxContainer/SplathelloControl/Grid"]
+[node name="Square22" type="Button" parent="Canvas/MarginContainer/HBoxContainer/vBox Grid/SplathelloControl/StageBG/Grid"]
 self_modulate = Color(1, 1, 1, 0.109804)
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
-[node name="Square23" type="Button" parent="Canvas/MarginContainer/HBoxContainer/SplathelloControl/Grid"]
+[node name="Square23" type="Button" parent="Canvas/MarginContainer/HBoxContainer/vBox Grid/SplathelloControl/StageBG/Grid"]
 self_modulate = Color(1, 1, 1, 0.109804)
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
-[node name="Square24" type="Button" parent="Canvas/MarginContainer/HBoxContainer/SplathelloControl/Grid"]
+[node name="Square24" type="Button" parent="Canvas/MarginContainer/HBoxContainer/vBox Grid/SplathelloControl/StageBG/Grid"]
 self_modulate = Color(1, 1, 1, 0.109804)
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
-[node name="Square25" type="Button" parent="Canvas/MarginContainer/HBoxContainer/SplathelloControl/Grid"]
+[node name="Square25" type="Button" parent="Canvas/MarginContainer/HBoxContainer/vBox Grid/SplathelloControl/StageBG/Grid"]
 self_modulate = Color(1, 1, 1, 0.109804)
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
-[node name="Square26" type="Button" parent="Canvas/MarginContainer/HBoxContainer/SplathelloControl/Grid"]
+[node name="Square26" type="Button" parent="Canvas/MarginContainer/HBoxContainer/vBox Grid/SplathelloControl/StageBG/Grid"]
 self_modulate = Color(1, 1, 1, 0.109804)
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
-[node name="Square27" type="Button" parent="Canvas/MarginContainer/HBoxContainer/SplathelloControl/Grid"]
+[node name="Square27" type="Button" parent="Canvas/MarginContainer/HBoxContainer/vBox Grid/SplathelloControl/StageBG/Grid"]
 self_modulate = Color(1, 1, 1, 0.109804)
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
-[node name="Square28" type="Button" parent="Canvas/MarginContainer/HBoxContainer/SplathelloControl/Grid"]
+[node name="Square28" type="Button" parent="Canvas/MarginContainer/HBoxContainer/vBox Grid/SplathelloControl/StageBG/Grid"]
 self_modulate = Color(1, 1, 1, 0.109804)
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
-[node name="Square29" type="Button" parent="Canvas/MarginContainer/HBoxContainer/SplathelloControl/Grid"]
+[node name="Square29" type="Button" parent="Canvas/MarginContainer/HBoxContainer/vBox Grid/SplathelloControl/StageBG/Grid"]
 self_modulate = Color(1, 1, 1, 0.109804)
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
-[node name="Square30" type="Button" parent="Canvas/MarginContainer/HBoxContainer/SplathelloControl/Grid"]
+[node name="Square30" type="Button" parent="Canvas/MarginContainer/HBoxContainer/vBox Grid/SplathelloControl/StageBG/Grid"]
 self_modulate = Color(1, 1, 1, 0.109804)
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
-[node name="Square31" type="Button" parent="Canvas/MarginContainer/HBoxContainer/SplathelloControl/Grid"]
+[node name="Square31" type="Button" parent="Canvas/MarginContainer/HBoxContainer/vBox Grid/SplathelloControl/StageBG/Grid"]
 self_modulate = Color(1, 1, 1, 0.109804)
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
-[node name="Square32" type="Button" parent="Canvas/MarginContainer/HBoxContainer/SplathelloControl/Grid"]
+[node name="Square32" type="Button" parent="Canvas/MarginContainer/HBoxContainer/vBox Grid/SplathelloControl/StageBG/Grid"]
 self_modulate = Color(1, 1, 1, 0.109804)
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
-[node name="Square33" type="Button" parent="Canvas/MarginContainer/HBoxContainer/SplathelloControl/Grid"]
+[node name="Square33" type="Button" parent="Canvas/MarginContainer/HBoxContainer/vBox Grid/SplathelloControl/StageBG/Grid"]
 self_modulate = Color(1, 1, 1, 0.109804)
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
-[node name="Square34" type="Button" parent="Canvas/MarginContainer/HBoxContainer/SplathelloControl/Grid"]
+[node name="Square34" type="Button" parent="Canvas/MarginContainer/HBoxContainer/vBox Grid/SplathelloControl/StageBG/Grid"]
 self_modulate = Color(1, 1, 1, 0.109804)
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
-[node name="Square35" type="Button" parent="Canvas/MarginContainer/HBoxContainer/SplathelloControl/Grid"]
+[node name="Square35" type="Button" parent="Canvas/MarginContainer/HBoxContainer/vBox Grid/SplathelloControl/StageBG/Grid"]
 self_modulate = Color(1, 1, 1, 0.109804)
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
-[node name="Square36" type="Button" parent="Canvas/MarginContainer/HBoxContainer/SplathelloControl/Grid"]
+[node name="Square36" type="Button" parent="Canvas/MarginContainer/HBoxContainer/vBox Grid/SplathelloControl/StageBG/Grid"]
 self_modulate = Color(1, 1, 1, 0.109804)
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
-[node name="NinePatchRect" type="NinePatchRect" parent="Canvas/MarginContainer/HBoxContainer/SplathelloControl"]
+[node name="GridBorder" type="NinePatchRect" parent="Canvas/MarginContainer/HBoxContainer/vBox Grid/SplathelloControl/StageBG/Grid"]
 texture_filter = 1
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
+layout_mode = 2
 texture = ExtResource("13_vlhnt")
 region_rect = Rect2(0, 0, 16, 16)
 patch_margin_left = 2
 patch_margin_top = 14
 patch_margin_right = 2
 patch_margin_bottom = 14
+
+[node name="GridBottomBuffer" type="HBoxContainer" parent="Canvas/MarginContainer/HBoxContainer/vBox Grid"]
+custom_minimum_size = Vector2(20, 50)
+layout_mode = 2
 
 [node name="InklingControlRight" type="Control" parent="Canvas/MarginContainer/HBoxContainer"]
 layout_mode = 2
@@ -672,9 +710,9 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = -171.5
-offset_top = -480.0
+offset_top = -440.0
 offset_right = 178.5
-offset_bottom = -60.0
+offset_bottom = -20.0
 grow_horizontal = 2
 grow_vertical = 2
 mouse_default_cursor_shape = 2
@@ -729,13 +767,16 @@ texture_pressed = ExtResource("9_t76u3")
 ignore_texture_size = true
 stretch_mode = 5
 
+[node name="VBoxContainer" type="VBoxContainer" parent="Canvas/MarginContainer/HBoxContainer"]
+layout_mode = 2
+
 [node name="Options" type="Button" parent="Canvas"]
 custom_minimum_size = Vector2(100, 50)
 anchors_preset = 1
 anchor_left = 1.0
 anchor_right = 1.0
-offset_left = -197.0
-offset_bottom = 58.0
+offset_left = -297.0
+offset_bottom = 79.0
 grow_horizontal = 0
 mouse_default_cursor_shape = 2
 theme = ExtResource("20_mkp0c")
@@ -746,7 +787,6 @@ theme_override_styles/disabled = SubResource("StyleBoxEmpty_ucbu0")
 theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxEmpty_ucbu0")
 theme_override_styles/hover_pressed = SubResource("StyleBoxEmpty_ucbu0")
 theme_override_styles/pressed = SubResource("StyleBoxEmpty_ucbu0")
-text = "Options"
 flat = true
 
 [node name="Label" type="Label" parent="Canvas/Options"]
@@ -911,7 +951,126 @@ text = "Finish"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="PanelContainer" type="PanelContainer" parent="Canvas"]
+[node name="InitiativePopup" type="MarginContainer" parent="Canvas"]
+unique_name_in_owner = true
+visible = false
+anchors_preset = 14
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_top = -75.0
+offset_bottom = 147.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 200
+theme_override_constants/margin_right = 200
+
+[node name="ColorRect" type="ColorRect" parent="Canvas/InitiativePopup"]
+layout_mode = 2
+size_flags_horizontal = 3
+color = Color(0, 0, 0, 0.411765)
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Canvas/InitiativePopup"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="Canvas/InitiativePopup/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 0
+theme = ExtResource("14_sallf")
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 3
+theme_override_constants/shadow_offset_y = 3
+text = "Tap to add"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="TokenPopup" type="HBoxContainer" parent="Canvas/InitiativePopup/VBoxContainer"]
+layout_mode = 2
+script = ExtResource("24_iyc4u")
+
+[node name="Blue1Token" type="TextureButton" parent="Canvas/InitiativePopup/VBoxContainer/TokenPopup"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(50, 150)
+layout_mode = 2
+size_flags_horizontal = 3
+texture_normal = ExtResource("24_21jbe")
+ignore_texture_size = true
+stretch_mode = 5
+
+[node name="Blue2Token" type="TextureButton" parent="Canvas/InitiativePopup/VBoxContainer/TokenPopup"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(50, 150)
+layout_mode = 2
+size_flags_horizontal = 3
+texture_normal = ExtResource("9_3h0xd")
+ignore_texture_size = true
+stretch_mode = 5
+
+[node name="Orange1Token" type="TextureButton" parent="Canvas/InitiativePopup/VBoxContainer/TokenPopup"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(50, 150)
+layout_mode = 2
+size_flags_horizontal = 3
+texture_normal = ExtResource("25_basbn")
+ignore_texture_size = true
+stretch_mode = 5
+
+[node name="Orange2Token" type="TextureButton" parent="Canvas/InitiativePopup/VBoxContainer/TokenPopup"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(50, 150)
+layout_mode = 2
+size_flags_horizontal = 3
+texture_normal = ExtResource("26_8xlg8")
+ignore_texture_size = true
+stretch_mode = 5
+
+[node name="Green1Token" type="TextureButton" parent="Canvas/InitiativePopup/VBoxContainer/TokenPopup"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(50, 150)
+layout_mode = 2
+size_flags_horizontal = 3
+texture_normal = ExtResource("27_isros")
+ignore_texture_size = true
+stretch_mode = 5
+
+[node name="Green2Token" type="TextureButton" parent="Canvas/InitiativePopup/VBoxContainer/TokenPopup"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(50, 150)
+layout_mode = 2
+size_flags_horizontal = 3
+texture_normal = ExtResource("28_ej5g3")
+ignore_texture_size = true
+stretch_mode = 5
+
+[node name="Pink1Token" type="TextureButton" parent="Canvas/InitiativePopup/VBoxContainer/TokenPopup"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(50, 150)
+layout_mode = 2
+size_flags_horizontal = 3
+texture_normal = ExtResource("29_5dsma")
+ignore_texture_size = true
+stretch_mode = 5
+
+[node name="Pink2Token" type="TextureButton" parent="Canvas/InitiativePopup/VBoxContainer/TokenPopup"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(50, 150)
+layout_mode = 2
+size_flags_horizontal = 3
+texture_normal = ExtResource("30_1ch63")
+ignore_texture_size = true
+stretch_mode = 5
+
+[node name="TextureButton" type="TextureButton" parent="Canvas"]
+offset_left = 320.0
+offset_top = 6.0
+offset_right = 420.0
+offset_bottom = 88.0
+texture_normal = ExtResource("32_052y0")
+ignore_texture_size = true
+stretch_mode = 5
+
+[node name="ResetConfirmation" type="PanelContainer" parent="Canvas"]
+unique_name_in_owner = true
 visible = false
 anchors_preset = 8
 anchor_left = 0.5
@@ -924,19 +1083,69 @@ offset_right = 416.0
 offset_bottom = 156.0
 grow_horizontal = 2
 grow_vertical = 2
+theme = ExtResource("14_sallf")
+theme_override_styles/panel = SubResource("StyleBoxTexture_xjhr4")
 
-[node name="ConfirmationDialog" type="ConfirmationDialog" parent="Canvas/PanelContainer"]
+[node name="ConfirmationDialog" type="ConfirmationDialog" parent="Canvas/ResetConfirmation"]
 title = "Board Reset"
 initial_position = 1
 size = Vector2i(812, 300)
 unresizable = true
+always_on_top = true
 popup_window = true
 min_size = Vector2i(500, 300)
+keep_title_visible = false
 theme = ExtResource("14_sallf")
-dialog_text = "The board will reset. 
-Do you want to continue?"
-dialog_hide_on_ok = false
+dialog_text = "Do you want to reset?"
 dialog_autowrap = true
+
+[node name="MarginContainer" type="MarginContainer" parent="Canvas/ResetConfirmation"]
+layout_mode = 2
+theme_override_constants/margin_top = 20
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Canvas/ResetConfirmation/MarginContainer"]
+layout_mode = 2
+
+[node name="resetLabel" type="Label" parent="Canvas/ResetConfirmation/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 6
+theme = ExtResource("14_sallf")
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 3
+theme_override_constants/shadow_offset_y = 3
+theme_override_font_sizes/font_size = 65
+text = "Do you want to reset?"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
+
+[node name="MarginContainer" type="MarginContainer" parent="Canvas/ResetConfirmation/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/margin_left = 100
+theme_override_constants/margin_right = 100
+theme_override_constants/margin_bottom = 50
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Canvas/ResetConfirmation/MarginContainer/VBoxContainer/MarginContainer"]
+layout_mode = 2
+theme_override_constants/separation = 50
+
+[node name="YesReset" type="Button" parent="Canvas/ResetConfirmation/MarginContainer/VBoxContainer/MarginContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme = ExtResource("14_sallf")
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 5
+text = "Yes
+"
+
+[node name="No" type="Button" parent="Canvas/ResetConfirmation/MarginContainer/VBoxContainer/MarginContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme = ExtResource("14_sallf")
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 5
+text = "No"
 
 [connection signal="pressed" from="Canvas/MarginContainer/HBoxContainer/InklingControlLeft/inklingBlue" to="Canvas/MarginContainer/HBoxContainer/InklingControlLeft" method="set_currentColor" binds= ["blue"]]
 [connection signal="pressed" from="Canvas/MarginContainer/HBoxContainer/InklingControlLeft/octolingIndigo" to="Canvas/MarginContainer/HBoxContainer/InklingControlLeft" method="set_currentColor" binds= ["indigo"]]
@@ -944,8 +1153,19 @@ dialog_autowrap = true
 [connection signal="pressed" from="Canvas/MarginContainer/HBoxContainer/InklingControlRight/inklingOrange" to="Canvas/MarginContainer/HBoxContainer/InklingControlRight" method="set_currentColor" binds= ["orange"]]
 [connection signal="pressed" from="Canvas/MarginContainer/HBoxContainer/InklingControlRight/octolingYellow" to="Canvas/MarginContainer/HBoxContainer/InklingControlRight" method="set_currentColor" binds= ["yellow"]]
 [connection signal="pressed" from="Canvas/MarginContainer/HBoxContainer/InklingControlRight/inklingPink" to="Canvas/MarginContainer/HBoxContainer/InklingControlRight" method="set_currentColor" binds= ["pink"]]
-[connection signal="pressed" from="Canvas/Options" to="Canvas/MarginContainer/HBoxContainer/SplathelloControl" method="_open_menu"]
-[connection signal="pressed" from="Canvas/Undo" to="Canvas/MarginContainer/HBoxContainer/SplathelloControl/Grid" method="_undo"]
-[connection signal="pressed" from="Canvas/Reset" to="Canvas/MarginContainer/HBoxContainer/SplathelloControl/Grid" method="_reset"]
-[connection signal="pressed" from="Canvas/Finish" to="Canvas/MarginContainer/HBoxContainer/SplathelloControl" method="_open_results"]
-[connection signal="confirmed" from="Canvas/PanelContainer/ConfirmationDialog" to="Canvas/MarginContainer/HBoxContainer/SplathelloControl" method="_open_menu"]
+[connection signal="pressed" from="Canvas/Options" to="Canvas/MarginContainer/HBoxContainer/vBox Grid/SplathelloControl" method="_open_menu"]
+[connection signal="pressed" from="Canvas/Undo" to="Canvas/MarginContainer/HBoxContainer/vBox Grid/SplathelloControl/StageBG/Grid" method="_undo"]
+[connection signal="pressed" from="Canvas/Reset" to="Canvas/MarginContainer/HBoxContainer/vBox Grid/SplathelloControl" method="_reset_confirmation"]
+[connection signal="pressed" from="Canvas/Finish" to="Canvas/MarginContainer/HBoxContainer/vBox Grid/SplathelloControl" method="_open_results"]
+[connection signal="pressed" from="Canvas/InitiativePopup/VBoxContainer/TokenPopup/Blue1Token" to="Canvas/InitiativePopup/VBoxContainer/TokenPopup" method="_move_token" binds= ["Blue1"]]
+[connection signal="pressed" from="Canvas/InitiativePopup/VBoxContainer/TokenPopup/Blue2Token" to="Canvas/InitiativePopup/VBoxContainer/TokenPopup" method="_move_token" binds= ["Blue2"]]
+[connection signal="pressed" from="Canvas/InitiativePopup/VBoxContainer/TokenPopup/Orange1Token" to="Canvas/InitiativePopup/VBoxContainer/TokenPopup" method="_move_token" binds= ["Orange1"]]
+[connection signal="pressed" from="Canvas/InitiativePopup/VBoxContainer/TokenPopup/Orange2Token" to="Canvas/InitiativePopup/VBoxContainer/TokenPopup" method="_move_token" binds= ["Orange2"]]
+[connection signal="pressed" from="Canvas/InitiativePopup/VBoxContainer/TokenPopup/Green1Token" to="Canvas/InitiativePopup/VBoxContainer/TokenPopup" method="_move_token" binds= ["Green1"]]
+[connection signal="pressed" from="Canvas/InitiativePopup/VBoxContainer/TokenPopup/Green2Token" to="Canvas/InitiativePopup/VBoxContainer/TokenPopup" method="_move_token" binds= ["Green2"]]
+[connection signal="pressed" from="Canvas/InitiativePopup/VBoxContainer/TokenPopup/Pink1Token" to="Canvas/InitiativePopup/VBoxContainer/TokenPopup" method="_move_token" binds= ["Pink1"]]
+[connection signal="pressed" from="Canvas/InitiativePopup/VBoxContainer/TokenPopup/Pink2Token" to="Canvas/InitiativePopup/VBoxContainer/TokenPopup" method="_move_token" binds= ["Pink2"]]
+[connection signal="pressed" from="Canvas/TextureButton" to="Canvas/InitiativePopup/VBoxContainer/TokenPopup" method="_initiative_popup"]
+[connection signal="confirmed" from="Canvas/ResetConfirmation/ConfirmationDialog" to="Canvas/MarginContainer/HBoxContainer/vBox Grid/SplathelloControl" method="_open_menu"]
+[connection signal="pressed" from="Canvas/ResetConfirmation/MarginContainer/VBoxContainer/MarginContainer/HBoxContainer/YesReset" to="Canvas/MarginContainer/HBoxContainer/vBox Grid/SplathelloControl/StageBG/Grid" method="_reset"]
+[connection signal="pressed" from="Canvas/ResetConfirmation/MarginContainer/VBoxContainer/MarginContainer/HBoxContainer/No" to="Canvas/MarginContainer/HBoxContainer/vBox Grid/SplathelloControl" method="_reset_confirmation_click"]
