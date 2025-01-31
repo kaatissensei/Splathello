@@ -35,5 +35,5 @@ func _show_hide_headers() -> void:
 func _reset_confirmation():
 	%ResetConfirmation.visible = true;
 	
-func _reset_confirmation_click(yesNo):
+func _reset_confirmation_click():
 	%ResetConfirmation.visible = false
