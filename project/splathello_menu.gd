@@ -92,3 +92,11 @@ func _set_visible_labels(labelType):
 func _close_menu(resetTrigger):
 	Splathello.triggerReset = resetTrigger;
 	get_tree().change_scene_to_file("res://splathelloScene.tscn")
+
+
+func _change_grid_size(value: float) -> void:
+	Splathello.gridSize = value
+	if (int(value) % 2 == 0):
+		_toggle_startingPieces(true)
+	else:
+		_toggle_startingPieces(false)

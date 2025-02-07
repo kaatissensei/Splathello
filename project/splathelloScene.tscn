@@ -1060,11 +1060,13 @@ texture_normal = ExtResource("30_1ch63")
 ignore_texture_size = true
 stretch_mode = 5
 
-[node name="TextureButton" type="TextureButton" parent="Canvas"]
-offset_left = 320.0
-offset_top = 6.0
-offset_right = 420.0
-offset_bottom = 88.0
+[node name="TokenButton" type="TextureButton" parent="Canvas"]
+unique_name_in_owner = true
+offset_left = 379.0
+offset_top = 29.0
+offset_right = 461.0
+offset_bottom = 101.0
+mouse_default_cursor_shape = 2
 texture_normal = ExtResource("32_052y0")
 ignore_texture_size = true
 stretch_mode = 5
@@ -1165,7 +1167,7 @@ text = "No"
 [connection signal="pressed" from="Canvas/InitiativePopup/VBoxContainer/TokenPopup/Green2Token" to="Canvas/InitiativePopup/VBoxContainer/TokenPopup" method="_move_token" binds= ["Green2"]]
 [connection signal="pressed" from="Canvas/InitiativePopup/VBoxContainer/TokenPopup/Pink1Token" to="Canvas/InitiativePopup/VBoxContainer/TokenPopup" method="_move_token" binds= ["Pink1"]]
 [connection signal="pressed" from="Canvas/InitiativePopup/VBoxContainer/TokenPopup/Pink2Token" to="Canvas/InitiativePopup/VBoxContainer/TokenPopup" method="_move_token" binds= ["Pink2"]]
-[connection signal="pressed" from="Canvas/TextureButton" to="Canvas/InitiativePopup/VBoxContainer/TokenPopup" method="_initiative_popup"]
+[connection signal="pressed" from="Canvas/TokenButton" to="Canvas/InitiativePopup/VBoxContainer/TokenPopup" method="_initiative_popup"]
 [connection signal="confirmed" from="Canvas/ResetConfirmation/ConfirmationDialog" to="Canvas/MarginContainer/HBoxContainer/vBox Grid/SplathelloControl" method="_open_menu"]
 [connection signal="pressed" from="Canvas/ResetConfirmation/MarginContainer/VBoxContainer/MarginContainer/HBoxContainer/YesReset" to="Canvas/MarginContainer/HBoxContainer/vBox Grid/SplathelloControl/StageBG/Grid" method="_reset"]
 [connection signal="pressed" from="Canvas/ResetConfirmation/MarginContainer/VBoxContainer/MarginContainer/HBoxContainer/No" to="Canvas/MarginContainer/HBoxContainer/vBox Grid/SplathelloControl" method="_reset_confirmation_click"]
