@@ -1,0 +1,253 @@
+[gd_scene load_steps=4 format=3 uid="uid://bq4xynv4e3ttv"]
+
+[ext_resource type="Script" path="res://grid.gd" id="1_0wpy1"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_wg5gr"]
+bg_color = Color(0.6, 0.6, 0.607843, 0)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0, 0, 0, 1)
+corner_detail = 1
+anti_aliasing = false
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_t6bhi"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0, 0, 0, 1)
+corner_detail = 1
+
+[node name="Grid" type="Node2D"]
+
+[node name="Grid" type="GridContainer" parent="."]
+unique_name_in_owner = true
+offset_right = 64.0
+offset_bottom = 40.0
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_constants/h_separation = 0
+theme_override_constants/v_separation = 0
+columns = 8
+script = ExtResource("1_0wpy1")
+
+[node name="Square1" type="Button" parent="Grid"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_styles/normal = SubResource("StyleBoxFlat_wg5gr")
+
+[node name="Square2" type="Button" parent="Grid"]
+self_modulate = Color(1, 1, 1, 0.109804)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_styles/normal = SubResource("StyleBoxFlat_t6bhi")
+
+[node name="Square3" type="Button" parent="Grid"]
+self_modulate = Color(1, 1, 1, 0.109804)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Square4" type="Button" parent="Grid"]
+self_modulate = Color(1, 1, 1, 0.109804)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Square5" type="Button" parent="Grid"]
+self_modulate = Color(1, 1, 1, 0.109804)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Square6" type="Button" parent="Grid"]
+self_modulate = Color(1, 1, 1, 0.109804)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Square7" type="Button" parent="Grid"]
+self_modulate = Color(1, 1, 1, 0.109804)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Square8" type="Button" parent="Grid"]
+self_modulate = Color(1, 1, 1, 0.109804)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Square9" type="Button" parent="Grid"]
+self_modulate = Color(1, 1, 1, 0.109804)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Square10" type="Button" parent="Grid"]
+self_modulate = Color(1, 1, 1, 0.109804)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Square11" type="Button" parent="Grid"]
+self_modulate = Color(1, 1, 1, 0.109804)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Square12" type="Button" parent="Grid"]
+self_modulate = Color(1, 1, 1, 0.109804)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Square13" type="Button" parent="Grid"]
+self_modulate = Color(1, 1, 1, 0.109804)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Square14" type="Button" parent="Grid"]
+self_modulate = Color(1, 1, 1, 0.109804)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Square15" type="Button" parent="Grid"]
+self_modulate = Color(1, 1, 1, 0.109804)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Square16" type="Button" parent="Grid"]
+self_modulate = Color(1, 1, 1, 0.109804)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Square17" type="Button" parent="Grid"]
+self_modulate = Color(1, 1, 1, 0.109804)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Square18" type="Button" parent="Grid"]
+self_modulate = Color(1, 1, 1, 0.109804)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Square19" type="Button" parent="Grid"]
+self_modulate = Color(1, 1, 1, 0.109804)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Square20" type="Button" parent="Grid"]
+self_modulate = Color(1, 1, 1, 0.109804)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Square21" type="Button" parent="Grid"]
+self_modulate = Color(1, 1, 1, 0.109804)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Square22" type="Button" parent="Grid"]
+self_modulate = Color(1, 1, 1, 0.109804)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Square23" type="Button" parent="Grid"]
+self_modulate = Color(1, 1, 1, 0.109804)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Square24" type="Button" parent="Grid"]
+self_modulate = Color(1, 1, 1, 0.109804)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Square25" type="Button" parent="Grid"]
+self_modulate = Color(1, 1, 1, 0.109804)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Square26" type="Button" parent="Grid"]
+self_modulate = Color(1, 1, 1, 0.109804)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Square27" type="Button" parent="Grid"]
+self_modulate = Color(1, 1, 1, 0.109804)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Square28" type="Button" parent="Grid"]
+self_modulate = Color(1, 1, 1, 0.109804)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Square29" type="Button" parent="Grid"]
+self_modulate = Color(1, 1, 1, 0.109804)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Square30" type="Button" parent="Grid"]
+self_modulate = Color(1, 1, 1, 0.109804)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Square31" type="Button" parent="Grid"]
+self_modulate = Color(1, 1, 1, 0.109804)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Square32" type="Button" parent="Grid"]
+self_modulate = Color(1, 1, 1, 0.109804)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Square33" type="Button" parent="Grid"]
+self_modulate = Color(1, 1, 1, 0.109804)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Square34" type="Button" parent="Grid"]
+self_modulate = Color(1, 1, 1, 0.109804)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Square35" type="Button" parent="Grid"]
+self_modulate = Color(1, 1, 1, 0.109804)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Square36" type="Button" parent="Grid"]
+self_modulate = Color(1, 1, 1, 0.109804)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3

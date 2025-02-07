@@ -71,6 +71,9 @@ func _reset_grid() -> void:
 	for n in get_children():
 		n.free()
 	_populate_grid()
+	%InitiativePopup.visible = false
+	%TokenPopup._reset_tokens()
+	
 	if Splathello.triggerReset and Splathello.startingPieces:
 		_fill_starting_squares()
 		Splathello.changedSquares = []
@@ -79,6 +82,8 @@ func _reset_grid() -> void:
 func _reset():
 	Splathello.triggerReset = true
 	_reset_grid()
+	if %ResetConfirmation.visible:
+		%ResetConfirmation.visible = false
 	
 func _fill_starting_squares():
 	var numPlayers = Splathello.numPlayers
@@ -119,8 +124,9 @@ func _fill_starting_squares():
 func check_square(btn) -> void:
 	var currentColor = get_currentColor()
 	
-	#Reset changedSquares
-	Splathello.changedSquares = []
+	#Reset changedSquares #Splathello.changedSquares = []
+	#Increment turn
+	Splathello.turnNum += 1
 	
 	#WIP ADD IF FOR ERASE -or is undo enough?
 	if currentColor != null: #if a color has not yet been chosen
@@ -146,7 +152,8 @@ func check_square(btn) -> void:
 func _capture_square(r, c, color = "blue", undo = false) -> void: #used to color in square
 	var btn = %Grid.get_node("Square[%s,%s]" % [r, c])
 	if undo == false:
-		Splathello.changedSquares.push_back([r,c,Splathello.squareColors[r][c]])
+		var turn = Splathello.turnNum
+		Splathello.changedSquares.push_front([turn, r,c,Splathello.squareColors[r][c]])
 	Splathello.squareColors[r][c] = color
 	
 	var style = StyleBoxFlat.new()
@@ -201,8 +208,18 @@ func get_currentColor():
 	return Splathello.currentColor
 	
 func _undo():
+	var numToPop = 0
 	for square in Splathello.changedSquares:
-		_capture_square(square[0],square[1], square[2], true)
+		if square[0] == Splathello.turnNum:
+			_capture_square(square[1],square[2], square[3], true) #(turn,) r, c, color, undoval
+			numToPop += 1
+		else:
+			break
+	for i in range(numToPop):
+		Splathello.changedSquares.pop_front()
+	Splathello.turnNum -= 1
+	#print(Splathello.changedSquares[0])
+	
 	
 #func _show_hide_headers():
 	#var tf = Splathello.headersOn
