@@ -28,4 +28,3 @@ func _set_visibility():
 			2:
 				%octolingIndigo.visible = true
 				%octolingYellow.visible = true
-	

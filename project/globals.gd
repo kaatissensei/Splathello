@@ -38,8 +38,8 @@ func set_currentColor(newCurrentColor):
 
 func set_numPlayers(newNum):
 	numPlayers = newNum
-	if numPlayers == 4:
-		playerColors = 0
+	#if numPlayers == 4:
+		#playerColors = 0   Don't do that
 	
 func set_currentStage(stageName):
 	currentStage = stageName
@@ -73,3 +73,9 @@ func _set_random_stage():
 	var stages = ["stgArowanaMall", "stgBrinewaterSprings", "stgCampTriggerfish", "stgMahiMahiResort", "stgMantaMarina", "stgUmamiRuins"]
 	var random_index = randi() % stages.size()
 	currentStage = stages[random_index]
+	
+func fullscreen():
+	var mode := DisplayServer.window_get_mode()
+	var is_window: bool = mode != DisplayServer.WINDOW_MODE_FULLSCREEN
+	DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_FULLSCREEN if is_window else DisplayServer.WINDOW_MODE_WINDOWED)
+	

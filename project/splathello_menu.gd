@@ -5,7 +5,7 @@ func _ready() -> void:
 	set_stage_border()
 	set_num_players(Splathello.numPlayers)
 	set_buttons_pressed()
-	
+	set_grid_size_slider()
 	
 func set_stage_border():
 	for border in get_tree().get_nodes_in_group("SelectedStages"):
@@ -18,6 +18,10 @@ func set_num_players(num):
 	
 	change_player_color(playerColors)
 	
+func set_grid_size_slider():
+	%GridSizeSlider.value = Splathello.gridSize
+	
+
 func change_player_color(colors):
 	var textureName = "squid %s" % colors
 	
@@ -40,12 +44,14 @@ func _update_menu_squid_texture(textureName):
 
 		var texture4P = load("res://images/ui/squid_4p.png")
 		%Squid4P.texture_normal = texture4P
-	else:
+
+	else:  #if numPlayers == 4
 		var texture4P = load("res://images/ui/squid_4p_selected.png")
 		%Squid4P.texture_normal = texture4P
-	
+		
 	var texture2P = load('res://images/ui/%s.png' % [textureName])
 	%Squid2P.texture_normal = texture2P
+
 	
 func _get_playerColor_text(playerColorInt):
 	var colorText
@@ -100,3 +106,6 @@ func _change_grid_size(value: float) -> void:
 		_toggle_startingPieces(true)
 	else:
 		_toggle_startingPieces(false)
+		
+func _fullscreen():
+	Splathello.fullscreen()

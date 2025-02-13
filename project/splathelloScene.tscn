@@ -1,4 +1,4 @@
-[gd_scene load_steps=40 format=3 uid="uid://c8wpff512nh5i"]
+[gd_scene load_steps=46 format=3 uid="uid://c8wpff512nh5i"]
 
 [ext_resource type="Texture2D" uid="uid://dveij0bmdjp5o" path="res://images/backgrounds/Splatoon bg zigzag.jpg" id="1_63ae6"]
 [ext_resource type="Texture2D" uid="uid://bghor8b6ldpqp" path="res://images/inklings/squidBlue.png" id="2_nwact"]
@@ -25,14 +25,18 @@
 [ext_resource type="Texture2D" uid="uid://djmgh75e60fre" path="res://images/ui/S3_Judd.png" id="21_obsyh"]
 [ext_resource type="Texture2D" uid="uid://tgt2i8htul8f" path="res://images/inklings/tokens/Blue1.png" id="24_21jbe"]
 [ext_resource type="Script" path="res://token_bar.gd" id="24_iyc4u"]
+[ext_resource type="Texture2D" uid="uid://bnps36n4r6tkp" path="res://images/ui/uiBtnRefresh_white.png" id="24_ucawx"]
+[ext_resource type="Texture2D" uid="uid://dvroxxn8c66us" path="res://images/ui/uiBtnX_white.png" id="25_1plev"]
 [ext_resource type="Texture2D" uid="uid://be6j1muuya3tw" path="res://images/inklings/tokens/Orange1.png" id="25_basbn"]
+[ext_resource type="Shader" path="res://TokenButton.gdshader" id="25_cftrt"]
 [ext_resource type="Texture2D" uid="uid://ev1fikuqi0ts" path="res://images/inklings/tokens/Orange2.png" id="26_8xlg8"]
+[ext_resource type="Texture2D" uid="uid://c08hp7aa5oslo" path="res://images/inklings/tokens/TokenDark.png" id="27_74q7r"]
 [ext_resource type="Texture2D" uid="uid://b8gm1njob8ln8" path="res://images/inklings/tokens/Green1.png" id="27_isros"]
 [ext_resource type="Texture2D" uid="uid://cadnrfe6u6j63" path="res://images/inklings/tokens/Green2.png" id="28_ej5g3"]
 [ext_resource type="Texture2D" uid="uid://cr5sukgbbm86c" path="res://images/inklings/tokens/Pink1.png" id="29_5dsma"]
 [ext_resource type="Texture2D" uid="uid://cxs530wxync0j" path="res://images/inklings/tokens/Pink2.png" id="30_1ch63"]
-[ext_resource type="Texture2D" uid="uid://cancfomklirnf" path="res://images/ui/tokenStack.png" id="32_052y0"]
 [ext_resource type="Texture2D" uid="uid://57ch8vonovlj" path="res://images/ui/menu bg lgray.png" id="32_m2mbu"]
+[ext_resource type="Texture2D" uid="uid://bvhsebk4dsw8q" path="res://images/ui/tokenStackSm.png" id="36_f5757"]
 
 [sub_resource type="ButtonGroup" id="ButtonGroup_0md54"]
 resource_name = "Inkling"
@@ -61,6 +65,11 @@ border_color = Color(0, 0, 0, 1)
 corner_detail = 1
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ucbu0"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_booe3"]
+shader = ExtResource("25_cftrt")
+
+[sub_resource type="ImageTexture" id="ImageTexture_7xsbs"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_xjhr4"]
 texture = ExtResource("32_m2mbu")
@@ -953,7 +962,6 @@ vertical_alignment = 1
 
 [node name="InitiativePopup" type="MarginContainer" parent="Canvas"]
 unique_name_in_owner = true
-visible = false
 anchors_preset = 14
 anchor_top = 0.5
 anchor_right = 1.0
@@ -984,16 +992,63 @@ text = "Tap to add"
 horizontal_alignment = 1
 vertical_alignment = 1
 
+[node name="ResetTokens" type="TextureButton" parent="Canvas/InitiativePopup/VBoxContainer/Label"]
+custom_minimum_size = Vector2(40, 0)
+layout_mode = 1
+anchors_preset = 9
+anchor_bottom = 1.0
+offset_left = 11.0
+offset_right = 61.0
+grow_vertical = 2
+texture_normal = ExtResource("24_ucawx")
+ignore_texture_size = true
+stretch_mode = 5
+
+[node name="ExitIP" type="TextureButton" parent="Canvas/InitiativePopup/VBoxContainer/Label"]
+custom_minimum_size = Vector2(40, 0)
+layout_mode = 1
+anchors_preset = 11
+anchor_left = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -50.0
+offset_right = -10.0
+grow_horizontal = 0
+grow_vertical = 2
+texture_normal = ExtResource("25_1plev")
+ignore_texture_size = true
+stretch_mode = 5
+
 [node name="TokenPopup" type="HBoxContainer" parent="Canvas/InitiativePopup/VBoxContainer"]
+unique_name_in_owner = true
 layout_mode = 2
 script = ExtResource("24_iyc4u")
 
 [node name="Blue1Token" type="TextureButton" parent="Canvas/InitiativePopup/VBoxContainer/TokenPopup"]
 unique_name_in_owner = true
+material = SubResource("ShaderMaterial_booe3")
 custom_minimum_size = Vector2(50, 150)
 layout_mode = 2
 size_flags_horizontal = 3
+mouse_filter = 1
+theme = ExtResource("20_mkp0c")
+toggle_mode = true
 texture_normal = ExtResource("24_21jbe")
+texture_pressed = SubResource("ImageTexture_7xsbs")
+ignore_texture_size = true
+stretch_mode = 5
+
+[node name="Blue1Btn" type="TextureButton" parent="Canvas/InitiativePopup/VBoxContainer/TokenPopup/Blue1Token" groups=["PressedTokens"]]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+toggle_mode = true
+keep_pressed_outside = true
+texture_pressed = ExtResource("27_74q7r")
 ignore_texture_size = true
 stretch_mode = 5
 
@@ -1002,7 +1057,21 @@ unique_name_in_owner = true
 custom_minimum_size = Vector2(50, 150)
 layout_mode = 2
 size_flags_horizontal = 3
+mouse_filter = 1
 texture_normal = ExtResource("9_3h0xd")
+ignore_texture_size = true
+stretch_mode = 5
+
+[node name="Blue2Btn" type="TextureButton" parent="Canvas/InitiativePopup/VBoxContainer/TokenPopup/Blue2Token" groups=["PressedTokens"]]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+toggle_mode = true
+texture_pressed = ExtResource("27_74q7r")
 ignore_texture_size = true
 stretch_mode = 5
 
@@ -1011,7 +1080,21 @@ unique_name_in_owner = true
 custom_minimum_size = Vector2(50, 150)
 layout_mode = 2
 size_flags_horizontal = 3
+mouse_filter = 1
 texture_normal = ExtResource("25_basbn")
+ignore_texture_size = true
+stretch_mode = 5
+
+[node name="Orange1Btn" type="TextureButton" parent="Canvas/InitiativePopup/VBoxContainer/TokenPopup/Orange1Token" groups=["PressedTokens"]]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+toggle_mode = true
+texture_pressed = ExtResource("27_74q7r")
 ignore_texture_size = true
 stretch_mode = 5
 
@@ -1020,7 +1103,21 @@ unique_name_in_owner = true
 custom_minimum_size = Vector2(50, 150)
 layout_mode = 2
 size_flags_horizontal = 3
+mouse_filter = 1
 texture_normal = ExtResource("26_8xlg8")
+ignore_texture_size = true
+stretch_mode = 5
+
+[node name="Orange2Btn" type="TextureButton" parent="Canvas/InitiativePopup/VBoxContainer/TokenPopup/Orange2Token" groups=["PressedTokens"]]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+toggle_mode = true
+texture_pressed = ExtResource("27_74q7r")
 ignore_texture_size = true
 stretch_mode = 5
 
@@ -1029,7 +1126,21 @@ unique_name_in_owner = true
 custom_minimum_size = Vector2(50, 150)
 layout_mode = 2
 size_flags_horizontal = 3
+mouse_filter = 1
 texture_normal = ExtResource("27_isros")
+ignore_texture_size = true
+stretch_mode = 5
+
+[node name="Green1Btn" type="TextureButton" parent="Canvas/InitiativePopup/VBoxContainer/TokenPopup/Green1Token" groups=["PressedTokens"]]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+toggle_mode = true
+texture_pressed = ExtResource("27_74q7r")
 ignore_texture_size = true
 stretch_mode = 5
 
@@ -1038,7 +1149,21 @@ unique_name_in_owner = true
 custom_minimum_size = Vector2(50, 150)
 layout_mode = 2
 size_flags_horizontal = 3
+mouse_filter = 1
 texture_normal = ExtResource("28_ej5g3")
+ignore_texture_size = true
+stretch_mode = 5
+
+[node name="Green2Btn" type="TextureButton" parent="Canvas/InitiativePopup/VBoxContainer/TokenPopup/Green2Token" groups=["PressedTokens"]]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+toggle_mode = true
+texture_pressed = ExtResource("27_74q7r")
 ignore_texture_size = true
 stretch_mode = 5
 
@@ -1047,7 +1172,21 @@ unique_name_in_owner = true
 custom_minimum_size = Vector2(50, 150)
 layout_mode = 2
 size_flags_horizontal = 3
+mouse_filter = 1
 texture_normal = ExtResource("29_5dsma")
+ignore_texture_size = true
+stretch_mode = 5
+
+[node name="Pink1Btn" type="TextureButton" parent="Canvas/InitiativePopup/VBoxContainer/TokenPopup/Pink1Token" groups=["PressedTokens"]]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+toggle_mode = true
+texture_pressed = ExtResource("27_74q7r")
 ignore_texture_size = true
 stretch_mode = 5
 
@@ -1056,7 +1195,21 @@ unique_name_in_owner = true
 custom_minimum_size = Vector2(50, 150)
 layout_mode = 2
 size_flags_horizontal = 3
+mouse_filter = 1
 texture_normal = ExtResource("30_1ch63")
+ignore_texture_size = true
+stretch_mode = 5
+
+[node name="Pink2Btn" type="TextureButton" parent="Canvas/InitiativePopup/VBoxContainer/TokenPopup/Pink2Token" groups=["PressedTokens"]]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+toggle_mode = true
+texture_pressed = ExtResource("27_74q7r")
 ignore_texture_size = true
 stretch_mode = 5
 
@@ -1067,7 +1220,7 @@ offset_top = 29.0
 offset_right = 461.0
 offset_bottom = 101.0
 mouse_default_cursor_shape = 2
-texture_normal = ExtResource("32_052y0")
+texture_normal = ExtResource("36_f5757")
 ignore_texture_size = true
 stretch_mode = 5
 
@@ -1159,14 +1312,24 @@ text = "No"
 [connection signal="pressed" from="Canvas/Undo" to="Canvas/MarginContainer/HBoxContainer/vBox Grid/SplathelloControl/StageBG/Grid" method="_undo"]
 [connection signal="pressed" from="Canvas/Reset" to="Canvas/MarginContainer/HBoxContainer/vBox Grid/SplathelloControl" method="_reset_confirmation"]
 [connection signal="pressed" from="Canvas/Finish" to="Canvas/MarginContainer/HBoxContainer/vBox Grid/SplathelloControl" method="_open_results"]
+[connection signal="pressed" from="Canvas/InitiativePopup/VBoxContainer/Label/ResetTokens" to="Canvas/InitiativePopup/VBoxContainer/TokenPopup" method="_reset_tokens"]
+[connection signal="pressed" from="Canvas/InitiativePopup/VBoxContainer/Label/ExitIP" to="Canvas/InitiativePopup/VBoxContainer/TokenPopup" method="_initiative_popup"]
 [connection signal="pressed" from="Canvas/InitiativePopup/VBoxContainer/TokenPopup/Blue1Token" to="Canvas/InitiativePopup/VBoxContainer/TokenPopup" method="_move_token" binds= ["Blue1"]]
+[connection signal="pressed" from="Canvas/InitiativePopup/VBoxContainer/TokenPopup/Blue1Token/Blue1Btn" to="Canvas/InitiativePopup/VBoxContainer/TokenPopup" method="_move_token" binds= ["Blue1"]]
 [connection signal="pressed" from="Canvas/InitiativePopup/VBoxContainer/TokenPopup/Blue2Token" to="Canvas/InitiativePopup/VBoxContainer/TokenPopup" method="_move_token" binds= ["Blue2"]]
+[connection signal="pressed" from="Canvas/InitiativePopup/VBoxContainer/TokenPopup/Blue2Token/Blue2Btn" to="Canvas/InitiativePopup/VBoxContainer/TokenPopup" method="_move_token" binds= ["Blue2"]]
 [connection signal="pressed" from="Canvas/InitiativePopup/VBoxContainer/TokenPopup/Orange1Token" to="Canvas/InitiativePopup/VBoxContainer/TokenPopup" method="_move_token" binds= ["Orange1"]]
+[connection signal="pressed" from="Canvas/InitiativePopup/VBoxContainer/TokenPopup/Orange1Token/Orange1Btn" to="Canvas/InitiativePopup/VBoxContainer/TokenPopup" method="_move_token" binds= ["Orange1"]]
 [connection signal="pressed" from="Canvas/InitiativePopup/VBoxContainer/TokenPopup/Orange2Token" to="Canvas/InitiativePopup/VBoxContainer/TokenPopup" method="_move_token" binds= ["Orange2"]]
+[connection signal="pressed" from="Canvas/InitiativePopup/VBoxContainer/TokenPopup/Orange2Token/Orange2Btn" to="Canvas/InitiativePopup/VBoxContainer/TokenPopup" method="_move_token" binds= ["Orange2"]]
 [connection signal="pressed" from="Canvas/InitiativePopup/VBoxContainer/TokenPopup/Green1Token" to="Canvas/InitiativePopup/VBoxContainer/TokenPopup" method="_move_token" binds= ["Green1"]]
+[connection signal="pressed" from="Canvas/InitiativePopup/VBoxContainer/TokenPopup/Green1Token/Green1Btn" to="Canvas/InitiativePopup/VBoxContainer/TokenPopup" method="_move_token" binds= ["Green1"]]
 [connection signal="pressed" from="Canvas/InitiativePopup/VBoxContainer/TokenPopup/Green2Token" to="Canvas/InitiativePopup/VBoxContainer/TokenPopup" method="_move_token" binds= ["Green2"]]
+[connection signal="pressed" from="Canvas/InitiativePopup/VBoxContainer/TokenPopup/Green2Token/Green2Btn" to="Canvas/InitiativePopup/VBoxContainer/TokenPopup" method="_move_token" binds= ["Green2"]]
 [connection signal="pressed" from="Canvas/InitiativePopup/VBoxContainer/TokenPopup/Pink1Token" to="Canvas/InitiativePopup/VBoxContainer/TokenPopup" method="_move_token" binds= ["Pink1"]]
+[connection signal="pressed" from="Canvas/InitiativePopup/VBoxContainer/TokenPopup/Pink1Token/Pink1Btn" to="Canvas/InitiativePopup/VBoxContainer/TokenPopup" method="_move_token" binds= ["Pink1"]]
 [connection signal="pressed" from="Canvas/InitiativePopup/VBoxContainer/TokenPopup/Pink2Token" to="Canvas/InitiativePopup/VBoxContainer/TokenPopup" method="_move_token" binds= ["Pink2"]]
+[connection signal="pressed" from="Canvas/InitiativePopup/VBoxContainer/TokenPopup/Pink2Token/Pink2Btn" to="Canvas/InitiativePopup/VBoxContainer/TokenPopup" method="_move_token" binds= ["Pink2"]]
 [connection signal="pressed" from="Canvas/TokenButton" to="Canvas/InitiativePopup/VBoxContainer/TokenPopup" method="_initiative_popup"]
 [connection signal="confirmed" from="Canvas/ResetConfirmation/ConfirmationDialog" to="Canvas/MarginContainer/HBoxContainer/vBox Grid/SplathelloControl" method="_open_menu"]
 [connection signal="pressed" from="Canvas/ResetConfirmation/MarginContainer/VBoxContainer/MarginContainer/HBoxContainer/YesReset" to="Canvas/MarginContainer/HBoxContainer/vBox Grid/SplathelloControl/StageBG/Grid" method="_reset"]

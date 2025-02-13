@@ -71,6 +71,8 @@ func _reset_grid() -> void:
 	for n in get_children():
 		n.free()
 	_populate_grid()
+	%InitiativePopup.visible = false
+	%TokenPopup._reset_tokens()
 	
 	if Splathello.triggerReset and Splathello.startingPieces:
 		_fill_starting_squares()
@@ -85,22 +87,27 @@ func _reset():
 	
 func _fill_starting_squares():
 	var numPlayers = Splathello.numPlayers
-	var p1Color = "blue"
-	var p2Color = "orange"
-	
-	match Splathello.playerColors:
-		1:
-			p1Color = "green"
-			p2Color = "pink"
-		2:
-			p1Color = "indigo"
-			p2Color = "yellow"
-		_:
-			p1Color = "blue"
-			p2Color = "orange"
-	
+	var p1Color
+	var p2Color
 	var p3Color = "green"
 	var p4Color = "pink"
+	
+	if numPlayers == 4:
+		p1Color = "blue"
+		p2Color = "orange"
+	else:
+		match Splathello.playerColors:
+			1:
+				p1Color = "green"
+				p2Color = "pink"
+			2:
+				p1Color = "indigo"
+				p2Color = "yellow"
+			_:
+				p1Color = "blue"
+				p2Color = "orange"
+	
+
 	
 	var r = (gridSize / 2)
 	#Remember coordinates are 0 inclusive, so all are -1

@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=3 uid="uid://di36chad7pjkb"]
+[gd_scene load_steps=25 format=3 uid="uid://di36chad7pjkb"]
 
 [ext_resource type="Script" path="res://splathello_menu.gd" id="1_fexvu"]
 [ext_resource type="Texture2D" uid="uid://hfcaeufrvdhb" path="res://images/backgrounds/Splatoon bg menu.png" id="1_wqkmt"]
@@ -21,6 +21,7 @@
 [ext_resource type="ButtonGroup" uid="uid://drx5a1qfumpnd" path="res://headerToggle.tres" id="19_q2m44"]
 [ext_resource type="ButtonGroup" uid="uid://cypgmwy8eoc82" path="res://startingPiecesToggle.tres" id="20_15qxq"]
 [ext_resource type="ButtonGroup" uid="uid://c4y4pga5ong5u" path="res://gridNumToggles.tres" id="20_nb1vy"]
+[ext_resource type="Texture2D" uid="uid://qcdsx514gp0u" path="res://images/ui/uiBtnFullscreen.png" id="22_g1pxs"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_vtofj"]
 font_size = 100
@@ -66,11 +67,10 @@ theme_override_constants/margin_bottom = 50
 layout_mode = 2
 size_flags_horizontal = 0
 theme = ExtResource("2_72qp4")
-current_tab = 2
+current_tab = 0
 clip_tabs = false
 
 [node name="Players" type="TabBar" parent="MarginContainer/TabContainer"]
-visible = false
 layout_mode = 2
 size_flags_stretch_ratio = 0.0
 theme = ExtResource("2_72qp4")
@@ -479,6 +479,7 @@ patch_margin_right = 2
 patch_margin_bottom = 2
 
 [node name="Options" type="TabBar" parent="MarginContainer/TabContainer"]
+visible = false
 layout_mode = 2
 theme = ExtResource("2_72qp4")
 clip_tabs = false
@@ -705,7 +706,8 @@ text = " 8"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="HSlider" type="HSlider" parent="MarginContainer/TabContainer/Options/MarginContainer/VBoxContainer/GridSize/PanelContainer"]
+[node name="GridSizeSlider" type="HSlider" parent="MarginContainer/TabContainer/Options/MarginContainer/VBoxContainer/GridSize/PanelContainer"]
+unique_name_in_owner = true
 custom_minimum_size = Vector2(0, 10)
 layout_mode = 1
 anchors_preset = 15
@@ -810,6 +812,18 @@ text = "Cancel"
 horizontal_alignment = 1
 vertical_alignment = 1
 
+[node name="Fullscreen" type="TextureButton" parent="."]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -113.0
+offset_top = 11.0
+offset_right = -13.0
+offset_bottom = 111.0
+grow_horizontal = 0
+texture_normal = ExtResource("22_g1pxs")
+
 [connection signal="pressed" from="MarginContainer/TabContainer/Players/HBoxContainer/VBox 2P/Squid2P" to="." method="set_num_players" binds= [2]]
 [connection signal="pressed" from="MarginContainer/TabContainer/Players/HBoxContainer/VBox 2P/HBoxContainer/2P_BO" to="." method="change_player_color" binds= ["blueOrange"]]
 [connection signal="pressed" from="MarginContainer/TabContainer/Players/HBoxContainer/VBox 2P/HBoxContainer/2P_GP" to="." method="change_player_color" binds= ["greenPink"]]
@@ -839,6 +853,7 @@ vertical_alignment = 1
 [connection signal="pressed" from="MarginContainer/TabContainer/Options/MarginContainer/VBoxContainer/HeadersToggle/GridNumsOn" to="." method="_set_visible_labels" binds= ["Grid Numbers"]]
 [connection signal="pressed" from="MarginContainer/TabContainer/Options/MarginContainer/VBoxContainer/StartingPiecesToggle/SPOn" to="." method="_toggle_startingPieces" binds= [true]]
 [connection signal="pressed" from="MarginContainer/TabContainer/Options/MarginContainer/VBoxContainer/StartingPiecesToggle/SPOff" to="." method="_toggle_startingPieces" binds= [false]]
-[connection signal="value_changed" from="MarginContainer/TabContainer/Options/MarginContainer/VBoxContainer/GridSize/PanelContainer/HSlider" to="." method="_change_grid_size"]
+[connection signal="value_changed" from="MarginContainer/TabContainer/Options/MarginContainer/VBoxContainer/GridSize/PanelContainer/GridSizeSlider" to="." method="_change_grid_size"]
 [connection signal="pressed" from="Return" to="." method="_close_menu" binds= [true]]
 [connection signal="pressed" from="Cancel" to="." method="_close_menu" binds= [false]]
+[connection signal="pressed" from="Fullscreen" to="." method="_fullscreen"]
