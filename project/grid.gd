@@ -109,7 +109,7 @@ func _fill_starting_squares():
 	
 
 	
-	var r = (gridSize / 2)
+	var r = floor(gridSize / 2)
 	#Remember coordinates are 0 inclusive, so all are -1
 	if numPlayers == 2:
 		_capture_square(r-1,r-1, p1Color)
@@ -213,16 +213,17 @@ func get_currentColor():
 	return Splathello.currentColor
 	
 func _undo():
-	var numToPop = 0
-	for square in Splathello.changedSquares:
-		if square[0] == Splathello.turnNum:
-			_capture_square(square[1],square[2], square[3], true) #(turn,) r, c, color, undoval
-			numToPop += 1
-		else:
-			break
-	for i in range(numToPop):
-		Splathello.changedSquares.pop_front()
-	Splathello.turnNum -= 1
+	if !%InitiativePopup.visible:
+		var numToPop = 0
+		for square in Splathello.changedSquares:
+			if square[0] == Splathello.turnNum:
+				_capture_square(square[1],square[2], square[3], true) #(turn,) r, c, color, undoval
+				numToPop += 1
+			else:
+				break
+		for i in range(numToPop):
+			Splathello.changedSquares.pop_front()
+		Splathello.turnNum -= 1
 	#print(Splathello.changedSquares[0])
 	
 	

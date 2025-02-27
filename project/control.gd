@@ -40,7 +40,24 @@ func _show_hide_headers() -> void:
 		
 	%ColHeaders.visible = tf
 	%RowHeaders.visible = tf
+	if tf:
+		adapt_header_to_grid_size()
 	
+func adapt_header_to_grid_size():
+	for header in get_tree().get_nodes_in_group("Headers"):
+		visible = true
+		
+	if Splathello.gridSize < 8:  #7
+		$ColHeaders/H.visible = false
+		$"RowHeaders/8".visible = false
+	if Splathello.gridSize < 7:  #6
+		$ColHeaders/G.visible = false
+		$"RowHeaders/7".visible = false
+	if Splathello.gridSize < 6:  #5
+		$ColHeaders/F.visible = false
+		$"RowHeaders/6".visible = false
+		
+
 func _reset_confirmation():
 	%ResetConfirmation.visible = true;
 	

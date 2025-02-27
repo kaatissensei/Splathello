@@ -53,6 +53,9 @@ func _initiative_popup():
 	else:
 		%InitiativePopup.visible = false
 		
+	if %InitiativeBar.get_child_count() == 1:
+		_reset_tokens()
+		
 func _reset_tokens():
 	for token in get_tree().get_nodes_in_group("PressedTokens"):
 		token.button_pressed = false
