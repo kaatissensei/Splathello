@@ -1,0 +1,656 @@
+[gd_scene load_steps=27 format=3 uid="uid://d3hwe2gd6qxkb"]
+
+[ext_resource type="Script" path="res://control.gd" id="1_nsyki"]
+[ext_resource type="Texture2D" uid="uid://vyr12yblpf7f" path="res://images/oak_floor_tile.jpg" id="2_xw5gc"]
+[ext_resource type="Script" path="res://score_script.gd" id="3_4w3su"]
+[ext_resource type="Theme" uid="uid://cqkgk3jwg318p" path="res://scores.tres" id="3_67epi"]
+[ext_resource type="Script" path="res://scores.gd" id="3_k6p8t"]
+[ext_resource type="Texture2D" uid="uid://dkt3idyiw58p5" path="res://images/ui/teamTabs/Team1Tab.png" id="3_su0ip"]
+[ext_resource type="Texture2D" uid="uid://d4jw84omtot1d" path="res://images/ui/btnFullscreenTrans.png" id="4_0pj1w"]
+[ext_resource type="Texture2D" uid="uid://unhdedp2ebgv" path="res://images/ui/btnFullscreen.png" id="5_4q24y"]
+[ext_resource type="Texture2D" uid="uid://bygnnvkgqh08s" path="res://images/ui/teamTabs/Team2Tab.png" id="5_mhss6"]
+[ext_resource type="Texture2D" uid="uid://go156evlrfds" path="res://images/ui/teamTabs/Team3Tab.png" id="6_hbwk3"]
+[ext_resource type="Texture2D" uid="uid://vqtrh1er2qlh" path="res://images/ui/teamTabs/Team4Tab.png" id="7_copy0"]
+[ext_resource type="Texture2D" uid="uid://deoaqru2q6c8v" path="res://images/ui/teamTabs/Team5Tab.png" id="8_y6kih"]
+[ext_resource type="Texture2D" uid="uid://c53rju8mva628" path="res://images/ui/teamTabs/Team6Tab.png" id="9_e4fbx"]
+[ext_resource type="Texture2D" uid="uid://c2x8cn74sex1p" path="res://images/ui/teamTabs/Team7Tab.png" id="10_ax3pw"]
+[ext_resource type="Texture2D" uid="uid://qaweiy5r17pb" path="res://images/ui/teamTabs/Team8Tab.png" id="11_5qq1u"]
+[ext_resource type="Theme" uid="uid://bjmqpdhlv0nm2" path="res://Question.tres" id="14_a53dr"]
+[ext_resource type="FontFile" uid="uid://bxu4ddnl870k1" path="res://images/ui/michigan 3.ttf" id="18_1d0lk"]
+[ext_resource type="Texture2D" uid="uid://kbco2vc16m7l" path="res://images/ui/btnX.png" id="18_iwvte"]
+
+[sub_resource type="Theme" id="Theme_noi8h"]
+
+[sub_resource type="FontVariation" id="FontVariation_yj05b"]
+variation_embolden = 0.5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_wx8bh"]
+bg_color = Color(0.109804, 0.101961, 0.12549, 0.815686)
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+border_color = Color(0, 0, 0, 1)
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_27gam"]
+bg_color = Color(0, 0.584314, 0.160784, 1)
+border_width_left = 7
+border_width_top = 7
+border_width_right = 7
+border_width_bottom = 7
+border_color = Color(1, 0.721569, 0, 1)
+border_blend = true
+corner_radius_top_left = 15
+corner_radius_top_right = 15
+corner_radius_bottom_right = 15
+corner_radius_bottom_left = 15
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_h7gnv"]
+bg_color = Color(0, 0.584314, 0.160784, 1)
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+border_color = Color(0, 0, 0, 1)
+border_blend = true
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+shadow_size = 3
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_7gc8o"]
+bg_color = Color(0, 0.584314, 0.160784, 1)
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+border_color = Color(0, 0, 0, 1)
+border_blend = true
+corner_radius_top_left = 15
+corner_radius_top_right = 15
+corner_radius_bottom_right = 15
+corner_radius_bottom_left = 15
+shadow_size = 3
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_yrys6"]
+bg_color = Color(0.909804, 0, 0, 1)
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+border_color = Color(1, 0.721569, 0, 1)
+border_blend = true
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_fh84a"]
+bg_color = Color(0.909804, 0, 0, 1)
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+border_color = Color(0, 0, 0, 1)
+border_blend = true
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+shadow_size = 3
+
+[node name="Node2D" type="Node2D"]
+script = ExtResource("1_nsyki")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_xw5gc")
+expand_mode = 1
+stretch_mode = 1
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.760784, 0.407843, 0, 0.356863)
+
+[node name="GameBoard" type="HBoxContainer" parent="CanvasLayer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Scores" type="VBoxContainer" parent="CanvasLayer/GameBoard"]
+layout_mode = 2
+size_flags_stretch_ratio = 2.0
+script = ExtResource("3_4w3su")
+
+[node name="Team1" type="Button" parent="CanvasLayer/GameBoard/Scores"]
+custom_minimum_size = Vector2(150, 0)
+layout_mode = 2
+size_flags_vertical = 3
+script = ExtResource("3_k6p8t")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/GameBoard/Scores/Team1"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="PNumTab" type="TextureRect" parent="CanvasLayer/GameBoard/Scores/Team1/HBoxContainer"]
+layout_mode = 2
+texture = ExtResource("3_su0ip")
+expand_mode = 3
+stretch_mode = 5
+
+[node name="Score" type="Label" parent="CanvasLayer/GameBoard/Scores/Team1/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+theme = ExtResource("3_67epi")
+text = "55"
+vertical_alignment = 1
+
+[node name="Team2" type="Button" parent="CanvasLayer/GameBoard/Scores"]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+size_flags_vertical = 3
+script = ExtResource("3_k6p8t")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/GameBoard/Scores/Team2"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="PNumTab" type="TextureRect" parent="CanvasLayer/GameBoard/Scores/Team2/HBoxContainer"]
+layout_mode = 2
+texture = ExtResource("5_mhss6")
+expand_mode = 3
+stretch_mode = 5
+
+[node name="Score" type="Label" parent="CanvasLayer/GameBoard/Scores/Team2/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+theme = ExtResource("3_67epi")
+text = "55"
+vertical_alignment = 1
+
+[node name="Team3" type="Button" parent="CanvasLayer/GameBoard/Scores"]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+size_flags_vertical = 3
+script = ExtResource("3_k6p8t")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/GameBoard/Scores/Team3"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="PNumTab" type="TextureRect" parent="CanvasLayer/GameBoard/Scores/Team3/HBoxContainer"]
+layout_mode = 2
+texture = ExtResource("6_hbwk3")
+expand_mode = 3
+stretch_mode = 5
+
+[node name="Score" type="Label" parent="CanvasLayer/GameBoard/Scores/Team3/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+theme = ExtResource("3_67epi")
+text = "55"
+vertical_alignment = 1
+
+[node name="Team4" type="Button" parent="CanvasLayer/GameBoard/Scores"]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+size_flags_vertical = 3
+script = ExtResource("3_k6p8t")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/GameBoard/Scores/Team4"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="PNumTab" type="TextureRect" parent="CanvasLayer/GameBoard/Scores/Team4/HBoxContainer"]
+layout_mode = 2
+texture = ExtResource("7_copy0")
+expand_mode = 3
+stretch_mode = 5
+
+[node name="Score" type="Label" parent="CanvasLayer/GameBoard/Scores/Team4/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+theme = ExtResource("3_67epi")
+text = "55"
+vertical_alignment = 1
+
+[node name="Team5" type="Button" parent="CanvasLayer/GameBoard/Scores"]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+size_flags_vertical = 3
+script = ExtResource("3_k6p8t")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/GameBoard/Scores/Team5"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="PNumTab" type="TextureRect" parent="CanvasLayer/GameBoard/Scores/Team5/HBoxContainer"]
+layout_mode = 2
+texture = ExtResource("8_y6kih")
+expand_mode = 3
+stretch_mode = 5
+
+[node name="Score" type="Label" parent="CanvasLayer/GameBoard/Scores/Team5/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+theme = ExtResource("3_67epi")
+text = "55"
+vertical_alignment = 1
+
+[node name="Team6" type="Button" parent="CanvasLayer/GameBoard/Scores"]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+size_flags_vertical = 3
+script = ExtResource("3_k6p8t")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/GameBoard/Scores/Team6"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="PNumTab" type="TextureRect" parent="CanvasLayer/GameBoard/Scores/Team6/HBoxContainer"]
+layout_mode = 2
+texture = ExtResource("9_e4fbx")
+expand_mode = 3
+stretch_mode = 5
+
+[node name="Score" type="Label" parent="CanvasLayer/GameBoard/Scores/Team6/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+theme = ExtResource("3_67epi")
+text = "55"
+vertical_alignment = 1
+
+[node name="Team7" type="Button" parent="CanvasLayer/GameBoard/Scores"]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+size_flags_vertical = 3
+script = ExtResource("3_k6p8t")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/GameBoard/Scores/Team7"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="PNumTab" type="TextureRect" parent="CanvasLayer/GameBoard/Scores/Team7/HBoxContainer"]
+layout_mode = 2
+texture = ExtResource("10_ax3pw")
+expand_mode = 3
+stretch_mode = 5
+
+[node name="Score" type="Label" parent="CanvasLayer/GameBoard/Scores/Team7/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+theme = ExtResource("3_67epi")
+text = "55"
+vertical_alignment = 1
+
+[node name="Team8" type="Button" parent="CanvasLayer/GameBoard/Scores"]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+size_flags_vertical = 3
+script = ExtResource("3_k6p8t")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/GameBoard/Scores/Team8"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="PNumTab" type="TextureRect" parent="CanvasLayer/GameBoard/Scores/Team8/HBoxContainer"]
+layout_mode = 2
+texture = ExtResource("11_5qq1u")
+expand_mode = 3
+stretch_mode = 5
+
+[node name="Score" type="Label" parent="CanvasLayer/GameBoard/Scores/Team8/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+theme = ExtResource("3_67epi")
+text = "55"
+vertical_alignment = 1
+
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/GameBoard"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 10.0
+theme_override_constants/margin_left = 50
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 50
+theme_override_constants/margin_bottom = 20
+
+[node name="QuestionGrid" type="GridContainer" parent="CanvasLayer/GameBoard/MarginContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_constants/h_separation = 5
+theme_override_constants/v_separation = 10
+columns = 5
+
+[node name="QuestionContainer" type="MarginContainer" parent="CanvasLayer/GameBoard/MarginContainer/QuestionGrid"]
+visible = false
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="VBox" type="VBoxContainer" parent="CanvasLayer/GameBoard/MarginContainer/QuestionGrid/QuestionContainer"]
+layout_mode = 2
+
+[node name="QuestionText" type="Label" parent="CanvasLayer/GameBoard/MarginContainer/QuestionGrid/QuestionContainer/VBox"]
+layout_mode = 2
+size_flags_vertical = 6
+theme = SubResource("Theme_noi8h")
+theme_override_fonts/font = SubResource("FontVariation_yj05b")
+theme_override_font_sizes/font_size = 30
+text = "How many..."
+horizontal_alignment = 1
+
+[node name="Category1" type="HBoxContainer" parent="CanvasLayer/GameBoard/MarginContainer/QuestionGrid/QuestionContainer/VBox"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="Points" type="Label" parent="CanvasLayer/GameBoard/MarginContainer/QuestionGrid/QuestionContainer/VBox/Category1"]
+visible = false
+layout_mode = 2
+theme = ExtResource("14_a53dr")
+text = "3
+"
+horizontal_alignment = 1
+
+[node name="CategoryBtn" type="Button" parent="CanvasLayer/GameBoard/MarginContainer/QuestionGrid/QuestionContainer/VBox/Category1"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 30
+text = "3 points"
+
+[node name="Category2" type="HBoxContainer" parent="CanvasLayer/GameBoard/MarginContainer/QuestionGrid/QuestionContainer/VBox"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="Points" type="Label" parent="CanvasLayer/GameBoard/MarginContainer/QuestionGrid/QuestionContainer/VBox/Category2"]
+visible = false
+custom_minimum_size = Vector2(50, 0)
+layout_mode = 2
+theme = ExtResource("14_a53dr")
+text = "3
+"
+horizontal_alignment = 1
+
+[node name="CategoryBtn" type="Button" parent="CanvasLayer/GameBoard/MarginContainer/QuestionGrid/QuestionContainer/VBox/Category2"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 30
+text = "3 points"
+
+[node name="Category3" type="HBoxContainer" parent="CanvasLayer/GameBoard/MarginContainer/QuestionGrid/QuestionContainer/VBox"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="Points" type="Label" parent="CanvasLayer/GameBoard/MarginContainer/QuestionGrid/QuestionContainer/VBox/Category3"]
+visible = false
+custom_minimum_size = Vector2(50, 0)
+layout_mode = 2
+theme = ExtResource("14_a53dr")
+text = "3
+"
+horizontal_alignment = 1
+
+[node name="CategoryBtn" type="Button" parent="CanvasLayer/GameBoard/MarginContainer/QuestionGrid/QuestionContainer/VBox/Category3"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 30
+text = "3 points"
+
+[node name="QuestionPopup" type="ColorRect" parent="CanvasLayer"]
+unique_name_in_owner = true
+visible = false
+custom_minimum_size = Vector2(0, 100)
+anchors_preset = 14
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_top = -103.0
+offset_bottom = 47.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.101961, 0.101961, 0.101961, 0.737255)
+
+[node name="PopupQuestion" type="Button" parent="CanvasLayer/QuestionPopup"]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 100
+text = "This is a question."
+
+[node name="PopupAnswer" type="Button" parent="CanvasLayer/QuestionPopup"]
+unique_name_in_owner = true
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 100
+text = "This is a question."
+
+[node name="FulscreenBtn" type="TextureButton" parent="CanvasLayer"]
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -41.0
+offset_right = 59.0
+offset_bottom = 100.0
+grow_horizontal = 0
+scale = Vector2(0.4, 0.4)
+mouse_default_cursor_shape = 2
+texture_normal = ExtResource("4_0pj1w")
+texture_hover = ExtResource("5_4q24y")
+stretch_mode = 5
+
+[node name="WebDebug" type="Label" parent="CanvasLayer"]
+unique_name_in_owner = true
+visible = false
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "asfdafdsaf"
+
+[node name="Subtract" type="Button" parent="CanvasLayer"]
+offset_left = 156.0
+offset_top = 1.0
+offset_right = 180.0
+offset_bottom = 33.0
+text = "-1"
+
+[node name="Plus1" type="Button" parent="CanvasLayer"]
+offset_left = 155.0
+offset_top = 45.0
+offset_right = 182.0
+offset_bottom = 77.0
+text = "+1"
+
+[node name="TheyShoot" type="Panel" parent="CanvasLayer"]
+unique_name_in_owner = true
+visible = false
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -203.0
+offset_top = -105.5
+offset_right = 203.0
+offset_bottom = 105.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_wx8bh")
+
+[node name="TheyShootVbox" type="VBoxContainer" parent="CanvasLayer/TheyShoot"]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 5.0
+offset_top = -101.5
+offset_right = 329.0
+offset_bottom = 102.5
+grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="Score" type="Button" parent="CanvasLayer/TheyShoot/TheyShootVbox"]
+custom_minimum_size = Vector2(250, 100)
+layout_mode = 2
+mouse_default_cursor_shape = 2
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 7
+theme_override_fonts/font = ExtResource("18_1d0lk")
+theme_override_font_sizes/font_size = 40
+theme_override_styles/hover_pressed = SubResource("StyleBoxFlat_27gam")
+theme_override_styles/hover = SubResource("StyleBoxFlat_27gam")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_27gam")
+theme_override_styles/normal = SubResource("StyleBoxFlat_h7gnv")
+text = "Score!"
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/TheyShoot/TheyShootVbox/Score"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 1.0
+anchor_top = -0.02
+anchor_right = 1.224
+anchor_bottom = 1.02
+offset_top = 2.0
+offset_bottom = 2.0
+grow_horizontal = 0
+grow_vertical = 2
+theme_override_constants/separation = 0
+metadata/_edit_use_anchors_ = true
+
+[node name="+1" type="Button" parent="CanvasLayer/TheyShoot/TheyShootVbox/Score/VBoxContainer"]
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+mouse_default_cursor_shape = 2
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 7
+theme_override_fonts/font = ExtResource("18_1d0lk")
+theme_override_font_sizes/font_size = 25
+theme_override_styles/hover_pressed = SubResource("StyleBoxFlat_27gam")
+theme_override_styles/hover = SubResource("StyleBoxFlat_27gam")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_27gam")
+theme_override_styles/normal = SubResource("StyleBoxFlat_7gc8o")
+text = "+1"
+
+[node name="-2" type="Button" parent="CanvasLayer/TheyShoot/TheyShootVbox/Score/VBoxContainer"]
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+mouse_default_cursor_shape = 2
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 7
+theme_override_fonts/font = ExtResource("18_1d0lk")
+theme_override_font_sizes/font_size = 25
+theme_override_styles/hover_pressed = SubResource("StyleBoxFlat_27gam")
+theme_override_styles/hover = SubResource("StyleBoxFlat_27gam")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_27gam")
+theme_override_styles/normal = SubResource("StyleBoxFlat_7gc8o")
+text = "-2"
+
+[node name="Miss" type="Button" parent="CanvasLayer/TheyShoot/TheyShootVbox"]
+custom_minimum_size = Vector2(250, 100)
+layout_mode = 2
+mouse_default_cursor_shape = 2
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 7
+theme_override_fonts/font = ExtResource("18_1d0lk")
+theme_override_font_sizes/font_size = 40
+theme_override_styles/hover = SubResource("StyleBoxFlat_yrys6")
+theme_override_styles/normal = SubResource("StyleBoxFlat_fh84a")
+text = "Miss!"
+
+[node name="Close" type="TextureButton" parent="CanvasLayer/TheyShoot"]
+custom_minimum_size = Vector2(25, 25)
+layout_mode = 0
+offset_left = -40.0
+offset_top = -0.5
+offset_bottom = 39.5
+texture_normal = ExtResource("18_iwvte")
+ignore_texture_size = true
+stretch_mode = 5
+
+[connection signal="pressed" from="CanvasLayer/GameBoard/Scores/Team1" to="CanvasLayer/GameBoard/Scores" method="_increase_score" binds= [1]]
+[connection signal="pressed" from="CanvasLayer/GameBoard/Scores/Team2" to="CanvasLayer/GameBoard/Scores" method="_increase_score" binds= [2]]
+[connection signal="pressed" from="CanvasLayer/GameBoard/Scores/Team3" to="CanvasLayer/GameBoard/Scores" method="_increase_score" binds= [3]]
+[connection signal="pressed" from="CanvasLayer/GameBoard/Scores/Team4" to="CanvasLayer/GameBoard/Scores" method="_increase_score" binds= [4]]
+[connection signal="pressed" from="CanvasLayer/GameBoard/Scores/Team5" to="CanvasLayer/GameBoard/Scores" method="_increase_score" binds= [5]]
+[connection signal="pressed" from="CanvasLayer/GameBoard/Scores/Team6" to="CanvasLayer/GameBoard/Scores" method="_increase_score" binds= [6]]
+[connection signal="pressed" from="CanvasLayer/GameBoard/Scores/Team7" to="CanvasLayer/GameBoard/Scores" method="_increase_score" binds= [7]]
+[connection signal="pressed" from="CanvasLayer/GameBoard/Scores/Team8" to="CanvasLayer/GameBoard/Scores" method="_increase_score" binds= [8]]
+[connection signal="pressed" from="CanvasLayer/QuestionPopup/PopupQuestion" to="." method="_show_answer"]
+[connection signal="pressed" from="CanvasLayer/QuestionPopup/PopupAnswer" to="." method="_hide_question"]
+[connection signal="pressed" from="CanvasLayer/FulscreenBtn" to="." method="_fullscreen"]
+[connection signal="pressed" from="CanvasLayer/Subtract" to="CanvasLayer/GameBoard/Scores" method="_set_points_to_add" binds= [-1]]
+[connection signal="pressed" from="CanvasLayer/Plus1" to="CanvasLayer/GameBoard/Scores" method="_set_points_to_add" binds= [1]]
+[connection signal="pressed" from="CanvasLayer/TheyShoot/TheyShootVbox/Score" to="CanvasLayer/GameBoard/Scores" method="_score"]
+[connection signal="pressed" from="CanvasLayer/TheyShoot/TheyShootVbox/Score/VBoxContainer/+1" to="CanvasLayer/GameBoard/Scores" method="_score"]
+[connection signal="pressed" from="CanvasLayer/TheyShoot/TheyShootVbox/Score/VBoxContainer/-2" to="CanvasLayer/GameBoard/Scores" method="_minusTwo"]
+[connection signal="pressed" from="CanvasLayer/TheyShoot/TheyShootVbox/Miss" to="CanvasLayer/GameBoard/Scores" method="_miss"]
+[connection signal="pressed" from="CanvasLayer/TheyShoot/Close" to="CanvasLayer/GameBoard/Scores" method="_close_score"]

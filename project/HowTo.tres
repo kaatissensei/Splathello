@@ -1,0 +1,9 @@
+[gd_resource type="Theme" load_steps=2 format=3 uid="uid://c2km16jvilja4"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_74urn"]
+bg_color = Color(0.182411, 0.178519, 0.170735, 1)
+
+[resource]
+default_font_size = 50
+TabBar/constants/h_separation = 10
+TabBar/styles/tab_selected = SubResource("StyleBoxFlat_74urn")

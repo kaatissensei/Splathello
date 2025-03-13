@@ -1,0 +1,469 @@
+[gd_scene load_steps=20 format=3 uid="uid://b65ho8re1k5sl"]
+
+[ext_resource type="Script" path="res://menu.gd" id="1_dqnks"]
+[ext_resource type="Texture2D" uid="uid://vyr12yblpf7f" path="res://images/oak_floor_tile.jpg" id="2_50wed"]
+[ext_resource type="Theme" uid="uid://53jd5qkmd5lx" path="res://gameBtn.tres" id="4_0q210"]
+[ext_resource type="Theme" uid="uid://cwnr6li75osyp" path="res://mainMenu.tres" id="4_kvm7n"]
+[ext_resource type="Texture2D" uid="uid://d4jw84omtot1d" path="res://images/ui/btnFullscreenTrans.png" id="5_o5nbv"]
+[ext_resource type="Texture2D" uid="uid://d8x6qa2xh70b" path="res://images/ui/Template example.png" id="5_p2stt"]
+[ext_resource type="Texture2D" uid="uid://unhdedp2ebgv" path="res://images/ui/btnFullscreen.png" id="6_2dqat"]
+[ext_resource type="Texture2D" uid="uid://kbco2vc16m7l" path="res://images/ui/btnX.png" id="6_6jbop"]
+[ext_resource type="FontFile" uid="uid://bxu4ddnl870k1" path="res://images/ui/michigan 3.ttf" id="9_4h8fb"]
+[ext_resource type="Theme" uid="uid://c2km16jvilja4" path="res://HowTo.tres" id="10_ma03y"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_lsmgq"]
+draw_center = false
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_2yjhw"]
+bg_color = Color(0.168627, 0.168627, 0.168627, 1)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_rj8hn"]
+bg_color = Color(0.372549, 0.372549, 0.372549, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5ho4k"]
+bg_color = Color(0, 0, 0, 1)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_b2lan"]
+bg_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_gllf8"]
+bg_color = Color(0.196078, 0.396078, 0.721569, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_pkgvt"]
+draw_center = false
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_2b7xo"]
+bg_color = Color(0, 0, 0, 0.858824)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_sifw2"]
+bg_color = Color(0, 0, 0, 0.905882)
+
+[node name="MainMenu" type="Node2D"]
+script = ExtResource("1_dqnks")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_50wed")
+expand_mode = 1
+stretch_mode = 1
+
+[node name="ColorRect2" type="ColorRect" parent="CanvasLayer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.760784, 0.407843, 0, 0.356863)
+
+[node name="FileDialog" type="FileDialog" parent="CanvasLayer"]
+unique_name_in_owner = true
+title = "Open a File"
+initial_position = 1
+size = Vector2i(500, 500)
+ok_button_text = "Open"
+file_mode = 0
+access = 2
+filters = PackedStringArray("*.csv")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="CanvasLayer"]
+clip_contents = false
+anchors_preset = 14
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_top = -95.0
+offset_bottom = 105.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+localize_numeral_system = false
+theme = ExtResource("4_kvm7n")
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 30
+bbcode_enabled = true
+text = "[center]Quizball[/center]"
+fit_content = true
+
+[node name="Margin Container" type="MarginContainer" parent="CanvasLayer"]
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -430.0
+offset_bottom = -155.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_constants/margin_left = 500
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 500
+theme_override_constants/margin_bottom = 10
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/Margin Container"]
+layout_mode = 2
+
+[node name="WindowsUploadButton" type="Button" parent="CanvasLayer/Margin Container/VBoxContainer"]
+visible = false
+layout_mode = 2
+theme = ExtResource("4_0q210")
+theme_override_font_sizes/font_size = 30
+text = "Open .csv to Start"
+
+[node name="Upload Button" type="Button" parent="CanvasLayer/Margin Container/VBoxContainer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 40)
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 2.0
+theme = ExtResource("4_0q210")
+theme_override_font_sizes/font_size = 50
+text = "Upload .csv to Start"
+
+[node name="HowToPlay" type="Button" parent="CanvasLayer/Margin Container/VBoxContainer"]
+custom_minimum_size = Vector2(0, 40)
+layout_mode = 2
+size_flags_vertical = 3
+theme = ExtResource("4_0q210")
+theme_override_font_sizes/font_size = 40
+theme_override_styles/focus = SubResource("StyleBoxFlat_lsmgq")
+theme_override_styles/hover = SubResource("StyleBoxFlat_2yjhw")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_rj8hn")
+theme_override_styles/normal = SubResource("StyleBoxFlat_5ho4k")
+text = "How to Play"
+
+[node name="HowToCsv" type="Button" parent="CanvasLayer/Margin Container/VBoxContainer"]
+custom_minimum_size = Vector2(0, 40)
+layout_mode = 2
+size_flags_vertical = 3
+theme = ExtResource("4_0q210")
+theme_override_font_sizes/font_size = 40
+theme_override_styles/focus = SubResource("StyleBoxFlat_lsmgq")
+theme_override_styles/hover = SubResource("StyleBoxFlat_2yjhw")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_rj8hn")
+theme_override_styles/normal = SubResource("StyleBoxFlat_5ho4k")
+text = "How to make a .csv"
+
+[node name="Progress Bar" type="ProgressBar" parent="CanvasLayer"]
+unique_name_in_owner = true
+visible = false
+custom_minimum_size = Vector2(256, 0)
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -128.0
+offset_top = 151.5
+offset_right = 128.0
+offset_bottom = 178.5
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(848, -27.5)
+theme_override_styles/background = SubResource("StyleBoxFlat_b2lan")
+theme_override_styles/fill = SubResource("StyleBoxFlat_gllf8")
+
+[node name="Borders" type="Panel" parent="CanvasLayer/Progress Bar"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_pkgvt")
+
+[node name="Success Label" type="Label" parent="CanvasLayer"]
+unique_name_in_owner = true
+visible = false
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 550.0
+offset_top = -173.0
+offset_right = 615.0
+offset_bottom = -147.0
+grow_vertical = 0
+theme_override_colors/font_color = Color(0, 0.964706, 0, 1)
+text = "Success!"
+
+[node name="FulscreenBtn" type="TextureButton" parent="CanvasLayer"]
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -40.0
+offset_right = 60.0
+offset_bottom = 100.0
+grow_horizontal = 0
+scale = Vector2(0.4, 0.4)
+mouse_default_cursor_shape = 2
+texture_normal = ExtResource("5_o5nbv")
+texture_hover = ExtResource("6_2dqat")
+stretch_mode = 5
+
+[node name="DebugText" type="Label" parent="CanvasLayer"]
+unique_name_in_owner = true
+visible = false
+offset_right = 1148.0
+offset_bottom = 237.0
+
+[node name="Example" type="Button" parent="CanvasLayer"]
+custom_minimum_size = Vector2(200, 75)
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -258.0
+offset_top = -75.0
+grow_horizontal = 0
+grow_vertical = 0
+theme = ExtResource("4_0q210")
+theme_override_font_sizes/font_size = 32
+text = "View Example"
+
+[node name="HowToCSV" type="Panel" parent="CanvasLayer"]
+unique_name_in_owner = true
+visible = false
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_2b7xo")
+
+[node name="HowToCSVMargin" type="MarginContainer" parent="CanvasLayer/HowToCSV"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_right = 10
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/HowToCSV/HowToCSVMargin"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="CanvasLayer/HowToCSV/HowToCSVMargin/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 0
+theme_override_font_sizes/font_size = 30
+text = "Any Excel-like program can make a .csv (Comma Separated Value) file. 
+・On Excel, choose Save As... then change the file type to CSV or UTF-8 CSV.
+・On Google Sheets, click File > Download > Comma Separated Values (.csv)"
+autowrap_mode = 3
+
+[node name="Label3" type="RichTextLabel" parent="CanvasLayer/HowToCSV/HowToCSVMargin/VBoxContainer"]
+custom_minimum_size = Vector2(0, 100)
+layout_mode = 2
+size_flags_vertical = 4
+theme = ExtResource("4_0q210")
+theme_override_font_sizes/normal_font_size = 30
+bbcode_enabled = true
+text = "
+A template is available [color=#0000FF][url=https://github.com/kaatissensei/Quizball/blob/main/Quizball_Template.csv]here[/url][/color]."
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer/HowToCSV/HowToCSVMargin/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+texture = ExtResource("5_p2stt")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="Label2" type="Label" parent="CanvasLayer/HowToCSV/HowToCSVMargin/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 8
+theme_override_font_sizes/font_size = 30
+text = "NOTE: If your .csv contains non-English characters, you must save it as a UTF-8 CSV. Google Sheets will do this by default. Older versions of Microsoft Office do not have this option."
+autowrap_mode = 3
+
+[node name="ExitButton" type="TextureButton" parent="CanvasLayer/HowToCSV"]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -40.0
+offset_right = 60.0
+offset_bottom = 100.0
+grow_horizontal = 0
+scale = Vector2(0.4, 0.4)
+mouse_default_cursor_shape = 2
+texture_normal = ExtResource("6_6jbop")
+stretch_mode = 5
+
+[node name="HowToPlay" type="Panel" parent="CanvasLayer"]
+unique_name_in_owner = true
+visible = false
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_sifw2")
+
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/HowToPlay"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/HowToPlay/MarginContainer"]
+layout_mode = 2
+
+[node name="HowToPlayHeader" type="Label" parent="CanvasLayer/HowToPlay/MarginContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 50)
+layout_mode = 2
+size_flags_vertical = 6
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 10
+theme_override_fonts/font = ExtResource("9_4h8fb")
+theme_override_font_sizes/font_size = 60
+text = "How to Play"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="TabContainer" type="TabContainer" parent="CanvasLayer/HowToPlay/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 8.0
+theme = ExtResource("10_ma03y")
+current_tab = 0
+
+[node name="Prep" type="VBoxContainer" parent="CanvasLayer/HowToPlay/MarginContainer/VBoxContainer/TabContainer"]
+layout_mode = 2
+metadata/_tab_index = 0
+
+[node name="PrepLabel" type="Label" parent="CanvasLayer/HowToPlay/MarginContainer/VBoxContainer/TabContainer/Prep"]
+custom_minimum_size = Vector2(0, 50)
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_font_sizes/font_size = 42
+text = "Before Class"
+vertical_alignment = 1
+autowrap_mode = 3
+
+[node name="PrepText" type="Label" parent="CanvasLayer/HowToPlay/MarginContainer/VBoxContainer/TabContainer/Prep"]
+custom_minimum_size = Vector2(0, 100)
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 3.0
+theme_override_font_sizes/font_size = 36
+text = "・Get a small box or basket and a ball. Use a very soft ball or make one out of paper and duct tape. 
+     Some students will throw it way too hard.
+・(Optional) Make standing cards with numbers to make it easier to remember which group is which.
+"
+autowrap_mode = 3
+
+[node name="PrepLabel2" type="Label" parent="CanvasLayer/HowToPlay/MarginContainer/VBoxContainer/TabContainer/Prep"]
+custom_minimum_size = Vector2(0, 50)
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_font_sizes/font_size = 42
+text = "Start of Class"
+vertical_alignment = 1
+autowrap_mode = 3
+
+[node name="PrepText2" type="Label" parent="CanvasLayer/HowToPlay/MarginContainer/VBoxContainer/TabContainer/Prep"]
+custom_minimum_size = Vector2(0, 100)
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 5.0
+theme_override_font_sizes/font_size = 36
+text = "・In class, make groups of 3-5 students. Decide the order of each group.
+・Put the box/basket near the door. (I leave a little space between the box and the door to make bank 
+     shots harder.)
+・Put a chair about 2m/6ft. from the box.
+・Explain the rules and the categories."
+autowrap_mode = 3
+
+[node name="Play" type="ScrollContainer" parent="CanvasLayer/HowToPlay/MarginContainer/VBoxContainer/TabContainer"]
+visible = false
+layout_mode = 2
+metadata/_tab_index = 1
+
+[node name="Play" type="VBoxContainer" parent="CanvasLayer/HowToPlay/MarginContainer/VBoxContainer/TabContainer/Play"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="PlayLabel" type="Label" parent="CanvasLayer/HowToPlay/MarginContainer/VBoxContainer/TabContainer/Play/Play"]
+visible = false
+custom_minimum_size = Vector2(0, 50)
+layout_mode = 2
+size_flags_vertical = 3
+theme = ExtResource("10_ma03y")
+theme_override_font_sizes/font_size = 30
+text = "Play"
+vertical_alignment = 1
+autowrap_mode = 3
+
+[node name="PlayText" type="Label" parent="CanvasLayer/HowToPlay/MarginContainer/VBoxContainer/TabContainer/Play/Play"]
+custom_minimum_size = Vector2(0, 50)
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 8.0
+theme = ExtResource("10_ma03y")
+theme_override_font_sizes/font_size = 32
+text = "・The first student of each group stands up. Do rock-paper-scissors.
+・The winner gets 1 point then chooses a category and a point value (like Jeopardy).
+・Read the question. The first student to raise their hand and correctly answer the question gets the points and a 
+     chance for a bonus point. (You can be lenient. If one team is too far in the lead, pretend not to see them.)
+・BONUS POINT: The student who answered correctly comes to the front and attempts to make a basket from the
+     chair. (Tell them their back must be against the chair.)
+       - If they make it, they get 1 extra point. 
+       - If they miss, the team(s) with the lowest scores get 1 point.
+・(Optional Rule) If they score, they can choose to gain 1 point or have the leading team lose 2 points. 
+・The next person in each group stands up and the team who answered correctly gets to choose the next square.
+・Occasionally move the chair farther and farther away to increase the difficulty.
+・FINAL ROUND: For the final round, the groups can bet their points for a chance to win. Ask the groups how many 
+     points they would like to bet, then have one student from each group line up to take one final shot. If they make 
+     it, the points they bet are doubled. If they miss, the points are lost. Whoever finishes with the most points wins.
+
+"
+autowrap_mode = 3
+
+[node name="ExitButton" type="TextureButton" parent="CanvasLayer/HowToPlay"]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -40.0
+offset_right = 60.0
+offset_bottom = 100.0
+grow_horizontal = 0
+scale = Vector2(0.4, 0.4)
+mouse_default_cursor_shape = 2
+texture_normal = ExtResource("6_6jbop")
+stretch_mode = 5
+
+[connection signal="file_selected" from="CanvasLayer/FileDialog" to="." method="_on_file_dialog_file_selected"]
+[connection signal="pressed" from="CanvasLayer/Margin Container/VBoxContainer/WindowsUploadButton" to="." method="_open_fileDialog"]
+[connection signal="pressed" from="CanvasLayer/Margin Container/VBoxContainer/HowToPlay" to="." method="_show_HowToPlay"]
+[connection signal="pressed" from="CanvasLayer/Margin Container/VBoxContainer/HowToCsv" to="." method="_show_HowToCSV"]
+[connection signal="pressed" from="CanvasLayer/FulscreenBtn" to="." method="_fullscreen"]
+[connection signal="pressed" from="CanvasLayer/Example" to="." method="_load_my_csv"]
+[connection signal="pressed" from="CanvasLayer/HowToCSV/ExitButton" to="." method="_hide_HowToCSV"]
+[connection signal="pressed" from="CanvasLayer/HowToPlay/ExitButton" to="." method="_hide_HowToPlay"]

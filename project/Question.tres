@@ -1,0 +1,8 @@
+[gd_resource type="Theme" load_steps=2 format=3 uid="uid://bjmqpdhlv0nm2"]
+
+[ext_resource type="FontFile" uid="uid://7620k2tj8vvc" path="res://images/ui/NotoSansJP-VariableFont_wght.ttf" id="1_1e4f5"]
+
+[resource]
+default_base_scale = 1.0
+default_font = ExtResource("1_1e4f5")
+default_font_size = 38

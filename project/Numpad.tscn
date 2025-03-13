@@ -1,0 +1,287 @@
+[gd_scene load_steps=3 format=3 uid="uid://c1nd126f72b4p"]
+
+[ext_resource type="Theme" uid="uid://cpf3k6c8xnj7l" path="res://NumPad.tres" id="1_3d6jc"]
+[ext_resource type="Texture2D" uid="uid://3ctocm7cboam" path="res://images/ui/btnKey.png" id="2_l1daf"]
+
+[node name="Control" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="GridContainer" type="GridContainer" parent="."]
+layout_mode = 0
+offset_right = 150.0
+offset_bottom = 200.0
+theme_override_constants/h_separation = 0
+theme_override_constants/v_separation = 0
+columns = 3
+
+[node name="7" type="TextureButton" parent="GridContainer"]
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+mouse_default_cursor_shape = 2
+theme = ExtResource("1_3d6jc")
+texture_normal = ExtResource("2_l1daf")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="Label" type="Label" parent="GridContainer/7"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 30
+text = "7"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="8" type="TextureButton" parent="GridContainer"]
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+mouse_default_cursor_shape = 2
+theme = ExtResource("1_3d6jc")
+texture_normal = ExtResource("2_l1daf")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="Label" type="Label" parent="GridContainer/8"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 30
+text = "8"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="9" type="TextureButton" parent="GridContainer"]
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+mouse_default_cursor_shape = 2
+theme = ExtResource("1_3d6jc")
+texture_normal = ExtResource("2_l1daf")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="Label" type="Label" parent="GridContainer/9"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 30
+text = "9"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="4" type="TextureButton" parent="GridContainer"]
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+mouse_default_cursor_shape = 2
+theme = ExtResource("1_3d6jc")
+texture_normal = ExtResource("2_l1daf")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="Label" type="Label" parent="GridContainer/4"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 30
+text = "4"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="5" type="TextureButton" parent="GridContainer"]
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+mouse_default_cursor_shape = 2
+theme = ExtResource("1_3d6jc")
+texture_normal = ExtResource("2_l1daf")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="Label" type="Label" parent="GridContainer/5"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 30
+text = "5"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="6" type="TextureButton" parent="GridContainer"]
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+mouse_default_cursor_shape = 2
+theme = ExtResource("1_3d6jc")
+texture_normal = ExtResource("2_l1daf")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="Label" type="Label" parent="GridContainer/6"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 30
+text = "6"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="1" type="TextureButton" parent="GridContainer"]
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+mouse_default_cursor_shape = 2
+theme = ExtResource("1_3d6jc")
+texture_normal = ExtResource("2_l1daf")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="Label" type="Label" parent="GridContainer/1"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 30
+text = "1"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="2" type="TextureButton" parent="GridContainer"]
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+mouse_default_cursor_shape = 2
+theme = ExtResource("1_3d6jc")
+texture_normal = ExtResource("2_l1daf")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="Label" type="Label" parent="GridContainer/2"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 30
+text = "2
+"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="3" type="TextureButton" parent="GridContainer"]
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+mouse_default_cursor_shape = 2
+theme = ExtResource("1_3d6jc")
+texture_normal = ExtResource("2_l1daf")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="Label" type="Label" parent="GridContainer/3"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 30
+text = "3"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Del" type="TextureButton" parent="GridContainer"]
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+mouse_default_cursor_shape = 2
+theme = ExtResource("1_3d6jc")
+texture_normal = ExtResource("2_l1daf")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="Label" type="Label" parent="GridContainer/Del"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 20
+text = "Del"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="0" type="TextureButton" parent="GridContainer"]
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+mouse_default_cursor_shape = 2
+theme = ExtResource("1_3d6jc")
+texture_normal = ExtResource("2_l1daf")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="Label" type="Label" parent="GridContainer/0"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_default_cursor_shape = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 30
+text = "0
+"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="X" type="TextureButton" parent="GridContainer"]
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+mouse_default_cursor_shape = 2
+theme = ExtResource("1_3d6jc")
+texture_normal = ExtResource("2_l1daf")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="Label" type="Label" parent="GridContainer/X"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 30
+text = "X"
+horizontal_alignment = 1
+vertical_alignment = 1

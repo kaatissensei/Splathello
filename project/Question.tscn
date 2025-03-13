@@ -1,0 +1,111 @@
+[gd_scene load_steps=5 format=3 uid="uid://bvl2max0ky5q8"]
+
+[ext_resource type="Script" path="res://question.gd" id="1_gw14w"]
+[ext_resource type="Theme" uid="uid://bjmqpdhlv0nm2" path="res://Question.tres" id="3_cwbkc"]
+[ext_resource type="Theme" uid="uid://53jd5qkmd5lx" path="res://gameBtn.tres" id="3_sw02b"]
+
+[sub_resource type="FontVariation" id="FontVariation_4qh7i"]
+variation_embolden = 0.5
+
+[node name="Category" type="MarginContainer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+script = ExtResource("1_gw14w")
+
+[node name="QuestionContainer" type="MarginContainer" parent="."]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="VBox" type="VBoxContainer" parent="QuestionContainer"]
+layout_mode = 2
+
+[node name="CategoryText" type="Label" parent="QuestionContainer/VBox"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(10, 0)
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 3.0
+theme = ExtResource("3_sw02b")
+theme_override_fonts/font = SubResource("FontVariation_4qh7i")
+text = "How many..."
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
+
+[node name="Question1" type="HBoxContainer" parent="QuestionContainer/VBox"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 2.0
+
+[node name="Points" type="Label" parent="QuestionContainer/VBox/Question1"]
+visible = false
+layout_mode = 2
+theme = ExtResource("3_cwbkc")
+text = "3
+"
+horizontal_alignment = 1
+
+[node name="Q1Btn" type="Button" parent="QuestionContainer/VBox/Question1"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+theme = ExtResource("3_sw02b")
+text = "3 points"
+autowrap_mode = 3
+
+[node name="Question2" type="HBoxContainer" parent="QuestionContainer/VBox"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 2.0
+
+[node name="Points" type="Label" parent="QuestionContainer/VBox/Question2"]
+visible = false
+custom_minimum_size = Vector2(50, 0)
+layout_mode = 2
+theme = ExtResource("3_cwbkc")
+text = "3
+"
+horizontal_alignment = 1
+
+[node name="Q2Btn" type="Button" parent="QuestionContainer/VBox/Question2"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+theme = ExtResource("3_sw02b")
+text = "4 points"
+autowrap_mode = 3
+
+[node name="Question3" type="HBoxContainer" parent="QuestionContainer/VBox"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 2.0
+
+[node name="Points" type="Label" parent="QuestionContainer/VBox/Question3"]
+visible = false
+custom_minimum_size = Vector2(50, 0)
+layout_mode = 2
+theme = ExtResource("3_cwbkc")
+text = "3
+"
+horizontal_alignment = 1
+
+[node name="Q3Btn" type="Button" parent="QuestionContainer/VBox/Question3"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+theme = ExtResource("3_sw02b")
+text = "5 points"
+autowrap_mode = 3
+
+[connection signal="pressed" from="QuestionContainer/VBox/Question1/Q1Btn" to="." method="_display_question" binds= [1]]
+[connection signal="pressed" from="QuestionContainer/VBox/Question2/Q2Btn" to="." method="_display_question" binds= [2]]
+[connection signal="pressed" from="QuestionContainer/VBox/Question3/Q3Btn" to="." method="_display_question" binds= [3]]

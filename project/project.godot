@@ -10,17 +10,14 @@ config_version=5
 
 [application]
 
-config/name="Splathello"
-run/main_scene="res://main.tscn"
+config/name="Quizball"
+run/main_scene="res://MainMenu.tscn"
 config/features=PackedStringArray("4.3", "GL Compatibility")
-boot_splash/bg_color=Color(0.101241, 0.101241, 0.101241, 1)
-boot_splash/image="res://KaatisSenseiLogo_Splathello.png"
-boot_splash/fullsize=false
 config/icon="res://icon.svg"
 
 [autoload]
 
-Splathello="*res://globals.gd"
+Main="*res://globals.gd"
 
 [display]
 
@@ -29,9 +26,9 @@ window/size/viewport_height=1080
 window/size/mode=2
 window/stretch/mode="canvas_items"
 
-[editor]
+[gui]
 
-export/convert_text_resources_to_binary=false
+theme/custom_font="res://images/ui/NotoSansJP-SemiBold.ttf"
 
 [rendering]
 

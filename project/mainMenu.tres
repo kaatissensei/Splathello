@@ -1,0 +1,10 @@
+[gd_resource type="Theme" load_steps=2 format=3 uid="uid://cwnr6li75osyp"]
+
+[ext_resource type="FontFile" uid="uid://bxu4ddnl870k1" path="res://images/ui/michigan 3.ttf" id="1_xyhmc"]
+
+[resource]
+default_font_size = 200
+Label/font_sizes/font_size = 150
+Label/fonts/font = ExtResource("1_xyhmc")
+RichTextLabel/font_sizes/normal_font_size = 200
+RichTextLabel/fonts/normal_font = ExtResource("1_xyhmc")
