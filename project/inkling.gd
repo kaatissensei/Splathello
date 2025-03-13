@@ -7,6 +7,7 @@ func _ready() -> void:
 
 func set_currentColor(playerColor) -> void:
 	Splathello.set_currentColor(playerColor)
+	%GridColorBorder.color = Splathello.get_rgb(playerColor)
 
 func _set_visibility():
 	var numPlayers = Splathello.numPlayers

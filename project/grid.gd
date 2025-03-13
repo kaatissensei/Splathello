@@ -8,6 +8,7 @@ func _ready() -> void:
 	%Grid.columns = gridSize
 	#SquareGrid.resize(36)
 	_reset_grid()
+	Splathello.initiative.clear()
 		
 func _populate_grid() -> void:
 	var squareNum = 1
@@ -151,11 +152,16 @@ func check_square(btn) -> void:
 						_look_for_squares(r, c, x, y)
 		#else:
 			#pass
+				#remove initiative token if color matches
+		if Splathello.initiative.size() > 0:
+			if currentColor in Splathello.initiative[0].name.to_lower():
+				Splathello.initiative[0].emit_signal("pressed")
 	
 		
 	
 func _capture_square(r, c, color = "blue", undo = false) -> void: #used to color in square
 	var btn = %Grid.get_node("Square[%s,%s]" % [r, c])
+	#Store changed square colors for Undo function
 	if undo == false:
 		var turn = Splathello.turnNum
 		Splathello.changedSquares.push_front([turn, r,c,Splathello.squareColors[r][c]])
@@ -165,7 +171,7 @@ func _capture_square(r, c, color = "blue", undo = false) -> void: #used to color
 	var menuTheme = load("res://SplatoonScene.tres") as Theme
 	var resetStyle = menuTheme.get_stylebox("Button", "Button")
 	#var blankStyle = StyleBoxEmpty.new()
-	if color == "":
+	if color == "":    #If no color selected
 		resetStyle.border_color = Color(.1,.1,.1)
 		btn.add_theme_stylebox_override("normal", resetStyle)
 		btn.add_theme_stylebox_override("hover", resetStyle)
@@ -183,6 +189,7 @@ func _capture_square(r, c, color = "blue", undo = false) -> void: #used to color
 		btn.add_theme_stylebox_override("hover_pressed", style)
 		#Hide text when captured
 		_hide_grid_text(btn)
+		
 	
 #func load_current_game():
 	#var style = StyleBoxFlat.new()

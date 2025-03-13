@@ -1,6 +1,5 @@
 extends HBoxContainer
 
-
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	pass # Replace with function body.
@@ -25,10 +24,15 @@ func _move_token(tokenName):
 	
 	#Add signal
 	AddButton.connect("pressed", delete_from_initiative.bind(AddButton))
-	pass
+	
+	if Splathello.initiative.size() == 0:
+		var color = tokenName.left(tokenName.length() - 1)
+		press_inkling_btn(color)
+	Splathello.initiative.push_back(AddButton)
 
 func delete_from_initiative(btn):
-	btn.queue_free()
+	btn.queue_free()  #removes object from scene
+	Splathello.initiative.erase(btn)
 	match btn.name:
 		"Blue1":
 			%Blue1Btn.button_pressed = false
@@ -46,7 +50,20 @@ func delete_from_initiative(btn):
 			%Pink1Btn.button_pressed = false
 		"Pink2":
 			%Pink2Btn.button_pressed = false
+			
+	#Autoselect next color
+	if Splathello.initiative.size():
+		var nextTokenName = Splathello.initiative[0].name
+		var nextColor = nextTokenName.left(nextTokenName.length() - 1)
+		if Splathello.autoSelectColor:
+			press_inkling_btn(nextColor)
 
+func press_inkling_btn(color):
+	var squidBtnName = "%inkling" + color
+	var squidBtn = get_node(squidBtnName)
+	squidBtn.emit_signal("pressed")
+	squidBtn.button_pressed = true
+	
 func _initiative_popup():
 	if %InitiativePopup.visible == false:
 		%InitiativePopup.visible = true

@@ -18,6 +18,8 @@ var newGame #bool to trigger board reset
 var startingPieces #bool for inital placement of tiles (Othello)
 var scores = [4] #4 players' scores
 var turnNum
+var initiative = []
+var autoSelectColor
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -28,6 +30,7 @@ func _ready() -> void:
 	gridSize = 8
 	startingPieces = true
 	turnNum = 0
+	autoSelectColor = true
 	_set_random_stage()
 	#_reset_main_grid()
 	coloredSquareCount = 0
