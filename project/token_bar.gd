@@ -78,3 +78,4 @@ func _reset_tokens():
 		token.button_pressed = false
 	for initToken in get_tree().get_nodes_in_group("Initiative"):
 		initToken.visible = false
+	Splathello.initiative = []
