@@ -1,9 +1,7 @@
 extends Control
 
 #TODO: Change undo array to 3d array
-	#Darken tokens when selected for initiative
-	#Don't de-select Squids when tapped second time
-	#Have color auto-selected based on initiative
+	#Don't de-select Squids when tapped second time < not worth the time
 #Maybe eventually: drag and drop initiative
 
 # Called when the node enters the scene tree for the first time.
@@ -27,7 +25,6 @@ func _set_stage_texture():
 	var stageName = Splathello.currentStage
 	var stageTexture = load('res://images/backgrounds/%s.png' % [stageName])
 	%StageBG.texture = stageTexture
-
 
 func _show_hide_headers() -> void:
 	var tf

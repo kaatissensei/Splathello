@@ -66,6 +66,9 @@ func _hide_grid_text(btn):
 	btn.add_theme_color_override("font_focus_color", Color8(0,0,0,0))
 	btn.add_theme_constant_override("outline_size", 0)
 
+func _toggle_hide_grid():
+	visible = !visible
+
 func _reset_grid() -> void:
 	if Splathello.triggerReset:
 		Splathello.reset_squareColors()
@@ -146,9 +149,7 @@ func check_square(btn) -> void:
 			_capture_square(r, c, currentColor)
 			for x in range(-1, 2):  #exclusive?
 				for y in range(-1,2):
-					if x == 0 and y == 0:
-						pass#print("%s,%s" % [r,c])
-					else:
+					if x != 0 or y != 0:
 						_look_for_squares(r, c, x, y)
 		#else:
 			#pass
@@ -214,12 +215,14 @@ func _look_for_squares(r, c, rOff, cOff, d = 1) -> void:
 					_capture_square(r + (dist) * rOff, c + (dist) * cOff, currentColor)
 			else:
 				_look_for_squares(r, c, rOff, cOff, d + 1)
-	pass
+	pass #Pretty sure this isn't necessary
 
 func get_currentColor():
 	return Splathello.currentColor
 	
 func _undo():
+	var lastTurn
+	var lastColor : String
 	if !%InitiativePopup.visible:
 		var numToPop = 0
 		for square in Splathello.changedSquares:
@@ -230,6 +233,12 @@ func _undo():
 				break
 		for i in range(numToPop):
 			Splathello.changedSquares.pop_front()
+			#print(lastTurn)
+			#if lastTurn[3] != "": ##THAT:S THE COLOR YOU'RE REPLACING
+			#	lastColor = lastTurn[3]
+		#print (lastColor)
+		#Splathello.set_currentColor(lastColor)
+		#%GridColorBorder.color = Splathello.get_rgb(lastColor)
 		Splathello.turnNum -= 1
 	#print(Splathello.changedSquares[0])
 	

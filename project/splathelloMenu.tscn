@@ -1,6 +1,6 @@
 [gd_scene load_steps=25 format=3 uid="uid://di36chad7pjkb"]
 
-[ext_resource type="Script" path="res://splathello_menu.gd" id="1_fexvu"]
+[ext_resource type="Script" uid="uid://ciwmk886endkt" path="res://splathello_menu.gd" id="1_fexvu"]
 [ext_resource type="Texture2D" uid="uid://hfcaeufrvdhb" path="res://images/backgrounds/Splatoon bg menu.png" id="1_wqkmt"]
 [ext_resource type="Theme" uid="uid://eg3500i0esep" path="res://SplatoonMenu.tres" id="2_72qp4"]
 [ext_resource type="Texture2D" uid="uid://lusqti3v02bd" path="res://images/ui/squid blueOrange.png" id="3_yj46f"]
@@ -13,7 +13,7 @@
 [ext_resource type="Texture2D" uid="uid://bqv2eay2aqcvy" path="res://images/backgrounds/stgArowanaMall.png" id="10_xcdux"]
 [ext_resource type="Texture2D" uid="uid://d2qwkjcc8mvmh" path="res://images/backgrounds/stgBrinewaterSprings.png" id="11_x312n"]
 [ext_resource type="Texture2D" uid="uid://twni6kek003t" path="res://images/backgrounds/stgCampTriggerfish.png" id="12_13xgv"]
-[ext_resource type="Script" path="res://label.gd" id="12_wwh5x"]
+[ext_resource type="Script" uid="uid://cuws2q0ffcjtl" path="res://label.gd" id="12_wwh5x"]
 [ext_resource type="Texture2D" uid="uid://s8b0o7811apu" path="res://images/backgrounds/stgMahiMahiResort.png" id="13_kk6so"]
 [ext_resource type="Texture2D" uid="uid://dougd8s7gbprm" path="res://images/ui/borderWhite.png" id="13_n3bq2"]
 [ext_resource type="Texture2D" uid="uid://y6gt5kkin4ou" path="res://images/backgrounds/stgMantaMarina.png" id="14_qfxhr"]
@@ -21,7 +21,7 @@
 [ext_resource type="ButtonGroup" uid="uid://drx5a1qfumpnd" path="res://headerToggle.tres" id="19_q2m44"]
 [ext_resource type="ButtonGroup" uid="uid://cypgmwy8eoc82" path="res://startingPiecesToggle.tres" id="20_15qxq"]
 [ext_resource type="ButtonGroup" uid="uid://c4y4pga5ong5u" path="res://gridNumToggles.tres" id="20_nb1vy"]
-[ext_resource type="Texture2D" uid="uid://qcdsx514gp0u" path="res://images/ui/uiBtnFullscreen.png" id="22_g1pxs"]
+[ext_resource type="Texture2D" uid="uid://bmwsdgw5fwsex" path="res://images/ui/uiBtnFullscreen_shadowed.png" id="22_h6bcr"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_vtofj"]
 font_size = 100
@@ -75,6 +75,7 @@ visible = false
 layout_mode = 2
 size_flags_stretch_ratio = 0.0
 theme = ExtResource("2_72qp4")
+current_tab = 0
 clip_tabs = false
 tab_count = 1
 metadata/_tab_index = 0
@@ -188,6 +189,7 @@ unique_name_in_owner = true
 visible = false
 layout_mode = 2
 theme = ExtResource("2_72qp4")
+current_tab = 0
 clip_tabs = false
 tab_count = 1
 metadata/_tab_index = 1
@@ -482,6 +484,7 @@ patch_margin_bottom = 2
 [node name="Options" type="TabBar" parent="MarginContainer/TabContainer"]
 layout_mode = 2
 theme = ExtResource("2_72qp4")
+current_tab = 0
 clip_tabs = false
 tab_count = 1
 metadata/_tab_index = 2
@@ -747,13 +750,13 @@ theme_override_colors/icon_hover_color = Color(0, 0, 0, 0)
 theme_override_colors/icon_hover_pressed_color = Color(0, 0, 0, 0)
 theme_override_colors/icon_disabled_color = Color(0, 0, 0, 0)
 theme_override_font_sizes/font_size = 90
-theme_override_styles/focus = SubResource("StyleBoxEmpty_butjs")
-theme_override_styles/disabled_mirrored = SubResource("StyleBoxEmpty_butjs")
-theme_override_styles/disabled = SubResource("StyleBoxEmpty_butjs")
-theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxEmpty_butjs")
-theme_override_styles/hover_pressed = SubResource("StyleBoxEmpty_butjs")
-theme_override_styles/hover_mirrored = SubResource("StyleBoxEmpty_butjs")
 theme_override_styles/pressed = SubResource("StyleBoxEmpty_butjs")
+theme_override_styles/hover_mirrored = SubResource("StyleBoxEmpty_butjs")
+theme_override_styles/hover_pressed = SubResource("StyleBoxEmpty_butjs")
+theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxEmpty_butjs")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_butjs")
+theme_override_styles/disabled_mirrored = SubResource("StyleBoxEmpty_butjs")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_butjs")
 flat = true
 
 [node name="Label" type="Label" parent="Return"]
@@ -788,13 +791,13 @@ theme_override_colors/icon_hover_color = Color(0, 0, 0, 0)
 theme_override_colors/icon_hover_pressed_color = Color(0, 0, 0, 0)
 theme_override_colors/icon_disabled_color = Color(0, 0, 0, 0)
 theme_override_font_sizes/font_size = 90
-theme_override_styles/focus = SubResource("StyleBoxEmpty_butjs")
-theme_override_styles/disabled_mirrored = SubResource("StyleBoxEmpty_butjs")
-theme_override_styles/disabled = SubResource("StyleBoxEmpty_butjs")
-theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxEmpty_butjs")
-theme_override_styles/hover_pressed = SubResource("StyleBoxEmpty_butjs")
-theme_override_styles/hover_mirrored = SubResource("StyleBoxEmpty_butjs")
 theme_override_styles/pressed = SubResource("StyleBoxEmpty_butjs")
+theme_override_styles/hover_mirrored = SubResource("StyleBoxEmpty_butjs")
+theme_override_styles/hover_pressed = SubResource("StyleBoxEmpty_butjs")
+theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxEmpty_butjs")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_butjs")
+theme_override_styles/disabled_mirrored = SubResource("StyleBoxEmpty_butjs")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_butjs")
 flat = true
 
 [node name="Label" type="Label" parent="Cancel"]
@@ -822,7 +825,7 @@ offset_top = 11.0
 offset_right = -13.0
 offset_bottom = 111.0
 grow_horizontal = 0
-texture_normal = ExtResource("22_g1pxs")
+texture_normal = ExtResource("22_h6bcr")
 
 [connection signal="pressed" from="MarginContainer/TabContainer/Players/HBoxContainer/VBox 2P/Squid2P" to="." method="set_num_players" binds= [2]]
 [connection signal="pressed" from="MarginContainer/TabContainer/Players/HBoxContainer/VBox 2P/HBoxContainer/2P_BO" to="." method="change_player_color" binds= ["blueOrange"]]

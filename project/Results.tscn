@@ -1,8 +1,9 @@
-[gd_scene load_steps=14 format=3 uid="uid://clcphvmknthxc"]
+[gd_scene load_steps=17 format=3 uid="uid://clcphvmknthxc"]
 
-[ext_resource type="Script" path="res://results.gd" id="1_7pu51"]
-[ext_resource type="Texture2D" uid="uid://bpkbtg3u27ew3" path="res://images/backgrounds/Splatoon bg gray w splats.jpg" id="2_bja2n"]
+[ext_resource type="Script" uid="uid://ra6bvngr3f2i" path="res://results.gd" id="1_7pu51"]
+[ext_resource type="Texture2D" uid="uid://bgjd42h0brccc" path="res://images/backgrounds/Splatoon bg gray w splats.jpg" id="2_bja2n"]
 [ext_resource type="Texture2D" uid="uid://bevtf83wji3ob" path="res://images/inklings/inklingBlue.png" id="3_dngeg"]
+[ext_resource type="Texture2D" uid="uid://bmwsdgw5fwsex" path="res://images/ui/uiBtnFullscreen_shadowed.png" id="3_svpg1"]
 [ext_resource type="Texture2D" uid="uid://7e0oguio4188" path="res://images/inklings/inklingOrange.png" id="4_7uvmg"]
 [ext_resource type="Texture2D" uid="uid://cuqbtgk1vabu7" path="res://images/inklings/inklingGreen.png" id="5_aa71g"]
 [ext_resource type="Texture2D" uid="uid://bj2gha7hbei8n" path="res://images/inklings/inklingPink.png" id="6_ydopw"]
@@ -13,6 +14,15 @@
 [ext_resource type="Theme" uid="uid://n6w28sgf8enr" path="res://SplatoonScene.tres" id="9_fnheh"]
 
 [sub_resource type="Theme" id="Theme_rchad"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_svpg1"]
+
+[sub_resource type="Theme" id="Theme_kg2o5"]
+Button/styles/disabled = SubResource("StyleBoxEmpty_svpg1")
+Button/styles/focus = SubResource("StyleBoxEmpty_svpg1")
+Button/styles/hover = SubResource("StyleBoxEmpty_svpg1")
+Button/styles/normal = SubResource("StyleBoxEmpty_svpg1")
+Button/styles/pressed = SubResource("StyleBoxEmpty_svpg1")
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_vdhij"]
 
@@ -43,6 +53,18 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 color = Color(0, 0, 0, 0.517647)
+
+[node name="Fullscreen" type="TextureButton" parent="CanvasLayer/ColorRect"]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -113.0
+offset_top = 11.0
+offset_right = -13.0
+offset_bottom = 111.0
+grow_horizontal = 0
+texture_normal = ExtResource("3_svpg1")
 
 [node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer"]
 anchors_preset = 12
@@ -122,9 +144,9 @@ anchors_preset = 14
 anchor_top = 0.5
 anchor_right = 1.0
 anchor_bottom = 0.5
-offset_left = 100.0
+offset_left = 4.0
 offset_top = -150.0
-offset_right = -80.0
+offset_right = -5.0
 offset_bottom = 150.0
 grow_horizontal = 2
 grow_vertical = 2
@@ -147,6 +169,15 @@ text = "35"
 horizontal_alignment = 1
 vertical_alignment = 1
 
+[node name="Button" type="Button" parent="CanvasLayer/HBoxContainer2/BlueScore"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = SubResource("Theme_kg2o5")
+
 [node name="OrangeScore" type="Label" parent="CanvasLayer/HBoxContainer2" groups=["scoreText"]]
 unique_name_in_owner = true
 layout_mode = 2
@@ -158,6 +189,15 @@ theme_override_font_sizes/font_size = 300
 text = "35"
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[node name="Button" type="Button" parent="CanvasLayer/HBoxContainer2/OrangeScore"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = SubResource("Theme_kg2o5")
 
 [node name="GreenScore" type="Label" parent="CanvasLayer/HBoxContainer2" groups=["scoreText"]]
 unique_name_in_owner = true
@@ -171,6 +211,15 @@ text = "35"
 horizontal_alignment = 1
 vertical_alignment = 1
 
+[node name="Button" type="Button" parent="CanvasLayer/HBoxContainer2/GreenScore"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = SubResource("Theme_kg2o5")
+
 [node name="PinkScore" type="Label" parent="CanvasLayer/HBoxContainer2" groups=["scoreText"]]
 unique_name_in_owner = true
 layout_mode = 2
@@ -182,6 +231,15 @@ theme_override_font_sizes/font_size = 300
 text = "35"
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[node name="Button" type="Button" parent="CanvasLayer/HBoxContainer2/PinkScore"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = SubResource("Theme_kg2o5")
 
 [node name="IndigoScore" type="Label" parent="CanvasLayer/HBoxContainer2" groups=["scoreText"]]
 unique_name_in_owner = true
@@ -196,6 +254,15 @@ text = "35"
 horizontal_alignment = 1
 vertical_alignment = 1
 
+[node name="Button" type="Button" parent="CanvasLayer/HBoxContainer2/IndigoScore"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = SubResource("Theme_kg2o5")
+
 [node name="YellowScore" type="Label" parent="CanvasLayer/HBoxContainer2" groups=["scoreText"]]
 unique_name_in_owner = true
 visible = false
@@ -208,6 +275,15 @@ theme_override_font_sizes/font_size = 300
 text = "35"
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[node name="Button" type="Button" parent="CanvasLayer/HBoxContainer2/YellowScore"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = SubResource("Theme_kg2o5")
 
 [node name="TextureRect2" type="TextureRect" parent="CanvasLayer"]
 anchors_preset = 5
@@ -229,11 +305,11 @@ mouse_default_cursor_shape = 2
 theme = ExtResource("9_fnheh")
 theme_override_colors/font_color = Color(0, 0, 0, 0)
 theme_override_font_sizes/font_size = 75
-theme_override_styles/focus = SubResource("StyleBoxEmpty_vdhij")
-theme_override_styles/disabled = SubResource("StyleBoxEmpty_vdhij")
-theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxEmpty_vdhij")
-theme_override_styles/hover_pressed = SubResource("StyleBoxEmpty_vdhij")
 theme_override_styles/pressed = SubResource("StyleBoxEmpty_vdhij")
+theme_override_styles/hover_pressed = SubResource("StyleBoxEmpty_vdhij")
+theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxEmpty_vdhij")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_vdhij")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_vdhij")
 flat = true
 
 [node name="Label" type="Label" parent="CanvasLayer/Reset"]
@@ -243,9 +319,10 @@ anchor_left = 1.0
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = -291.0
-offset_top = -75.0
-offset_right = -7.0
+offset_left = -288.0
+offset_top = -72.0
+offset_right = -4.0
+offset_bottom = 3.0
 grow_horizontal = 0
 grow_vertical = 0
 mouse_default_cursor_shape = 2
@@ -257,10 +334,17 @@ text = "Return"
 horizontal_alignment = 1
 vertical_alignment = 1
 
+[connection signal="pressed" from="CanvasLayer/ColorRect/Fullscreen" to="." method="fullscreen"]
 [connection signal="pressed" from="CanvasLayer/HBoxContainer/InklingBlue" to="." method="_displayScore" binds= ["blue"]]
 [connection signal="pressed" from="CanvasLayer/HBoxContainer/InklingOrange" to="." method="_displayScore" binds= ["orange"]]
 [connection signal="pressed" from="CanvasLayer/HBoxContainer/InklingGreen" to="." method="_displayScore" binds= ["green"]]
 [connection signal="pressed" from="CanvasLayer/HBoxContainer/InklingPink" to="." method="_displayScore" binds= ["pink"]]
 [connection signal="pressed" from="CanvasLayer/HBoxContainer/OctolingIndigo" to="." method="_displayScore" binds= ["indigo"]]
 [connection signal="pressed" from="CanvasLayer/HBoxContainer/OctolingYellow" to="." method="_displayScore" binds= ["yellow"]]
+[connection signal="pressed" from="CanvasLayer/HBoxContainer2/BlueScore/Button" to="." method="_displayScore" binds= ["blue"]]
+[connection signal="pressed" from="CanvasLayer/HBoxContainer2/OrangeScore/Button" to="." method="_displayScore" binds= ["orange"]]
+[connection signal="pressed" from="CanvasLayer/HBoxContainer2/GreenScore/Button" to="." method="_displayScore" binds= ["green"]]
+[connection signal="pressed" from="CanvasLayer/HBoxContainer2/PinkScore/Button" to="." method="_displayScore" binds= ["pink"]]
+[connection signal="pressed" from="CanvasLayer/HBoxContainer2/IndigoScore/Button" to="." method="_displayScore" binds= ["indigo"]]
+[connection signal="pressed" from="CanvasLayer/HBoxContainer2/YellowScore/Button" to="." method="_displayScore" binds= ["yellow"]]
 [connection signal="pressed" from="CanvasLayer/Reset" to="." method="_delete_self"]

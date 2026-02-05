@@ -98,3 +98,6 @@ func update_visible(color, tf = true):
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _delete_self():
 	queue_free()
+
+func fullscreen():
+	Splathello.fullscreen()

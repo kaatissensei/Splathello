@@ -79,3 +79,4 @@ func _reset_tokens():
 	for initToken in get_tree().get_nodes_in_group("Initiative"):
 		initToken.visible = false
 	Splathello.initiative = []
+	

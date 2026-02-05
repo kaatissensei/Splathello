@@ -1,10 +1,10 @@
-[gd_scene load_steps=47 format=3 uid="uid://c8wpff512nh5i"]
+[gd_scene load_steps=49 format=3 uid="uid://c8wpff512nh5i"]
 
 [ext_resource type="Texture2D" uid="uid://dveij0bmdjp5o" path="res://images/backgrounds/Splatoon bg zigzag.jpg" id="1_63ae6"]
 [ext_resource type="Texture2D" uid="uid://bghor8b6ldpqp" path="res://images/inklings/squidBlue.png" id="2_nwact"]
 [ext_resource type="Texture2D" uid="uid://bevtf83wji3ob" path="res://images/inklings/inklingBlue.png" id="3_gdwge"]
 [ext_resource type="Texture2D" uid="uid://6oxhhtu0l31o" path="res://images/inklings/squidOrange.png" id="4_78kx5"]
-[ext_resource type="Script" path="res://inkling.gd" id="4_gvmwm"]
+[ext_resource type="Script" uid="uid://ba5oan14oe1k2" path="res://inkling.gd" id="4_gvmwm"]
 [ext_resource type="Texture2D" uid="uid://7e0oguio4188" path="res://images/inklings/inklingOrange.png" id="5_ufm6f"]
 [ext_resource type="Texture2D" uid="uid://mp4wrsbmxct4" path="res://images/inklings/octopusIndigo.png" id="6_27ja7"]
 [ext_resource type="Texture2D" uid="uid://c7x2mde8yljpn" path="res://images/inklings/squidGreen.png" id="6_h4qqj"]
@@ -15,20 +15,20 @@
 [ext_resource type="Texture2D" uid="uid://08h4cphiya7u" path="res://images/inklings/tokens/Blue2.png" id="9_3h0xd"]
 [ext_resource type="Texture2D" uid="uid://bj2gha7hbei8n" path="res://images/inklings/inklingPink.png" id="9_t76u3"]
 [ext_resource type="Texture2D" uid="uid://c50monnoellba" path="res://images/inklings/octolingYellow.png" id="9_t152r"]
-[ext_resource type="Script" path="res://control.gd" id="10_bnllw"]
+[ext_resource type="Script" uid="uid://bgyybia6ups7b" path="res://control.gd" id="10_bnllw"]
 [ext_resource type="Texture2D" uid="uid://s8b0o7811apu" path="res://images/backgrounds/stgMahiMahiResort.png" id="11_yw6t0"]
-[ext_resource type="Script" path="res://grid.gd" id="12_llcda"]
+[ext_resource type="Script" uid="uid://bjucrtraixh25" path="res://grid.gd" id="12_llcda"]
 [ext_resource type="Texture2D" uid="uid://b23ipg2fbon03" path="res://images/ui/borderBlack.png" id="13_vlhnt"]
 [ext_resource type="Theme" uid="uid://eg3500i0esep" path="res://SplatoonMenu.tres" id="14_sallf"]
 [ext_resource type="Texture2D" uid="uid://dun7rpihw7pjm" path="res://images/ui/S3_Lil_Judd.png" id="20_dxnlj"]
 [ext_resource type="Theme" uid="uid://n6w28sgf8enr" path="res://SplatoonScene.tres" id="20_mkp0c"]
 [ext_resource type="Texture2D" uid="uid://djmgh75e60fre" path="res://images/ui/S3_Judd.png" id="21_obsyh"]
 [ext_resource type="Texture2D" uid="uid://tgt2i8htul8f" path="res://images/inklings/tokens/Blue1.png" id="24_21jbe"]
-[ext_resource type="Script" path="res://token_bar.gd" id="24_iyc4u"]
+[ext_resource type="Script" uid="uid://b0h17tjkxita0" path="res://token_bar.gd" id="24_iyc4u"]
 [ext_resource type="Texture2D" uid="uid://bnps36n4r6tkp" path="res://images/ui/uiBtnRefresh_white.png" id="24_ucawx"]
 [ext_resource type="Texture2D" uid="uid://dvroxxn8c66us" path="res://images/ui/uiBtnX_white.png" id="25_1plev"]
 [ext_resource type="Texture2D" uid="uid://be6j1muuya3tw" path="res://images/inklings/tokens/Orange1.png" id="25_basbn"]
-[ext_resource type="Shader" path="res://TokenButton.gdshader" id="25_cftrt"]
+[ext_resource type="Shader" uid="uid://cx8wufd0xr255" path="res://TokenButton.gdshader" id="25_cftrt"]
 [ext_resource type="Texture2D" uid="uid://ev1fikuqi0ts" path="res://images/inklings/tokens/Orange2.png" id="26_8xlg8"]
 [ext_resource type="Texture2D" uid="uid://c08hp7aa5oslo" path="res://images/inklings/tokens/TokenDark.png" id="27_74q7r"]
 [ext_resource type="Texture2D" uid="uid://b8gm1njob8ln8" path="res://images/inklings/tokens/Green1.png" id="27_isros"]
@@ -37,6 +37,8 @@
 [ext_resource type="Texture2D" uid="uid://cxs530wxync0j" path="res://images/inklings/tokens/Pink2.png" id="30_1ch63"]
 [ext_resource type="Texture2D" uid="uid://57ch8vonovlj" path="res://images/ui/menu bg lgray.png" id="32_m2mbu"]
 [ext_resource type="Texture2D" uid="uid://bvhsebk4dsw8q" path="res://images/ui/tokenStackSm.png" id="36_f5757"]
+[ext_resource type="Texture2D" uid="uid://dl043mqkonjme" path="res://images/ui/Unhidden Icon.png" id="38_k4qyj"]
+[ext_resource type="Texture2D" uid="uid://ccfjxfhshe1fd" path="res://images/ui/Hidden Icon.png" id="39_odyka"]
 
 [sub_resource type="ButtonGroup" id="ButtonGroup_0md54"]
 resource_name = "Inkling"
@@ -78,7 +80,6 @@ texture = ExtResource("32_m2mbu")
 modulate_color = Color(0.8, 0.776471, 0.8, 1)
 
 [node name="SplathelloScene" type="Node2D"]
-position = Vector2(0.345, -4)
 
 [node name="Canvas" type="CanvasLayer" parent="."]
 follow_viewport_scale = 1.77
@@ -216,6 +217,7 @@ theme = SubResource("Theme_6268n")
 color = Color(0, 0, 0, 0.619608)
 
 [node name="SplathelloControl" type="Control" parent="Canvas/MarginContainer/HBoxContainer/vBox Grid/GridColorBorder"]
+unique_name_in_owner = true
 custom_minimum_size = Vector2(1000, 900)
 layout_mode = 1
 anchors_preset = 8
@@ -238,7 +240,7 @@ script = ExtResource("10_bnllw")
 [node name="ColHeaders" type="HBoxContainer" parent="Canvas/MarginContainer/HBoxContainer/vBox Grid/GridColorBorder/SplathelloControl"]
 unique_name_in_owner = true
 visible = false
-layout_mode = 2
+layout_mode = 0
 offset_top = -90.0
 offset_right = 1000.0
 offset_bottom = 10.0
@@ -812,11 +814,11 @@ mouse_default_cursor_shape = 2
 theme = ExtResource("20_mkp0c")
 theme_override_colors/font_color = Color(0, 0, 0, 0)
 theme_override_font_sizes/font_size = 75
-theme_override_styles/focus = SubResource("StyleBoxEmpty_ucbu0")
-theme_override_styles/disabled = SubResource("StyleBoxEmpty_ucbu0")
-theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxEmpty_ucbu0")
-theme_override_styles/hover_pressed = SubResource("StyleBoxEmpty_ucbu0")
 theme_override_styles/pressed = SubResource("StyleBoxEmpty_ucbu0")
+theme_override_styles/hover_pressed = SubResource("StyleBoxEmpty_ucbu0")
+theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxEmpty_ucbu0")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_ucbu0")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_ucbu0")
 flat = true
 
 [node name="Label" type="Label" parent="Canvas/Options"]
@@ -826,10 +828,10 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -146.0
-offset_top = -41.5
-offset_right = 138.0
-offset_bottom = 33.5
+offset_left = -149.0
+offset_top = -38.5
+offset_right = 135.0
+offset_bottom = 36.5
 grow_horizontal = 2
 grow_vertical = 2
 mouse_default_cursor_shape = 2
@@ -853,11 +855,11 @@ mouse_default_cursor_shape = 2
 theme = ExtResource("20_mkp0c")
 theme_override_colors/font_color = Color(0, 0, 0, 0)
 theme_override_font_sizes/font_size = 75
-theme_override_styles/focus = SubResource("StyleBoxEmpty_ucbu0")
-theme_override_styles/disabled = SubResource("StyleBoxEmpty_ucbu0")
-theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxEmpty_ucbu0")
-theme_override_styles/hover_pressed = SubResource("StyleBoxEmpty_ucbu0")
 theme_override_styles/pressed = SubResource("StyleBoxEmpty_ucbu0")
+theme_override_styles/hover_pressed = SubResource("StyleBoxEmpty_ucbu0")
+theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxEmpty_ucbu0")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_ucbu0")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_ucbu0")
 flat = true
 
 [node name="TextureRect" type="TextureRect" parent="Canvas/Undo"]
@@ -897,11 +899,11 @@ mouse_default_cursor_shape = 2
 theme = ExtResource("20_mkp0c")
 theme_override_colors/font_color = Color(0, 0, 0, 0)
 theme_override_font_sizes/font_size = 75
-theme_override_styles/focus = SubResource("StyleBoxEmpty_ucbu0")
-theme_override_styles/disabled = SubResource("StyleBoxEmpty_ucbu0")
-theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxEmpty_ucbu0")
-theme_override_styles/hover_pressed = SubResource("StyleBoxEmpty_ucbu0")
 theme_override_styles/pressed = SubResource("StyleBoxEmpty_ucbu0")
+theme_override_styles/hover_pressed = SubResource("StyleBoxEmpty_ucbu0")
+theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxEmpty_ucbu0")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_ucbu0")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_ucbu0")
 flat = true
 
 [node name="Label" type="Label" parent="Canvas/Reset"]
@@ -911,8 +913,10 @@ anchor_left = 1.0
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = -284.0
-offset_top = -75.0
+offset_left = -281.0
+offset_top = -72.0
+offset_right = 3.0
+offset_bottom = 3.0
 grow_horizontal = 0
 grow_vertical = 0
 mouse_default_cursor_shape = 2
@@ -939,11 +943,11 @@ mouse_default_cursor_shape = 2
 theme = ExtResource("20_mkp0c")
 theme_override_colors/font_color = Color(0, 0, 0, 0)
 theme_override_font_sizes/font_size = 75
-theme_override_styles/focus = SubResource("StyleBoxEmpty_ucbu0")
-theme_override_styles/disabled = SubResource("StyleBoxEmpty_ucbu0")
-theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxEmpty_ucbu0")
-theme_override_styles/hover_pressed = SubResource("StyleBoxEmpty_ucbu0")
 theme_override_styles/pressed = SubResource("StyleBoxEmpty_ucbu0")
+theme_override_styles/hover_pressed = SubResource("StyleBoxEmpty_ucbu0")
+theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxEmpty_ucbu0")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_ucbu0")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_ucbu0")
 flat = true
 
 [node name="TextureRect" type="TextureRect" parent="Canvas/Finish"]
@@ -1284,6 +1288,7 @@ theme_override_constants/margin_top = 20
 layout_mode = 2
 
 [node name="resetLabel" type="Label" parent="Canvas/ResetConfirmation/MarginContainer/VBoxContainer"]
+custom_minimum_size = Vector2(10, 10)
 layout_mode = 2
 size_flags_vertical = 6
 theme = ExtResource("14_sallf")
@@ -1324,6 +1329,18 @@ theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_constants/outline_size = 5
 text = "No"
 
+[node name="HideBoard" type="TextureButton" parent="Canvas"]
+custom_minimum_size = Vector2(75, 0)
+offset_left = 291.0
+offset_top = 38.0
+offset_right = 366.0
+offset_bottom = 92.0
+toggle_mode = true
+texture_normal = ExtResource("38_k4qyj")
+texture_pressed = ExtResource("39_odyka")
+ignore_texture_size = true
+stretch_mode = 5
+
 [connection signal="pressed" from="Canvas/MarginContainer/HBoxContainer/InklingControlLeft/inklingBlue" to="Canvas/MarginContainer/HBoxContainer/InklingControlLeft" method="set_currentColor" binds= ["blue"]]
 [connection signal="pressed" from="Canvas/MarginContainer/HBoxContainer/InklingControlLeft/octolingIndigo" to="Canvas/MarginContainer/HBoxContainer/InklingControlLeft" method="set_currentColor" binds= ["indigo"]]
 [connection signal="pressed" from="Canvas/MarginContainer/HBoxContainer/InklingControlLeft/inklingGreen" to="Canvas/MarginContainer/HBoxContainer/InklingControlLeft" method="set_currentColor" binds= ["green"]]
@@ -1356,3 +1373,4 @@ text = "No"
 [connection signal="confirmed" from="Canvas/ResetConfirmation/ConfirmationDialog" to="Canvas/MarginContainer/HBoxContainer/vBox Grid/GridColorBorder/SplathelloControl" method="_open_menu"]
 [connection signal="pressed" from="Canvas/ResetConfirmation/MarginContainer/VBoxContainer/MarginContainer/HBoxContainer/YesReset" to="Canvas/MarginContainer/HBoxContainer/vBox Grid/GridColorBorder/SplathelloControl/StageBG/Grid" method="_reset"]
 [connection signal="pressed" from="Canvas/ResetConfirmation/MarginContainer/VBoxContainer/MarginContainer/HBoxContainer/No" to="Canvas/MarginContainer/HBoxContainer/vBox Grid/GridColorBorder/SplathelloControl" method="_reset_confirmation_click"]
+[connection signal="pressed" from="Canvas/HideBoard" to="Canvas/MarginContainer/HBoxContainer/vBox Grid/GridColorBorder/SplathelloControl/StageBG/Grid" method="_toggle_hide_grid"]
